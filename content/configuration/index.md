@@ -4,7 +4,7 @@ title: Configuring
 weight: 2
 ---
 
-HodDB is configured with a YAML file. By default, this file is called `hodconfig.yml` and is loaded from the curren directory, though this can be changed with the `--config/-c` command line option when executing the `hod` binary.
+HodDB is configured with a YAML file. By default, this file is called `hodconfig.yml` and is loaded from the current directory, though this can be changed with the `--config/-c` command line option when executing the `hod` binary.
 
 Configuration defaults are as follows; there's usually no reason to change these aside from the network configuration.
 

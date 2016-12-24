@@ -7,7 +7,7 @@
 	<meta name="description" content="A metadata schema for buildings">
 	<meta name="generator" content="Hugo 0.18-DEV" />
 	
-	<title> HodDB</title>
+	<title>Examples &mdash; HodDB</title>
 	
 	<link rel="stylesheet" href="http://hoddb.org/css/alabaster.css" type="text/css" />
 	<link rel="stylesheet" href="http://hoddb.org/css/highlight.css" type="text/css" />
@@ -23,55 +23,50 @@
 				<div class="bodywrapper">
 					<div class="body" role="main">
 						
+	<h1>Examples</h1>
 	
-		<h1>HodDB</h1>
-		
-
-<h2 id="an-rdf-like-database-for-brick">An RDF-like Database for Brick</h2>
-
-<p>An outline for the documentation:</p>
-
-<ul>
-<li>Index Page:
-
-<ul>
-<li>brief introduction (and links) to Brick</li>
-<li>identify need for fast Brick database</li>
-<li>HodDB features:
-
-<ul>
-<li>sub 100ms queries</li>
-<li>links to external services such as timeseries uuids</li>
-<li>history of building configuration (work-in-progress)</li>
-</ul></li>
-</ul></li>
-<li>Installing/Buildiing HodDB</li>
-<li>Configuring HodDB</li>
-<li>Using HodDB
-
-<ul>
-<li>Loading data into HodDB</li>
-<li>CLI queries</li>
-<li>HTTP server + features</li>
-</ul></li>
-<li>HodDB Query language:
-
-<ul>
-<li>basics:
-
-<ul>
-<li>prefixes</li>
-<li>triples</li>
-<li>path types</li>
-<li>OR clauses</li>
-</ul></li>
-<li>links</li>
-<li>example queries explained!</li>
-<li>make sure to have figures</li>
-</ul></li>
-</ul>
-
 	
+
+<h3 id="turtle-ttl-file-example">Turtle/TTL File Example</h3>
+
+<pre><code class="language-turtle">@prefix bf: &lt;http://buildsys.org/ontologies/BrickFrame#&gt; .
+@prefix brick: &lt;http://buildsys.org/ontologies/Brick#&gt; .
+@prefix btag: &lt;http://buildsys.org/ontologies/BrickTag#&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix mybuilding: &lt;http://buildsys.org/ontologies/building_example#&gt; .
+@prefix xml: &lt;http://www.w3.org/XML/1998/namespace&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+mybuilding:ahu_1 a brick:AHU ;
+    bf:feeds mybuilding:vav_1 .
+
+mybuilding:ztemp_1 a brick:Zone_Temperature_Sensor ;
+    bf:isPointOf mybuilding:vav_1 .
+
+mybuilding:floor_1 a brick:Floor .
+
+mybuilding:room_1 a brick:Room ;
+    bf:isPartOf mybuilding:floor_1,
+        mybuilding:hvaczone_1 .
+
+mybuilding:hvaczone_1 a brick:HVAC_Zone ;
+    bf:hasPart mybuilding:room_1 ;
+    bf:isFedBy mybuilding:vav_1 .
+
+mybuilding:vav_1 a brick:VAV ;
+    bf:feeds mybuilding:hvaczone_1 .
+</code></pre>
+
+<h3 id="links-json-file-example">Links JSON File Example</h3>
+
+<pre><code class="language-json">{
+    &quot;http://buildsys.org/ontologies/building_example#temp_sensor_hvac_zone_R739&quot;: {
+        &quot;UUID&quot;: &quot;3a038c7c-c7e6-11e6-bfc1-1002b58053c7&quot;
+    }
+}
+</code></pre>
+
 
 
 						
@@ -134,7 +129,12 @@
 </ul>
 
 
-		
+		<h3>Related Topics</h3>
+<ul>
+  <li><a href="http://hoddb.org/">Documentation overview</a><ul>
+  
+  
+</ul>
 
 	</div>
 </div>

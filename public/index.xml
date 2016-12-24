@@ -123,7 +123,7 @@ GLOBAL OPTIONS:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://hoddb.org/configuration/</guid>
-      <description>&lt;p&gt;HodDB is configured with a YAML file. By default, this file is called &lt;code&gt;hodconfig.yml&lt;/code&gt; and is loaded from the curren directory, though this can be changed with the &lt;code&gt;--config/-c&lt;/code&gt; command line option when executing the &lt;code&gt;hod&lt;/code&gt; binary.&lt;/p&gt;
+      <description>&lt;p&gt;HodDB is configured with a YAML file. By default, this file is called &lt;code&gt;hodconfig.yml&lt;/code&gt; and is loaded from the current directory, though this can be changed with the &lt;code&gt;--config/-c&lt;/code&gt; command line option when executing the &lt;code&gt;hod&lt;/code&gt; binary.&lt;/p&gt;
 
 &lt;p&gt;Configuration defaults are as follows; there&amp;rsquo;s usually no reason to change these aside from the network configuration.&lt;/p&gt;
 
@@ -196,6 +196,24 @@ GLOBAL OPTIONS:
 #EnableBlockProfile: false
 &lt;/code&gt;&lt;/pre&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Using</title>
+      <link>http://hoddb.org/using/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hoddb.org/using/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Query Language</title>
+      <link>http://hoddb.org/query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hoddb.org/query/</guid>
+      <description></description>
     </item>
     
     <item>

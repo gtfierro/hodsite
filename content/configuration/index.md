@@ -1,6 +1,6 @@
 ---
 menu: main
-title: Configuring
+title: Configuration
 weight: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
 menu: main
-title: Installing
+title: Installation
 weight: 1
 ---
 

@@ -9,12 +9,128 @@
     <atom:link href="http://hoddb.org/using/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Using</title>
+      <title>Using HodDB</title>
       <link>http://hoddb.org/using/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://hoddb.org/using/</guid>
-      <description></description>
+      <description>
+
+&lt;h3 id=&#34;loading-data&#34;&gt;Loading Data&lt;/h3&gt;
+
+&lt;h4 id=&#34;overview&#34;&gt;Overview&lt;/h4&gt;
+
+&lt;p&gt;In Brick, buildings are described using RDF triples. These triples are stored in &lt;a href=&#34;https://www.w3.org/TR/turtle/&#34;&gt;Turtle (&lt;code&gt;.ttl&lt;/code&gt;) files&lt;/a&gt;, which can be loaded into a HodDB instance.&lt;/p&gt;
+
+&lt;p&gt;HodDB stores buildings in a set of LevelDB databases; the location of these files is determined by the &lt;code&gt;DBPath&lt;/code&gt; configuration option which defaults to &lt;code&gt;./_hoddb&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In order to perform queries on the the database using the Brick classes and relationships, HodDB also needs to import the Turtle files that define the Brick schema. The location of these files are determined by the &lt;code&gt;BrickFrameTTL&lt;/code&gt; and &lt;code&gt;BrickClassTTL&lt;/code&gt; configuration options. The most recent version of these files can be downloaded from &lt;a href=&#34;http://brickschema.org/download/&#34;&gt;http://brickschema.org/download/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;loading-brick-files&#34;&gt;Loading Brick Files&lt;/h4&gt;
+
+&lt;p&gt;In order to load a &lt;code&gt;.ttl&lt;/code&gt; file, we use the &lt;code&gt;hod load&lt;/code&gt; command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ hod load buildings/berkeley.ttl
+INFO actions.go:50 Dec 24 13:49:30  ▶ Loaded 3774 triples, 8 namespaces in 128.412302ms (29390/sec)
+INFO db.go:454 Dec 24 13:49:31  ▶ Built lookup tables in 163.014409ms
+INFO db.go:460 Dec 24 13:49:31  ▶ Built graph in 421.345208ms
+rdf =&amp;gt; http://www.w3.org/1999/02/22-rdf-syntax-ns
+rdfs =&amp;gt; http://www.w3.org/2000/01/rdf-schema
+skos =&amp;gt; http://www.w3.org/2004/02/skos/core
+bf =&amp;gt; http://buildsys.org/ontologies/BrickFrame
+tag =&amp;gt; http://buildsys.org/ontologies/BrickTag
+ =&amp;gt; http://buildsys.org/ontologies/Brick
+owl =&amp;gt; http://www.w3.org/2002/07/owl
+INFO db.go:454 Dec 24 13:49:32  ▶ Built lookup tables in 185.460746ms
+INFO db.go:460 Dec 24 13:49:32  ▶ Built graph in 143.048733ms
+tag =&amp;gt; http://buildsys.org/ontologies/BrickTag
+ =&amp;gt; http://buildsys.org/ontologies/Brick
+btag =&amp;gt; http://buildsys.org/ontologies/BrickTag
+skos =&amp;gt; http://www.w3.org/2004/02/skos/core
+bf =&amp;gt; http://buildsys.org/ontologies/BrickFrame
+soda_hall =&amp;gt; http://buildsys.org/ontologies/building_example
+xml =&amp;gt; http://www.w3.org/XML/1998/namespace
+xsd =&amp;gt; http://www.w3.org/2001/XMLSchema
+owl =&amp;gt; http://www.w3.org/2002/07/owl
+rdf =&amp;gt; http://www.w3.org/1999/02/22-rdf-syntax-ns
+rdfs =&amp;gt; http://www.w3.org/2000/01/rdf-schema
+brick =&amp;gt; http://buildsys.org/ontologies/Brick
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The Brick &lt;code&gt;ttl&lt;/code&gt; files are loaded implicitly when HodDB is invoked, using the paths provided in the configuration file.&lt;/p&gt;
+
+&lt;p&gt;Loading is idempotent, meaning the same &lt;code&gt;.ttl&lt;/code&gt; file can be loaded many times without affecting the performance or correctness of the database.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&#34;http://hoddb.org/examples&#34;&gt;the examples page&lt;/a&gt; for a small TTL file sample.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: if more than one building is loaded into the same HodDB instance, then the results from the two buildings will be returned together and there is the possibility
+for namespace conflicts. Thus, at this early stage in HodDB development it is recommended to have a different HodDB instance for each building. Disk space is negligible: the Soda Hall Brick file has 3774 triples in it, and the on-disk representation only uses 1.5 MB.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: right now, HodDB only supports loading in buildings via the command line. Future versions may allow loading buildings over HTTP.&lt;/p&gt;
+
+&lt;h4 id=&#34;links-file&#34;&gt;Links File&lt;/h4&gt;
+
+&lt;p&gt;HodDB supports &amp;ldquo;links&amp;rdquo; which are simple string key-value pairs that act as pointers to external resources. Brick stores a representation of the structure and relationships for building subsystems, but only stores the edges and nodes in that graph.&lt;/p&gt;
+
+&lt;p&gt;In a building operating system, there may be a set of associated resources for each &amp;ldquo;entity&amp;rdquo; in the building graph:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;UUID for associated timeseries streams&lt;/li&gt;
+&lt;li&gt;Link to a driver implementation&lt;/li&gt;
+&lt;li&gt;Link to a UI for the entity&lt;/li&gt;
+&lt;li&gt;Link to documentation for the entity&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Rather than storing this information using RDF triples which would be verbose and cumbersome, HodDB uses a separate data model for storing such &amp;ldquo;links&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Links files use the full URIs of the graph entities, so make sure to note the building prefix when creating the links file.&lt;/p&gt;
+
+&lt;p&gt;Links files are JSON and follow this structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+	// how to add 2 links to an entity
+	&amp;quot;&amp;lt;full uri of building entity&amp;gt;&amp;quot;: {
+		&amp;quot;&amp;lt;link name&amp;gt;&amp;quot;: &amp;quot;&amp;lt;link value&amp;gt;&amp;quot;,
+		&amp;quot;&amp;lt;link name&amp;gt;&amp;quot;: &amp;quot;&amp;lt;link value&amp;gt;&amp;quot;
+	},
+	// deleting one link and adding another
+	&amp;quot;&amp;lt;full uri of building entity&amp;gt;&amp;quot;: {
+		&amp;quot;&amp;lt;link name&amp;gt;&amp;quot;: &amp;quot;&amp;quot;,
+		&amp;quot;&amp;lt;link name&amp;gt;&amp;quot;: &amp;quot;&amp;lt;link value&amp;gt;&amp;quot;
+	},
+	// deleting all links for a given entity
+	&amp;quot;&amp;lt;full uri of building entity&amp;gt;&amp;quot;: {}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;http://buildsys.org/ontologies/building_example#temp_sensor_hvac_zone_R739&amp;quot;: {
+        &amp;quot;UUID&amp;quot;: &amp;quot;3a038c7c-c7e6-11e6-bfc1-1002b58053c7&amp;quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This associates the given UUID for a timeseries to the temperature sensor for Room 739 in the example building.&lt;/p&gt;
+
+&lt;h4 id=&#34;loading-links&#34;&gt;Loading Links&lt;/h4&gt;
+
+&lt;p&gt;In order to load a JSON links file, we use the &lt;code&gt;hod loadLinks&lt;/code&gt; command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ hod loadLinks links.json
+NOTICE actions.go:89 Dec 24 14:26:25  ▶ Adding 10 links, Removing 0 links
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;cli-queries&#34;&gt;CLI Queries&lt;/h3&gt;
+
+&lt;h3 id=&#34;http-api&#34;&gt;HTTP API&lt;/h3&gt;
+
+&lt;h3 id=&#34;http-frontend&#34;&gt;HTTP Frontend&lt;/h3&gt;
+
+&lt;h3 id=&#34;other-tools&#34;&gt;Other Tools&lt;/h3&gt;
+</description>
     </item>
     
   </channel>

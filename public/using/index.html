@@ -27,6 +27,19 @@
 	
 	
 
+<ul>
+<li><a href="#loadingdata">Loading Data</a>
+
+<ul>
+<li><a href="#loadingbrick">Loading Brick Files</a></li>
+<li><a href="#linksfile">Links Files</a></li>
+<li><a href="#loadinglinks">Loading Links Files</a></li>
+</ul></li>
+<li><a href="#cliqueries">CLI Queries</a></li>
+</ul>
+
+<p><a name="loadingdata"></a></p>
+
 <h3 id="loading-data">Loading Data</h3>
 
 <h4 id="overview">Overview</h4>
@@ -36,6 +49,8 @@
 <p>HodDB stores buildings in a set of LevelDB databases; the location of these files is determined by the <code>DBPath</code> configuration option which defaults to <code>./_hoddb</code>.</p>
 
 <p>In order to perform queries on the the database using the Brick classes and relationships, HodDB also needs to import the Turtle files that define the Brick schema. The location of these files are determined by the <code>BrickFrameTTL</code> and <code>BrickClassTTL</code> configuration options. The most recent version of these files can be downloaded from <a href="http://brickschema.org/download/">http://brickschema.org/download/</a>.</p>
+
+<p><a name="loadingbrick"></a></p>
 
 <h4 id="loading-brick-files">Loading Brick Files</h4>
 
@@ -78,6 +93,8 @@ brick =&gt; http://buildsys.org/ontologies/Brick
 for namespace conflicts. Thus, at this early stage in HodDB development it is recommended to have a different HodDB instance for each building. Disk space is negligible: the Soda Hall Brick file has 3774 triples in it, and the on-disk representation only uses 1.5 MB.</p>
 
 <p><em>Note</em>: right now, HodDB only supports loading in buildings via the command line. Future versions may allow loading buildings over HTTP.</p>
+
+<p><a name="linksfile"></a></p>
 
 <h4 id="links-file">Links File</h4>
 
@@ -126,6 +143,8 @@ for namespace conflicts. Thus, at this early stage in HodDB development it is re
 
 <p>This associates the given UUID for a timeseries to the temperature sensor for Room 739 in the example building.</p>
 
+<p><a name="loadinglinks"></a></p>
+
 <h4 id="loading-links">Loading Links</h4>
 
 <p>In order to load a JSON links file, we use the <code>hod loadLinks</code> command:</p>
@@ -134,7 +153,126 @@ for namespace conflicts. Thus, at this early stage in HodDB development it is re
 NOTICE actions.go:89 Dec 24 14:26:25  ▶ Adding 10 links, Removing 0 links
 </code></pre>
 
+<p><a name="cliqueries"></a></p>
+
 <h3 id="cli-queries">CLI Queries</h3>
+
+<p>HodDB offers a command-line query interface which has the ability of exposing additional performance information as well as query planner details.
+The visibility of this information is configurable in the HodDB configuration file.</p>
+
+<p>By default, the command-line query interface can be invoked using the <code>hod cli</code> command:</p>
+
+<pre><code>hod cli
+Successfully loaded dataset!
+(hod)&gt; SELECT ?floor ?room ?zone
+&gt;&gt;&gt; ...WHERE {
+&gt;&gt;&gt; ...    ?floor rdf:type brick:Floor .
+&gt;&gt;&gt; ...    ?room rdf:type brick:Room .
+&gt;&gt;&gt; ...    ?zone rdf:type brick:HVAC_Zone .
+&gt;&gt;&gt; ...    ?room bf:isPartOf+ ?floor .
+&gt;&gt;&gt; ...    ?room bf:isPartOf+ ?zone .
+&gt;&gt;&gt; ...};
+INFO query.go:58 Dec 24 15:35:51  ▶ Ran query in 16.58933ms
+INFO query.go:64 Dec 24 15:35:51  ▶ Expanded tuples in 10.785491ms
+NOTICE api.go:60 Dec 24 15:35:51  ▶ Full Query took 28.42414ms
+map[?zone:http://buildsys.org/ontologies/building_example#hvac_zone_C180 ?floor:http://buildsys.org/ontologies/building_example#floor_1 ?room:http://buildsys.org/ontologies/building_example#room_C180]
+map[?floor:http://buildsys.org/ontologies/building_example#floor_1 ?room:http://buildsys.org/ontologies/building_example#room_R181 ?zone:http://buildsys.org/ontologies/building_example#hvac_zone_R181]
+map[?room:http://buildsys.org/ontologies/building_example#room_R184 ?zone:http://buildsys.org/ontologies/building_example#hvac_zone_R184 ?floor:http://buildsys.org/ontologies/building_example#floor_1]
+map[?floor:http://buildsys.org/ontologies/building_example#floor_1 ?room:http://buildsys.org/ontologies/building_example#room_R187A ?zone:http://buildsys.org/ontologies/building_example#hvac_zone_R187A]
+map[?zone:http://buildsys.org/ontologies/building_example#hvac_zone_R190A ?floor:http://buildsys.org/ontologies/building_example#floor_1 ?room:http://buildsys.org/ontologies/building_example#room_R190A]
+map[?floor:http://buildsys.org/ontologies/building_example#floor_1 ?room:http://buildsys.org/ontologies/building_example#room_R190B ?zone:http://buildsys.org/ontologies/building_example#hvac_zone_R190B]
+map[?room:http://buildsys.org/ontologies/building_example#room_R252 ?zone:http://buildsys.org/ontologies/building_example#hvac_zone_R252 ?floor:http://buildsys.org/ontologies/building_example#floor_2]
+map[?floor:http://buildsys.org/ontologies/building_example#floor_2 ?room:http://buildsys.org/ontologies/building_example#room_R283E ?zone:http://buildsys.org/ontologies/building_example#hvac_zone_R283E]
+map[?zone:http://buildsys.org/ontologies/building_example#hvac_zone_R287 ?floor:http://buildsys.org/ontologies/building_example#floor_2 ?room:http://buildsys.org/ontologies/building_example#room_R287]
+...
+</code></pre>
+
+<p><em>Note</em>: only a single HodDB instance can be started for a set of backing files, i.e. you cannot run both the CLI and HTTP interface simultaneously.</p>
+
+<h4 id="config-showdependencygraph">Config: <code>ShowDependencyGraph</code></h4>
+
+<p>(Defaults to <code>false</code>)</p>
+
+<p>If <code>true</code>, then HodDB will print out the dependency graph generated from the provided query, which is used as input into the query planner.</p>
+
+<pre><code>hod cli
+Successfully loaded dataset!
+(hod)&gt; SELECT ?floor ?room ?zone
+&gt;&gt;&gt; ...WHERE {
+&gt;&gt;&gt; ...    ?floor rdf:type brick:Floor .
+&gt;&gt;&gt; ...    ?room rdf:type brick:Room .
+&gt;&gt;&gt; ...    ?zone rdf:type brick:HVAC_Zone .
+&gt;&gt;&gt; ...    ?room bf:isPartOf+ ?floor .
+&gt;&gt;&gt; ...    ?room bf:isPartOf+ ?zone .
+&gt;&gt;&gt; ...};
+ &lt;?zone [{http://www.w3.org/1999/02/22-rdf-syntax-ns#type }] http://buildsys.org/ontologies/Brick#HVAC_Zone&gt;
+ &lt;?room [{http://www.w3.org/1999/02/22-rdf-syntax-ns#type }] http://buildsys.org/ontologies/Brick#Room&gt;
+   &lt;?room [{http://buildsys.org/ontologies/BrickFrame#isPartOf +}] ?zone&gt;
+ &lt;?floor [{http://www.w3.org/1999/02/22-rdf-syntax-ns#type }] http://buildsys.org/ontologies/Brick#Floor&gt;
+   &lt;?room [{http://buildsys.org/ontologies/BrickFrame#isPartOf +}] ?floor&gt;
+INFO query.go:58 Dec 24 15:43:33  ▶ Ran query in 16.422681ms
+INFO query.go:64 Dec 24 15:43:33  ▶ Expanded tuples in 10.002746ms
+NOTICE api.go:60 Dec 24 15:43:33  ▶ Full Query took 31.336022ms
+</code></pre>
+
+<h4 id="config-showqueryplan">Config: <code>ShowQueryPlan</code></h4>
+
+<p>(Defaults to <code>false</code>)</p>
+
+<p>If <code>true</code>, then HodDB will print out the generated query plan for the provided query, showing which low-level operations are being run over the underlying structure.</p>
+
+<pre><code>hod cli
+Successfully loaded dataset!
+(hod)&gt; SELECT ?floor ?room ?zone
+&gt;&gt;&gt; ...WHERE {
+&gt;&gt;&gt; ...    ?floor rdf:type brick:Floor .
+&gt;&gt;&gt; ...    ?room rdf:type brick:Room .
+&gt;&gt;&gt; ...    ?zone rdf:type brick:HVAC_Zone .
+&gt;&gt;&gt; ...    ?room bf:isPartOf+ ?floor .
+&gt;&gt;&gt; ...    ?room bf:isPartOf+ ?zone .
+&gt;&gt;&gt; ...};
+-------------- start query plan -------------
+DEBUG query.go:45 Dec 24 15:47:00  ▶ op [resolveSubject &lt;?floor [{http://www.w3.org/1999/02/22-rdf-syntax-ns#type }] http://buildsys.org/ontologies/Brick#Floor&gt;]
+DEBUG query.go:45 Dec 24 15:47:00  ▶ op [resolveSubject &lt;?room [{http://www.w3.org/1999/02/22-rdf-syntax-ns#type }] http://buildsys.org/ontologies/Brick#Room&gt;]
+DEBUG query.go:45 Dec 24 15:47:00  ▶ op [resolveSubject &lt;?zone [{http://www.w3.org/1999/02/22-rdf-syntax-ns#type }] http://buildsys.org/ontologies/Brick#HVAC_Zone&gt;]
+DEBUG query.go:45 Dec 24 15:47:00  ▶ op [restrictSubObjByPred &lt;?room [{http://buildsys.org/ontologies/BrickFrame#isPartOf +}] ?floor&gt;]
+DEBUG query.go:45 Dec 24 15:47:00  ▶ op [restrictSubObjByPred &lt;?room [{http://buildsys.org/ontologies/BrickFrame#isPartOf +}] ?zone&gt;]
+-------------- end query plan -------------
+INFO query.go:58 Dec 24 15:47:00  ▶ Ran query in 26.436114ms
+INFO query.go:64 Dec 24 15:47:00  ▶ Expanded tuples in 7.149802ms
+NOTICE api.go:60 Dec 24 15:47:00  ▶ Full Query took 35.000475ms
+</code></pre>
+
+<h4 id="config-showqueryplanlatencies">Config: <code>ShowQueryPlanLatencies</code></h4>
+
+<p>(Defaults to <code>false</code>)</p>
+
+<p>If <code>true</code>, then HodDB will print out the time to execute each step of the query plan, which can be helpful for debugging slow queries.</p>
+
+<pre><code>hod cli
+Successfully loaded dataset!
+(hod)&gt; SELECT ?floor ?room ?zone
+&gt;&gt;&gt; ...WHERE {
+&gt;&gt;&gt; ...    ?floor rdf:type brick:Floor .
+&gt;&gt;&gt; ...    ?room rdf:type brick:Room .
+&gt;&gt;&gt; ...    ?zone rdf:type brick:HVAC_Zone .
+&gt;&gt;&gt; ...    ?room bf:isPartOf+ ?floor .
+&gt;&gt;&gt; ...    ?room bf:isPartOf+ ?zone .
+&gt;&gt;&gt; ...};
+INFO query.go:49 Dec 24 15:49:04  ▶ Formed execution plan in 47.007µs
+[resolveSubject &lt;?floor [{http://www.w3.org/1999/02/22-rdf-syntax-ns#type }] http://buildsys.org/ontologies/Brick#Floor&gt;] 201.308µs
+[resolveSubject &lt;?room [{http://www.w3.org/1999/02/22-rdf-syntax-ns#type }] http://buildsys.org/ontologies/Brick#Room&gt;] 416.97µs
+[resolveSubject &lt;?zone [{http://www.w3.org/1999/02/22-rdf-syntax-ns#type }] http://buildsys.org/ontologies/Brick#HVAC_Zone&gt;] 386.676µs
+[restrictSubObjByPred &lt;?room [{http://buildsys.org/ontologies/BrickFrame#isPartOf +}] ?floor&gt;] 8.29247ms
+[restrictSubObjByPred &lt;?room [{http://buildsys.org/ontologies/BrickFrame#isPartOf +}] ?zone&gt;] 10.253657ms
+INFO query.go:58 Dec 24 15:49:04  ▶ Ran query in 19.647705ms
+INFO query.go:64 Dec 24 15:49:04  ▶ Expanded tuples in 7.858543ms
+NOTICE api.go:60 Dec 24 15:49:04  ▶ Full Query took 28.793678ms
+</code></pre>
+
+<h4 id="config-showquerylatencies">Config: <code>ShowQueryLatencies</code></h4>
+
+<p>Defaults to <code>true</code>; shows the runtime, tuple-expansion and overall total time to execute the query. Note that this is slightly more accurate than the times shown in the HTTP interface because those involve network and browser overhead.</p>
 
 <h3 id="http-api">HTTP API</h3>
 

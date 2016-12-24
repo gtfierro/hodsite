@@ -7,7 +7,7 @@
 	<meta name="description" content="A metadata schema for buildings">
 	<meta name="generator" content="Hugo 0.18-DEV" />
 	
-	<title>404 Page not found &mdash; HodDB</title>
+	<title>Configuring &mdash; HodDB</title>
 	
 	<link rel="stylesheet" href="http://hoddb.org/css/alabaster.css" type="text/css" />
 	<link rel="stylesheet" href="http://hoddb.org/css/highlight.css" type="text/css" />
@@ -23,9 +23,81 @@
 				<div class="bodywrapper">
 					<div class="body" role="main">
 						
-	<h1>Page not found</h1>
+	<h1>Configuring</h1>
+	
+	<p>HodDB is configured with a YAML file. By default, this file is called <code>hodconfig.yml</code> and is loaded from the curren directory, though this can be changed with the <code>--config/-c</code> command line option when executing the <code>hod</code> binary.</p>
 
-	I'm sorry, but the requested page wasn’t found on the server.
+<p>Configuration defaults are as follows; there&rsquo;s usually no reason to change these aside from the network configuration.</p>
+
+<pre><code class="language-yaml">### HodDB Configuration
+# commented out lines are default configuration options
+
+####
+# Location and structure of database
+####
+
+# the location of the database files
+#DBPath = _hoddb
+
+# the path to the TTL file containing Brick relationships
+#BrickFrameTTL = &quot;BrickFrame.ttl&quot;
+
+# the path to the TTL file containing Brick classes
+#BrickClassTTL = &quot;Brick.ttl&quot;
+#
+
+####
+# configuration for verbosity during operation
+####
+
+# Show the built dependency graph of query terms
+#ShowDependencyGraph: false
+
+# Show the set of operations in the query plan
+#ShowQueryPlan: false
+
+# Show the latencies of creating the query plan
+#ShowQueryPlanLatencies: false
+
+# Show the latencies of each operation in the query plan
+#ShowOperationLatencies: false
+
+# Show the full latency of the query (and its larger components)
+#ShowQueryLatencies: true
+
+
+####
+# HTTP Server Configuration
+####
+
+# port to run the server on
+#ServerPort: 47808
+
+# Whether or not to serve on IPv6
+#UseIPv6: false
+
+# Whether or not to serve on localhost. If false, serves on a public interface
+#Localhost: true
+
+####
+# Profiling Information for HTTP Server
+####
+# Note that best practices dictate that these be done in a mutually exclusive
+# manner, e.g. do not enable CPU and MEM profiling at the same time because
+# they will end up measuring the effect of measuring
+# Also note that if you are trying to use the net/http/profile trick for generating
+# torch graphs, you will need to keep these both at false
+
+# Enable CPU profile
+#EnableCPUProfile: false
+
+# Enable MEM profile
+#EnableMEMProfile: false
+
+# Enable Block profile
+#EnableBlockProfile: false
+</code></pre>
+
 
 
 						
@@ -76,7 +148,12 @@
 </ul>
 
 
-		
+		<h3>Related Topics</h3>
+<ul>
+  <li><a href="http://hoddb.org/">Documentation overview</a><ul>
+  
+  
+</ul>
 
 	</div>
 </div>

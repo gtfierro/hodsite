@@ -11,6 +11,8 @@ weight: 3
 - [CLI Queries](#cliqueries)
 	- [CLI Configuration Options](#cliconfigs)
 - [HTTP API](#httpapi)
+- [HTTP Frontend](#httpfront)
+- [Tools](#tools)
 
 <a name="loadingdata"></a>
 ### Loading Data
@@ -267,11 +269,13 @@ The exposed endpoints are:
 - `/api/query`: receives POST requests containing a query string, returns JSON encoded results of the query
 - `/api/loadlinks`: receives POST requests containing a JSON-encoded links file. Returns 200 or error.
 
+<a name="httpfront"></a>
 ### HTTP Frontend
 
 There is a prototype HodDB interactive query interface available at the base URI, [http://localhost:47808](http://localhost:47808).
 It has its own set of documentation.
 
+<a name="tools"></a>
 ### Other Tools
 
 The `hod` tool has a collection of other tools that may be useful. Use the `-h` flag on any of these to get more documentation on their usage.

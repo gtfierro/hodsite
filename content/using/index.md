@@ -5,10 +5,12 @@ weight: 3
 ---
 
 - [Loading Data](#loadingdata)
-  - [Loading Brick Files](#loadingbrick)
-  - [Links Files](#linksfile)
-  - [Loading Links Files](#loadinglinks)
+	- [Loading Brick Files](#loadingbrick)
+	- [Links Files](#linksfile)
+	- [Loading Links Files](#loadinglinks)
 - [CLI Queries](#cliqueries)
+	- [CLI Configuration Options](#cliconfigs)
+- [HTTP API](#httpapi)
 
 <a name="loadingdata"></a>
 ### Loading Data
@@ -159,6 +161,7 @@ map[?zone:http://buildsys.org/ontologies/building_example#hvac_zone_R287 ?floor:
 
 *Note*: only a single HodDB instance can be started for a set of backing files, i.e. you cannot run both the CLI and HTTP interface simultaneously.
 
+<a name="cliconfigs"></a>
 #### Config: `ShowDependencyGraph`
 
 (Defaults to `false`)
@@ -247,6 +250,7 @@ NOTICE api.go:60 Dec 24 15:49:04  ▶ Full Query took 28.793678ms
 
 Defaults to `true`; shows the runtime, tuple-expansion and overall total time to execute the query. Note that this is slightly more accurate than the times shown in the HTTP interface because those involve network and browser overhead.
 
+<a name="httpapi"></a>
 ### HTTP API
 
 ### HTTP Frontend

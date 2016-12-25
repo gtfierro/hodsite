@@ -31,3 +31,5 @@ An outline for the documentation:
     - links
     - example queries explained!
     - make sure to have figures
+- Quickstart! 
+    - all the commands in one place, high level and brief explanations

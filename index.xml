@@ -220,6 +220,8 @@ GLOBAL OPTIONS:
 &lt;li&gt;&lt;a href=&#34;#cliconfigs&#34;&gt;CLI Configuration Options&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#httpapi&#34;&gt;HTTP API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#httpfront&#34;&gt;HTTP Frontend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tools&#34;&gt;Tools&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a name=&#34;loadingdata&#34;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -479,10 +481,14 @@ NOTICE server.go:78 Dec 24 17:28:53  ▶ Starting HTTP Server on  localhost:4780
 &lt;li&gt;&lt;code&gt;/api/loadlinks&lt;/code&gt;: receives POST requests containing a JSON-encoded links file. Returns 200 or error.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;a name=&#34;httpfront&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&#34;http-frontend&#34;&gt;HTTP Frontend&lt;/h3&gt;
 
 &lt;p&gt;There is a prototype HodDB interactive query interface available at the base URI, &lt;a href=&#34;http://localhost:47808&#34;&gt;http://localhost:47808&lt;/a&gt;.
 It has its own set of documentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;tools&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;other-tools&#34;&gt;Other Tools&lt;/h3&gt;
 

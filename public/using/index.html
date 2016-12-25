@@ -285,9 +285,37 @@ NOTICE api.go:60 Dec 24 15:49:04  ▶ Full Query took 28.793678ms
 
 <h3 id="http-api">HTTP API</h3>
 
+<p>The HodDB HTTP server can be started on the command line via:</p>
+
+<pre><code class="language-bash">hod http
+NOTICE server.go:78 Dec 24 17:28:53  ▶ Starting HTTP Server on  localhost:47808
+</code></pre>
+
+<p>The served port can be configured using the <code>ServerPort</code> config option. IPv6 and public/localhost serving are configured via the <code>UseIPv6</code> and <code>Localhost</code> fields respectively.</p>
+
+<p>The exposed endpoints are:</p>
+
+<ul>
+<li><code>/api/query</code>: receives POST requests containing a query string, returns JSON encoded results of the query</li>
+<li><code>/api/loadlinks</code>: receives POST requests containing a JSON-encoded links file. Returns 200 or error.</li>
+</ul>
+
 <h3 id="http-frontend">HTTP Frontend</h3>
 
+<p>There is a prototype HodDB interactive query interface available at the base URI, <a href="http://localhost:47808">http://localhost:47808</a>.
+It has its own set of documentation.</p>
+
 <h3 id="other-tools">Other Tools</h3>
+
+<p>The <code>hod</code> tool has a collection of other tools that may be useful. Use the <code>-h</code> flag on any of these to get more documentation on their usage.</p>
+
+<ul>
+<li><p><code>hod dumpgraph</code>: creates a PDF visualization of the nodes and entities in a TTL file. Warning! This can get very big and intractable.</p></li>
+
+<li><p><code>hod dump</code>: prints out the contents of a TTL file as a set of tab-separated triples</p></li>
+
+<li><p><code>hod benchload</code>: benchmarks the parsing time of a specified TTL file</p></li>
+</ul>
 
 
 

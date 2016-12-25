@@ -253,6 +253,32 @@ Defaults to `true`; shows the runtime, tuple-expansion and overall total time to
 <a name="httpapi"></a>
 ### HTTP API
 
+The HodDB HTTP server can be started on the command line via:
+
+```bash
+hod http
+NOTICE server.go:78 Dec 24 17:28:53  ▶ Starting HTTP Server on  localhost:47808
+```
+
+The served port can be configured using the `ServerPort` config option. IPv6 and public/localhost serving are configured via the `UseIPv6` and `Localhost` fields respectively.
+
+The exposed endpoints are:
+
+- `/api/query`: receives POST requests containing a query string, returns JSON encoded results of the query
+- `/api/loadlinks`: receives POST requests containing a JSON-encoded links file. Returns 200 or error.
+
 ### HTTP Frontend
 
+There is a prototype HodDB interactive query interface available at the base URI, [http://localhost:47808](http://localhost:47808).
+It has its own set of documentation.
+
 ### Other Tools
+
+The `hod` tool has a collection of other tools that may be useful. Use the `-h` flag on any of these to get more documentation on their usage.
+
+- `hod dumpgraph`: creates a PDF visualization of the nodes and entities in a TTL file. Warning! This can get very big and intractable.
+
+- `hod dump`: prints out the contents of a TTL file as a set of tab-separated triples
+
+- `hod benchload`: benchmarks the parsing time of a specified TTL file
+

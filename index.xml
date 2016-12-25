@@ -16,6 +16,14 @@
       <guid>http://hoddb.org/installation/</guid>
       <description>
 
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#docker&#34;&gt;Docker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#binary&#34;&gt;Binary&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#source&#34;&gt;Source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a name=&#34;docker&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
 
 &lt;p&gt;If you have &lt;a href=&#34;https://docs.docker.com/engine/installation/&#34;&gt;Docker installed&lt;/a&gt;, then HodDB can be started by first pulling the latest &lt;code&gt;gtfierro/hod&lt;/code&gt; Docker image and then starting it with the appropriate parameters.&lt;/p&gt;
@@ -30,6 +38,8 @@ The HTTP interface will be available at &lt;a href=&#34;http://localhost:47808&#
 &lt;p&gt;To build your own Docker image, use the template &lt;a href=&#34;https://github.com/gtfierro/brick_database_eval/tree/master/hod&#34;&gt;provided here&lt;/a&gt;, adjusting &lt;code&gt;build.sh&lt;/code&gt; and &lt;code&gt;Dockerfile&lt;/code&gt; to load the correct &lt;code&gt;.ttl&lt;/code&gt; file representing the building.&lt;/p&gt;
 
 &lt;p&gt;As HodDB matures it will be possible to load buildings over the HTTP interface, but this is not currently supported.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;binary&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;binary&#34;&gt;Binary&lt;/h3&gt;
 
@@ -76,6 +86,8 @@ GLOBAL OPTIONS:
 &lt;p&gt;but HodDB should perform normally. Please &lt;a href=&#34;https://github.com/gtfierro/hod/issues&#34;&gt;file an issue&lt;/a&gt; if you notice anything.&lt;/p&gt;
 
 &lt;p&gt;Note: current releases are just for 64-bit Linux. This will change as HodDB matures.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;source&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;source&#34;&gt;Source&lt;/h3&gt;
 

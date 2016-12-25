@@ -4,6 +4,11 @@ title: Installation
 weight: 1
 ---
 
+- [Docker](#docker)
+- [Binary](#binary)
+- [Source](#source)
+
+<a name="docker"></a>
 ### Docker
 
 If you have [Docker installed](https://docs.docker.com/engine/installation/), then HodDB can be started by first pulling the latest `gtfierro/hod` Docker image and then starting it with the appropriate parameters.
@@ -20,6 +25,7 @@ To build your own Docker image, use the template [provided here](https://github.
 
 As HodDB matures it will be possible to load buildings over the HTTP interface, but this is not currently supported.
 
+<a name="binary"></a>
 ### Binary
 
 To have slightly more control over the installation, a binary and configuration file can be downloaded from [GitHub](https://github.com/gtfierro/hod/releases/latest). 
@@ -69,6 +75,7 @@ but HodDB should perform normally. Please [file an issue](https://github.com/gtf
 
 Note: current releases are just for 64-bit Linux. This will change as HodDB matures.
 
+<a name="source"></a>
 ### Source
 
 HodDB can also be installed from source. This method is good for developing HodDB, or alternatively staying up to date with the "bleeding edge", which is probably only good if you need the latest fixes and can't wait for an official release.

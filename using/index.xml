@@ -274,9 +274,37 @@ NOTICE api.go:60 Dec 24 15:49:04  ▶ Full Query took 28.793678ms
 
 &lt;h3 id=&#34;http-api&#34;&gt;HTTP API&lt;/h3&gt;
 
+&lt;p&gt;The HodDB HTTP server can be started on the command line via:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hod http
+NOTICE server.go:78 Dec 24 17:28:53  ▶ Starting HTTP Server on  localhost:47808
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The served port can be configured using the &lt;code&gt;ServerPort&lt;/code&gt; config option. IPv6 and public/localhost serving are configured via the &lt;code&gt;UseIPv6&lt;/code&gt; and &lt;code&gt;Localhost&lt;/code&gt; fields respectively.&lt;/p&gt;
+
+&lt;p&gt;The exposed endpoints are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/api/query&lt;/code&gt;: receives POST requests containing a query string, returns JSON encoded results of the query&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/api/loadlinks&lt;/code&gt;: receives POST requests containing a JSON-encoded links file. Returns 200 or error.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;http-frontend&#34;&gt;HTTP Frontend&lt;/h3&gt;
 
+&lt;p&gt;There is a prototype HodDB interactive query interface available at the base URI, &lt;a href=&#34;http://localhost:47808&#34;&gt;http://localhost:47808&lt;/a&gt;.
+It has its own set of documentation.&lt;/p&gt;
+
 &lt;h3 id=&#34;other-tools&#34;&gt;Other Tools&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;hod&lt;/code&gt; tool has a collection of other tools that may be useful. Use the &lt;code&gt;-h&lt;/code&gt; flag on any of these to get more documentation on their usage.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;hod dumpgraph&lt;/code&gt;: creates a PDF visualization of the nodes and entities in a TTL file. Warning! This can get very big and intractable.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;hod dump&lt;/code&gt;: prints out the contents of a TTL file as a set of tab-separated triples&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;hod benchload&lt;/code&gt;: benchmarks the parsing time of a specified TTL file&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

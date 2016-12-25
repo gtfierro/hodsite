@@ -300,6 +300,7 @@ NOTICE server.go:78 Dec 24 17:28:53  ▶ Starting HTTP Server on  localhost:4780
 <ul>
 <li><code>/api/query</code>: receives POST requests containing a query string, returns JSON encoded results of the query</li>
 <li><code>/api/loadlinks</code>: receives POST requests containing a JSON-encoded links file. Returns 200 or error.</li>
+<li><code>/api/querydot</code>: receives POST requests containing a query string, returns a GraphViz compatible DOT representation of the query as a string.</li>
 </ul>
 
 <p><a name="httpfront"></a></p>
@@ -307,7 +308,7 @@ NOTICE server.go:78 Dec 24 17:28:53  ▶ Starting HTTP Server on  localhost:4780
 <h3 id="http-frontend">HTTP Frontend</h3>
 
 <p>There is a prototype HodDB interactive query interface available at the base URI, <a href="http://localhost:47808">http://localhost:47808</a>.
-It has its own set of documentation.</p>
+It has its own set of documentation at <a href="http://localhost:47808/help">http://localhost:47808/help</a>.</p>
 
 <p><a name="tools"></a></p>
 

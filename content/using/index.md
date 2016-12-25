@@ -268,12 +268,14 @@ The exposed endpoints are:
 
 - `/api/query`: receives POST requests containing a query string, returns JSON encoded results of the query
 - `/api/loadlinks`: receives POST requests containing a JSON-encoded links file. Returns 200 or error.
+- `/api/querydot`: receives POST requests containing a query string, returns a GraphViz compatible DOT representation of the query as a string.
+
 
 <a name="httpfront"></a>
 ### HTTP Frontend
 
 There is a prototype HodDB interactive query interface available at the base URI, [http://localhost:47808](http://localhost:47808).
-It has its own set of documentation.
+It has its own set of documentation at [http://localhost:47808/help](http://localhost:47808/help).
 
 <a name="tools"></a>
 ### Other Tools

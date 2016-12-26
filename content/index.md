@@ -33,3 +33,7 @@ An outline for the documentation:
     - make sure to have figures
 - Quickstart! 
     - all the commands in one place, high level and brief explanations
+
+## Public Query Server
+
+Available at [http://query.hoddb.org/](http://query.hoddb.org/)

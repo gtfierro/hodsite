@@ -7,7 +7,7 @@
 	<meta name="description" content="A metadata schema for buildings">
 	<meta name="generator" content="Hugo 0.18-DEV" />
 	
-	<title>404 Page not found &mdash; HodDB</title>
+	<title>Making a Brick Model &mdash; HodDB</title>
 	
 	<link rel="stylesheet" href="http://hoddb.org/css/alabaster.css" type="text/css" />
 	<link rel="stylesheet" href="http://hoddb.org/css/highlight.css" type="text/css" />
@@ -23,9 +23,30 @@
 				<div class="bodywrapper">
 					<div class="body" role="main">
 						
-	<h1>Page not found</h1>
+	<h1>Making a Brick Model</h1>
+	
+	
 
-	I'm sorry, but the requested page wasn’t found on the server.
+<p>Here we review the construction and Brick representation of a small example building.</p>
+
+<h3 id="data-model">Data Model</h3>
+
+<p>Brick can be thought of as a vocabulary for describing the things in the building and how they relate to each other.
+In Brick, names for things are referred to as <em>tagsets</em> and names for how these things are connected are called <em>relationships</em>.
+For example, an instance of a <code>VAV</code> would have a <code>feeds</code> relationship with an <code>HVAC_Zone</code>.</p>
+
+<p>The Brick vocabulary and class structure are available at <a href="http://brickschema.org/download/">brickschema.org</a>.
+The best way to view the file is either using the <a href="http://protege.stanford.edu/">Protege</a> tool or Python&rsquo;s <a href="https://rdflib.readthedocs.io/">rdflib</a> library.</p>
+
+<h4 id="rdf-triples">RDF Triples</h4>
+
+<p>To use these names to describe a building, we construct tuples consisting following the form of:</p>
+
+<pre><code class="language-text">subject predicate object
+</code></pre>
+
+<p>where <code>subject</code> and <code>object</code> are both <em>tagsets</em> and <code>predicate</code> is a <em>relationship</em>. This is known as an <em>RDF triple</em>, which we will often abbreviate to just triple.</p>
+
 
 
 						
@@ -92,7 +113,12 @@
 </ul>
 
 
-		
+		<h3>Related Topics</h3>
+<ul>
+  <li><a href="http://hoddb.org/">Documentation overview</a><ul>
+  
+  
+</ul>
 
 	</div>
 </div>

@@ -18,11 +18,15 @@
   </url>
   
   <url>
-    <loc>http://hoddb.org/query/</loc>
+    <loc>http://hoddb.org/making/</loc>
   </url>
   
   <url>
     <loc>http://hoddb.org/examples/</loc>
+  </url>
+  
+  <url>
+    <loc>http://hoddb.org/query/</loc>
   </url>
   
   <url>

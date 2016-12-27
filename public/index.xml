@@ -747,56 +747,6 @@ g.serialize(destination=&#39;mybuilding.ttl&#39;,format=&#39;turtle&#39;)
     </item>
     
     <item>
-      <title>Examples</title>
-      <link>http://hoddb.org/examples/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://hoddb.org/examples/</guid>
-      <description>
-
-&lt;h3 id=&#34;turtle-ttl-file-example&#34;&gt;Turtle/TTL File Example&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-turtle&#34;&gt;@prefix bf: &amp;lt;http://buildsys.org/ontologies/BrickFrame#&amp;gt; .
-@prefix brick: &amp;lt;http://buildsys.org/ontologies/Brick#&amp;gt; .
-@prefix btag: &amp;lt;http://buildsys.org/ontologies/BrickTag#&amp;gt; .
-@prefix rdf: &amp;lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;gt; .
-@prefix rdfs: &amp;lt;http://www.w3.org/2000/01/rdf-schema#&amp;gt; .
-@prefix mybuilding: &amp;lt;http://buildsys.org/ontologies/building_example#&amp;gt; .
-@prefix xml: &amp;lt;http://www.w3.org/XML/1998/namespace&amp;gt; .
-@prefix xsd: &amp;lt;http://www.w3.org/2001/XMLSchema#&amp;gt; .
-
-mybuilding:ahu_1 a brick:AHU ;
-    bf:feeds mybuilding:vav_1 .
-
-mybuilding:ztemp_1 a brick:Zone_Temperature_Sensor ;
-    bf:isPointOf mybuilding:vav_1 .
-
-mybuilding:floor_1 a brick:Floor .
-
-mybuilding:room_1 a brick:Room ;
-    bf:isPartOf mybuilding:floor_1,
-        mybuilding:hvaczone_1 .
-
-mybuilding:hvaczone_1 a brick:HVAC_Zone ;
-    bf:hasPart mybuilding:room_1 ;
-    bf:isFedBy mybuilding:vav_1 .
-
-mybuilding:vav_1 a brick:VAV ;
-    bf:feeds mybuilding:hvaczone_1 .
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;links-json-file-example&#34;&gt;Links JSON File Example&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-    &amp;quot;http://buildsys.org/ontologies/building_example#temp_sensor_hvac_zone_R739&amp;quot;: {
-        &amp;quot;UUID&amp;quot;: &amp;quot;3a038c7c-c7e6-11e6-bfc1-1002b58053c7&amp;quot;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Query Language</title>
       <link>http://hoddb.org/query/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

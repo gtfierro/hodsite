@@ -518,28 +518,32 @@ It has its own set of documentation at &lt;a href=&#34;http://localhost:47808/he
     </item>
     
     <item>
-      <title>Query Language</title>
-      <link>http://hoddb.org/query/</link>
+      <title>Making a Brick Model</title>
+      <link>http://hoddb.org/making/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/query/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;HodDB Query language:
+      <guid>http://hoddb.org/making/</guid>
+      <description>
 
-&lt;ul&gt;
-&lt;li&gt;basics:
+&lt;p&gt;Here we review the construction and Brick representation of a small example building.&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;prefixes&lt;/li&gt;
-&lt;li&gt;triples&lt;/li&gt;
-&lt;li&gt;path types&lt;/li&gt;
-&lt;li&gt;OR clauses&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;links&lt;/li&gt;
-&lt;li&gt;example queries explained!&lt;/li&gt;
-&lt;li&gt;make sure to have figures&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&#34;data-model&#34;&gt;Data Model&lt;/h3&gt;
+
+&lt;p&gt;Brick can be thought of as a vocabulary for describing the things in the building and how they relate to each other.
+In Brick, names for things are referred to as &lt;em&gt;tagsets&lt;/em&gt; and names for how these things are connected are called &lt;em&gt;relationships&lt;/em&gt;.
+For example, an instance of a &lt;code&gt;VAV&lt;/code&gt; would have a &lt;code&gt;feeds&lt;/code&gt; relationship with an &lt;code&gt;HVAC_Zone&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Brick vocabulary and class structure are available at &lt;a href=&#34;http://brickschema.org/download/&#34;&gt;brickschema.org&lt;/a&gt;.
+The best way to view the file is either using the &lt;a href=&#34;http://protege.stanford.edu/&#34;&gt;Protege&lt;/a&gt; tool or Python&amp;rsquo;s &lt;a href=&#34;https://rdflib.readthedocs.io/&#34;&gt;rdflib&lt;/a&gt; library.&lt;/p&gt;
+
+&lt;h4 id=&#34;rdf-triples&#34;&gt;RDF Triples&lt;/h4&gt;
+
+&lt;p&gt;To use these names to describe a building, we construct tuples consisting following the form of:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;subject predicate object
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where &lt;code&gt;subject&lt;/code&gt; and &lt;code&gt;object&lt;/code&gt; are both &lt;em&gt;tagsets&lt;/em&gt; and &lt;code&gt;predicate&lt;/code&gt; is a &lt;em&gt;relationship&lt;/em&gt;. This is known as an &lt;em&gt;RDF triple&lt;/em&gt;, which we will often abbreviate to just triple.&lt;/p&gt;
 </description>
     </item>
     
@@ -590,6 +594,32 @@ mybuilding:vav_1 a brick:VAV ;
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Query Language</title>
+      <link>http://hoddb.org/query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hoddb.org/query/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;HodDB Query language:
+
+&lt;ul&gt;
+&lt;li&gt;basics:
+
+&lt;ul&gt;
+&lt;li&gt;prefixes&lt;/li&gt;
+&lt;li&gt;triples&lt;/li&gt;
+&lt;li&gt;path types&lt;/li&gt;
+&lt;li&gt;OR clauses&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;links&lt;/li&gt;
+&lt;li&gt;example queries explained!&lt;/li&gt;
+&lt;li&gt;make sure to have figures&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

@@ -21,7 +21,7 @@
 &lt;h3 id=&#34;data-model&#34;&gt;Data Model&lt;/h3&gt;
 
 &lt;p&gt;Brick can be thought of as a vocabulary for describing the things in the building and how they relate to each other.
-In Brick, names for things are referred to as &lt;em&gt;tagsets&lt;/em&gt; and names for how these things are connected are called &lt;em&gt;relationships&lt;/em&gt;.
+In Brick, names for things are referred to as &lt;strong&gt;tagsets&lt;/strong&gt; and names for how these things are connected are called &lt;strong&gt;relationships&lt;/strong&gt;.
 For example, an instance of a &lt;code&gt;VAV&lt;/code&gt; would have a &lt;code&gt;feeds&lt;/code&gt; relationship with an &lt;code&gt;HVAC_Zone&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;The Brick vocabulary and class structure are available at &lt;a href=&#34;http://brickschema.org/download/&#34;&gt;brickschema.org&lt;/a&gt;.
@@ -34,7 +34,82 @@ The best way to view the file is either using the &lt;a href=&#34;http://protege
 &lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;subject predicate object
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;where &lt;code&gt;subject&lt;/code&gt; and &lt;code&gt;object&lt;/code&gt; are both &lt;em&gt;tagsets&lt;/em&gt; and &lt;code&gt;predicate&lt;/code&gt; is a &lt;em&gt;relationship&lt;/em&gt;. This is known as an &lt;em&gt;RDF triple&lt;/em&gt;, which we will often abbreviate to just triple.&lt;/p&gt;
+&lt;p&gt;where &lt;code&gt;subject&lt;/code&gt; and &lt;code&gt;object&lt;/code&gt; are both &lt;strong&gt;tagsets&lt;/strong&gt; and &lt;code&gt;predicate&lt;/code&gt; is a &lt;strong&gt;relationship&lt;/strong&gt;. This is known as an &lt;strong&gt;RDF triple&lt;/strong&gt;, which we will abbreviate to &amp;ldquo;triple&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Each triple represents 2 nodes (the subject and object) connected with a directed edge (the predicate):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../img/subpredobj.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A collection of triples describing a building thus create what we call the &amp;ldquo;building graph&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;When we write down a subject, predicate or object, we refer to it in terms of its &lt;strong&gt;namespace&lt;/strong&gt;.
+The Brick class namespace is &lt;code&gt;http://brickschema.org/ttl/Brick.ttl#&lt;/code&gt;, the RDF namespace is &lt;code&gt;https://www.w3.org/1999/02/22-rdf-syntax-ns#&lt;/code&gt;, etc.
+The concatenation of a subject/predicate/object and its namespace forms a &lt;strong&gt;URI&lt;/strong&gt;.
+For example, the &lt;code&gt;VAV&lt;/code&gt; Brick class has the URI &lt;code&gt;http://brickschema.org/ttl/Brick.ttl#VAV&lt;/code&gt;.
+Using &lt;strong&gt;prefix declarations&lt;/strong&gt;, we can define a shortcut for the long namespaces; in Turtle files (described below), a prefix declaration takes the form of&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;@prefix bf:  &amp;lt;http://buildsys.org/ontologies/BrickFrame#&amp;gt; .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This defines the prefix &lt;code&gt;bf&lt;/code&gt; to be used instead of the full namespace. We can now write the URI  &lt;code&gt;http://brickschema.org/ttl/BrickFrame.ttl#feeds&lt;/code&gt; as &lt;code&gt;bf:feeds&lt;/code&gt;. These tend to be consistent so as not to cause confusion. Here&amp;rsquo;s the set of abbreviations used in and by Brick:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Prefix&lt;/th&gt;
+&lt;th&gt;Namespace&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;bf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;http://brickschema.org/ttl/BrickFrame&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;brick&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;http://brickschema.org/ttl/Brick&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;rdf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;http://www.w3.org/1999/02/22-rdf-syntax-ns&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;rdfs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;http://www.w3.org/2000/01/rdf-schema&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;owl&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;http://www.w3.org/2002/07/owl&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;xml&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;http://www.w3.org/XML/1998/namespace&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;skos&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;http://www.w3.org/2004/02/skos/core&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;xsd&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;http://www.w3.org/2001/XMLSchema&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tag&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;http://brickschema.org/ttl/BrickTag&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;When forming the set of triples that constitute the Brick representation of a building, we use relationships defined by the Brick vocabulary as well as a few standard relationships, namely the &lt;code&gt;rdf:type&lt;/code&gt; (which instantiates Brick classes) and &lt;code&gt;rdfs:subClassOf&lt;/code&gt; which allows traversal of the class structure and creation of new subclasses.&lt;/p&gt;
 </description>
     </item>
     

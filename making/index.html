@@ -32,7 +32,7 @@
 <h3 id="data-model">Data Model</h3>
 
 <p>Brick can be thought of as a vocabulary for describing the things in the building and how they relate to each other.
-In Brick, names for things are referred to as <em>tagsets</em> and names for how these things are connected are called <em>relationships</em>.
+In Brick, names for things are referred to as <strong>tagsets</strong> and names for how these things are connected are called <strong>relationships</strong>.
 For example, an instance of a <code>VAV</code> would have a <code>feeds</code> relationship with an <code>HVAC_Zone</code>.</p>
 
 <p>The Brick vocabulary and class structure are available at <a href="http://brickschema.org/download/">brickschema.org</a>.
@@ -45,7 +45,82 @@ The best way to view the file is either using the <a href="http://protege.stanfo
 <pre><code class="language-text">subject predicate object
 </code></pre>
 
-<p>where <code>subject</code> and <code>object</code> are both <em>tagsets</em> and <code>predicate</code> is a <em>relationship</em>. This is known as an <em>RDF triple</em>, which we will often abbreviate to just triple.</p>
+<p>where <code>subject</code> and <code>object</code> are both <strong>tagsets</strong> and <code>predicate</code> is a <strong>relationship</strong>. This is known as an <strong>RDF triple</strong>, which we will abbreviate to &ldquo;triple&rdquo;.</p>
+
+<p>Each triple represents 2 nodes (the subject and object) connected with a directed edge (the predicate):</p>
+
+<p><img src="../img/subpredobj.png" /></p>
+
+<p>A collection of triples describing a building thus create what we call the &ldquo;building graph&rdquo;.</p>
+
+<p>When we write down a subject, predicate or object, we refer to it in terms of its <strong>namespace</strong>.
+The Brick class namespace is <code>http://brickschema.org/ttl/Brick.ttl#</code>, the RDF namespace is <code>https://www.w3.org/1999/02/22-rdf-syntax-ns#</code>, etc.
+The concatenation of a subject/predicate/object and its namespace forms a <strong>URI</strong>.
+For example, the <code>VAV</code> Brick class has the URI <code>http://brickschema.org/ttl/Brick.ttl#VAV</code>.
+Using <strong>prefix declarations</strong>, we can define a shortcut for the long namespaces; in Turtle files (described below), a prefix declaration takes the form of</p>
+
+<pre><code class="language-text">@prefix bf:  &lt;http://buildsys.org/ontologies/BrickFrame#&gt; .
+</code></pre>
+
+<p>This defines the prefix <code>bf</code> to be used instead of the full namespace. We can now write the URI  <code>http://brickschema.org/ttl/BrickFrame.ttl#feeds</code> as <code>bf:feeds</code>. These tend to be consistent so as not to cause confusion. Here&rsquo;s the set of abbreviations used in and by Brick:</p>
+
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Namespace</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>bf</code></td>
+<td><code>http://brickschema.org/ttl/BrickFrame</code></td>
+</tr>
+
+<tr>
+<td><code>brick</code></td>
+<td><code>http://brickschema.org/ttl/Brick</code></td>
+</tr>
+
+<tr>
+<td><code>rdf</code></td>
+<td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns</code></td>
+</tr>
+
+<tr>
+<td><code>rdfs</code></td>
+<td><code>http://www.w3.org/2000/01/rdf-schema</code></td>
+</tr>
+
+<tr>
+<td><code>owl</code></td>
+<td><code>http://www.w3.org/2002/07/owl</code></td>
+</tr>
+
+<tr>
+<td><code>xml</code></td>
+<td><code>http://www.w3.org/XML/1998/namespace</code></td>
+</tr>
+
+<tr>
+<td><code>skos</code></td>
+<td><code>http://www.w3.org/2004/02/skos/core</code></td>
+</tr>
+
+<tr>
+<td><code>xsd</code></td>
+<td><code>http://www.w3.org/2001/XMLSchema</code></td>
+</tr>
+
+<tr>
+<td><code>tag</code></td>
+<td><code>http://brickschema.org/ttl/BrickTag</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>When forming the set of triples that constitute the Brick representation of a building, we use relationships defined by the Brick vocabulary as well as a few standard relationships, namely the <code>rdf:type</code> (which instantiates Brick classes) and <code>rdfs:subClassOf</code> which allows traversal of the class structure and creation of new subclasses.</p>
 
 
 

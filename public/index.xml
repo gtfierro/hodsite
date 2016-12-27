@@ -45,9 +45,9 @@ The HTTP interface will be available at &lt;a href=&#34;http://localhost:47808&#
 
 &lt;p&gt;To have slightly more control over the installation, a binary and configuration file can be downloaded from &lt;a href=&#34;https://github.com/gtfierro/hod/releases/latest&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;This will require the installation of the &lt;a href=&#34;http://librdf.org/raptor/&#34;&gt;Raptor RDF Syntax Library&lt;/a&gt;, which can be done over &lt;code&gt;apt&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;This will require the installation of the &lt;a href=&#34;http://librdf.org/raptor/&#34;&gt;Raptor RDF Syntax Library&lt;/a&gt; and GraphViz, which can be done over &lt;code&gt;apt&lt;/code&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt intsall libraptor2-dev
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install libraptor2-dev graphviz
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;After unpacking the archive, HodDB can be started via the command line:&lt;/p&gt;

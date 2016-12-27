@@ -30,10 +30,10 @@ As HodDB matures it will be possible to load buildings over the HTTP interface, 
 
 To have slightly more control over the installation, a binary and configuration file can be downloaded from [GitHub](https://github.com/gtfierro/hod/releases/latest). 
 
-This will require the installation of the [Raptor RDF Syntax Library](http://librdf.org/raptor/), which can be done over `apt`:
+This will require the installation of the [Raptor RDF Syntax Library](http://librdf.org/raptor/) and GraphViz, which can be done over `apt`:
 
 ```bash
-$ sudo apt intsall libraptor2-dev
+$ sudo apt install libraptor2-dev graphviz
 ```
 
 After unpacking the archive, HodDB can be started via the command line:

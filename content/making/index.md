@@ -154,7 +154,7 @@ g.bind('rdf', RDF)
 g.bind('rdfs', RDFS)
 g.bind('brick', BRICK)
 g.bind('bf', BF)
-g.bind('mybldg', MYBUILDING)
+g.bind('mybuilding', MYBUILDING)
 
 # add() inserts another triple into the graph as (subject, predicate, object)
 g.add((MYBUILDING.floor_1, RDF.type, BRICK.Floor))
@@ -166,11 +166,11 @@ g.add((MYBUILDING.ztemp_1, RDF.type, BRICK.Zone_Temperature_Sensor))
 
 
 # add the relationships constituting the other edges in the graph
-g.add((EX.ztemp_1, BRICKFRAME.isPointOf, EX.vav_1))
-g.add((EX.ahu_1, BRICKFRAME.feeds, EX.vav_1))
-g.add((EX.vav_1, BRICKFRAME.feeds, EX.hvaczone_1))
-g.add((EX.room_1, BRICKFRAME.isPartOf, EX.hvaczone_1))
-g.add((EX.room_1, BRICKFRAME.isPartOf, EX.floor_1))
+g.add((EX.ztemp_1, BF.isPointOf, EX.vav_1))
+g.add((EX.ahu_1, BF.feeds, EX.vav_1))
+g.add((EX.vav_1, BF.feeds, EX.hvaczone_1))
+g.add((EX.room_1, BF.isPartOf, EX.hvaczone_1))
+g.add((EX.room_1, BF.isPartOf, EX.floor_1))
 
 # save the output to "mybuilding.ttl"
 g.serialize(destination='mybuilding.ttl',format='turtle')

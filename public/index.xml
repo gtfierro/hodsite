@@ -525,6 +525,12 @@ It has its own set of documentation at &lt;a href=&#34;http://localhost:47808/he
       <guid>http://hoddb.org/making/</guid>
       <description>
 
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#rdftriples&#34;&gt;RDF Triples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#examplebuilding&#34;&gt;Example Building&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usingrdflib&#34;&gt;Creating the Brick Model&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;Here we review the construction and Brick representation of a small example building.&lt;/p&gt;
 
 &lt;h3 id=&#34;data-model&#34;&gt;Data Model&lt;/h3&gt;
@@ -535,6 +541,8 @@ For example, an instance of a &lt;code&gt;VAV&lt;/code&gt; would have a &lt;code
 
 &lt;p&gt;The Brick vocabulary and class structure are available at &lt;a href=&#34;http://brickschema.org/download/&#34;&gt;brickschema.org&lt;/a&gt;.
 The best way to view the file is either using the &lt;a href=&#34;http://protege.stanford.edu/&#34;&gt;Protege&lt;/a&gt; tool or Python&amp;rsquo;s &lt;a href=&#34;https://rdflib.readthedocs.io/&#34;&gt;rdflib&lt;/a&gt; library.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;rdftriples&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;rdf-triples&#34;&gt;RDF Triples&lt;/h4&gt;
 
@@ -619,6 +627,122 @@ Using &lt;strong&gt;prefix declarations&lt;/strong&gt;, we can define a shortcut
 &lt;/table&gt;
 
 &lt;p&gt;When forming the set of triples that constitute the Brick representation of a building, we use relationships defined by the Brick vocabulary as well as a few standard relationships, namely the &lt;code&gt;rdf:type&lt;/code&gt; (which instantiates Brick classes) and &lt;code&gt;rdfs:subClassOf&lt;/code&gt; which allows traversal of the class structure and creation of new subclasses.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;examplebuilding&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-building&#34;&gt;Example Building&lt;/h4&gt;
+
+&lt;p&gt;Our example building contains the following components:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;one floor (&lt;code&gt;floor_1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;one room on the floor (&lt;code&gt;room_1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;one HVAC zone, containing the one room (&lt;code&gt;hvaczone_1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;one zone temperature sensor in the room (&lt;code&gt;ztemp_1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;one VAV supplying the HVAC zone (&lt;code&gt;vav_1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;one AHU supplying the VAV (&lt;code&gt;ahu_1&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Brick model of these relationships will be the triples representing the following graph&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../img/building_graph_noclass.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Missing from this representation are the instantiations of Brick classes; we need to declare that &lt;code&gt;floor&lt;/code&gt; is of type &lt;code&gt;brick:Floor&lt;/code&gt; and so on. This uses the &lt;code&gt;rdf:type&lt;/code&gt; relationship.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../img/building_graph.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This graph would be defined by this set of triples:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mybuilding:ahu_1         rdf:type        brick:AHU
+mybuilding:room_1        rdf:type        brick:Room
+mybuilding:ztemp_1       rdf:type        brick:Zone_Temperature_Sensor
+mybuilding:floor_1       rdf:type        brick:Floor
+mybuilding:hvaczone_1    rdf:type        brick:HVAC_Zone
+mybuilding:vav_1         rdf:type        brick:VAV
+mybuilding:ahu_1         bf:feeds        mybuilding:vav_1
+mybuilding:room_1        bf:isPartOf     mybuilding:floor_1
+mybuilding:room_1        bf:isPartOf     mybuilding:hvaczone_1
+mybuilding:ztemp_1       bf:isPointOf    mybuilding:vav_1
+mybuilding:vav_1         bf:feeds        mybuilding:hvaczone_1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that we are using a &lt;em&gt;distinct&lt;/em&gt; prefix to &amp;ldquo;store&amp;rdquo; the names of the entities that are actually in our building.&lt;/p&gt;
+
+&lt;p&gt;Triples are usually stored in a self-contained file in the &lt;strong&gt;Turtle format&lt;/strong&gt;, which usually has the filename suffix &lt;code&gt;.ttl&lt;/code&gt;. Here&amp;rsquo;s the Turtle file for the example building:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ttl&#34;&gt;@prefix brick: &amp;lt;http://brickschema.org/ttl/Brick#&amp;gt; .
+@prefix bf: &amp;lt;http://brickschema.org/ttl/BrickFrame#&amp;gt; .
+@prefix rdf: &amp;lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;gt; .
+@prefix rdfs: &amp;lt;http://www.w3.org/2000/01/rdf-schema#&amp;gt; .
+@prefix mybuilding: &amp;lt;http://mysite.com/buildings/mybuilding#&amp;gt; .
+
+mybuilding:ahu_1 a brick:AHU ;
+    bf:feeds mybuilding:vav_1 .
+
+mybuilding:room_1 a brick:Room ;
+    bf:isPartOf mybuilding:floor_1,
+        mybuilding:hvaczone_1 .
+
+mybuilding:ztemp_1 a brick:Zone_Temperature_Sensor ;
+    bf:isPointOf mybuilding:vav_1 .
+
+mybuilding:floor_1 a brick:Floor .
+
+mybuilding:hvaczone_1 a brick:HVAC_Zone .
+
+mybuilding:vav_1 a brick:VAV ;
+    bf:feeds mybuilding:hvaczone_1 .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a name=&#34;usingrdflib&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;creating-the-example-building&#34;&gt;Creating the Example Building&lt;/h4&gt;
+
+&lt;p&gt;&amp;ldquo;Creating&amp;rdquo; the Brick model for a building consists of making the &lt;strong&gt;Turtle&lt;/strong&gt; containing the triples that describe the building. While possible to create by hand, for larger buildings it makes more sense to automate this process.&lt;/p&gt;
+
+&lt;p&gt;We use Python&amp;rsquo;s &lt;code&gt;rdflib&lt;/code&gt; to create this file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from rdflib import Graph, Namespace, URIRef, Literal
+
+# define the namespaces. Now we can refer to entities 
+# in the namespacing using these handles.
+# For example, the VAV class in the Brick namespace 
+# could be referenced as BRICK.VAV or BRICK[&amp;quot;VAV&amp;quot;]
+BRICK = Namespace(&amp;quot;http://brickschema.org/ttl/Brick#&amp;quot;)
+BF = Namespace(&amp;quot;http://brickschema.org/ttl/BrickFrame#&amp;quot;)
+RDF = Namespace(&amp;quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;quot;)
+RDFS = Namespace(&amp;quot;http://www.w3.org/2000/01/rdf-schema#&amp;quot;)
+MYBUILDING = Namespace(&amp;quot;http://mysite.com/buildings/mybuilding#&amp;quot;)
+
+# create the graph and bind the namespace prefixes to it
+g = rdflib.Graph()
+g.bind(&#39;rdf&#39;, RDF)
+g.bind(&#39;rdfs&#39;, RDFS)
+g.bind(&#39;brick&#39;, BRICK)
+g.bind(&#39;bf&#39;, BF)
+g.bind(&#39;mybldg&#39;, MYBUILDING)
+
+# add() inserts another triple into the graph as (subject, predicate, object)
+g.add((MYBUILDING.floor_1, RDF.type, BRICK.Floor))
+g.add((MYBUILDING.room_1, RDF.type, BRICK.Room))
+g.add((MYBUILDING.vav_1, RDF.type, BRICK.VAV))
+g.add((MYBUILDING.hvaczone_1, RDF.type, BRICK.HVAC_Zone))
+g.add((MYBUILDING.ahu_1, RDF.type, BRICK.AHU))
+g.add((MYBUILDING.ztemp_1, RDF.type, BRICK.Zone_Temperature_Sensor))
+
+
+# add the relationships constituting the other edges in the graph
+g.add((EX.ztemp_1, BRICKFRAME.isPointOf, EX.vav_1))
+g.add((EX.ahu_1, BRICKFRAME.feeds, EX.vav_1))
+g.add((EX.vav_1, BRICKFRAME.feeds, EX.hvaczone_1))
+g.add((EX.room_1, BRICKFRAME.isPartOf, EX.hvaczone_1))
+g.add((EX.room_1, BRICKFRAME.isPartOf, EX.floor_1))
+
+# save the output to &amp;quot;mybuilding.ttl&amp;quot;
+g.serialize(destination=&#39;mybuilding.ttl&#39;,format=&#39;turtle&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Real-world examples of this kind of code for some real buildings can be found &lt;a href=&#34;https://github.com/BuildSysUniformMetadata/GroundTruth/tree/master/etc/instance_generators&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

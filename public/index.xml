@@ -773,16 +773,12 @@ g.serialize(destination=&#39;mybuilding.ttl&#39;,format=&#39;turtle&#39;)
     </item>
     
     <item>
-      <title>HodDB</title>
-      <link>http://hoddb.org/</link>
+      <title></title>
+      <link>http://hoddb.org/outline/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/</guid>
-      <description>
-
-&lt;h2 id=&#34;an-rdf-like-database-for-brick&#34;&gt;An RDF-like Database for Brick&lt;/h2&gt;
-
-&lt;p&gt;An outline for the documentation:&lt;/p&gt;
+      <guid>http://hoddb.org/outline/</guid>
+      <description>&lt;p&gt;An outline for the documentation:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Index Page:
@@ -828,8 +824,48 @@ g.serialize(destination=&#39;mybuilding.ttl&#39;,format=&#39;turtle&#39;)
 &lt;li&gt;all the commands in one place, high level and brief explanations&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HodDB</title>
+      <link>http://hoddb.org/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hoddb.org/</guid>
+      <description>
 
-&lt;h2 id=&#34;public-query-server&#34;&gt;Public Query Server&lt;/h2&gt;
+&lt;h2 id=&#34;a-database-for-brick&#34;&gt;A Database for Brick&lt;/h2&gt;
+
+&lt;p&gt;HodDB is a database for storing &lt;a href=&#34;http://brickschema.org/&#34;&gt;Brick&lt;/a&gt; models of buildings and serving queries on those models. More generally, it is an RDF triplestore with limited reasoning support, but many other features.&lt;/p&gt;
+
+&lt;p&gt;HodDB has the following goals:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sub-100ms SPARQL queries on small graphs (buildings are typically &amp;lt; 100,000 triples)&lt;/li&gt;
+&lt;li&gt;facilitate integration with external services:
+
+&lt;ul&gt;
+&lt;li&gt;attach key-value &amp;ldquo;links&amp;rdquo; such as timeseries UUIDs or application URIs&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;store the history of changes to the Brick model of the building
+
+&lt;ul&gt;
+&lt;li&gt;(currently under development)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;quickstart&#34;&gt;Quickstart&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install libraptor2-dev graphviz
+$ go get github.com/gtfierro/hod
+$ go install github.com/gtfierro/hod
+$ hod load path/to/building.ttl
+$ hod http
+NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;public-query-server&#34;&gt;Public Query Server&lt;/h3&gt;
 
 &lt;p&gt;Available at &lt;a href=&#34;http://query.hoddb.org/&#34;&gt;http://query.hoddb.org/&lt;/a&gt;&lt;/p&gt;
 </description>

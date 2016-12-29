@@ -7,7 +7,7 @@
 	<meta name="description" content="A metadata schema for buildings">
 	<meta name="generator" content="Hugo 0.18-DEV" />
 	
-	<title> HodDB</title>
+	<title> &mdash; HodDB</title>
 	
 	<link rel="stylesheet" href="http://hoddb.org/css/alabaster.css" type="text/css" />
 	<link rel="stylesheet" href="http://hoddb.org/css/highlight.css" type="text/css" />
@@ -23,45 +23,55 @@
 				<div class="bodywrapper">
 					<div class="body" role="main">
 						
+	<h1></h1>
 	
-		<h1>HodDB</h1>
-		
-
-<h2 id="a-database-for-brick">A Database for Brick</h2>
-
-<p>HodDB is a database for storing <a href="http://brickschema.org/">Brick</a> models of buildings and serving queries on those models. More generally, it is an RDF triplestore with limited reasoning support, but many other features.</p>
-
-<p>HodDB has the following goals:</p>
+	<p>An outline for the documentation:</p>
 
 <ul>
-<li>sub-100ms SPARQL queries on small graphs (buildings are typically &lt; 100,000 triples)</li>
-<li>facilitate integration with external services:
+<li>Index Page:
 
 <ul>
-<li>attach key-value &ldquo;links&rdquo; such as timeseries UUIDs or application URIs</li>
+<li>brief introduction (and links) to Brick</li>
+<li>identify need for fast Brick database</li>
+<li>HodDB features:
+
+<ul>
+<li>sub 100ms queries</li>
+<li>links to external services such as timeseries uuids</li>
+<li>history of building configuration (work-in-progress)</li>
 </ul></li>
-<li>store the history of changes to the Brick model of the building
+</ul></li>
+<li>Installing/Buildiing HodDB</li>
+<li>Configuring HodDB</li>
+<li>Using HodDB
 
 <ul>
-<li>(currently under development)</li>
+<li>Loading data into HodDB</li>
+<li>CLI queries</li>
+<li>HTTP server + features</li>
+</ul></li>
+<li>HodDB Query language:
+
+<ul>
+<li>basics:
+
+<ul>
+<li>prefixes</li>
+<li>triples</li>
+<li>path types</li>
+<li>OR clauses</li>
+</ul></li>
+<li>links</li>
+<li>example queries explained!</li>
+<li>make sure to have figures</li>
+</ul></li>
+<li>Quickstart!
+
+<ul>
+<li>all the commands in one place, high level and brief explanations</li>
 </ul></li>
 </ul>
 
-<h3 id="quickstart">Quickstart</h3>
-
-<pre><code class="language-bash">$ sudo apt install libraptor2-dev graphviz
-$ go get github.com/gtfierro/hod
-$ go install github.com/gtfierro/hod
-$ hod load path/to/building.ttl
-$ hod http
-NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
-</code></pre>
-
-<h3 id="public-query-server">Public Query Server</h3>
-
-<p>Available at <a href="http://query.hoddb.org/">http://query.hoddb.org/</a></p>
-
-	
 
 
 						
@@ -124,7 +134,12 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 </ul>
 
 
-		
+		<h3>Related Topics</h3>
+<ul>
+  <li><a href="http://hoddb.org/">Documentation overview</a><ul>
+  <li>Previous: <a href="http://hoddb.org/" title="HodDB">HodDB</a></li>
+  
+</ul>
 
 	</div>
 </div>

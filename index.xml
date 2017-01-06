@@ -798,7 +798,7 @@ Just run the Jupyter notebook and make sure Docker is installed.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Notes&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Jena/Fuseki only completed in a reasonable time on the first, trivial, query.&lt;/li&gt;
+&lt;li&gt;Jena/Fuseki only completed in a reasonable time on the first, trivial, query&lt;/li&gt;
 &lt;li&gt;RDF3X is consistently the fastest, but has the following issues:
 
 &lt;ul&gt;
@@ -933,22 +933,22 @@ WHERE {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;alegro&lt;/td&gt;
-&lt;td&gt;786.14&lt;/td&gt;
+&lt;td&gt;792.135339&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;rdf3x&lt;/td&gt;
-&lt;td&gt;7.54&lt;/td&gt;
+&lt;td&gt;7.225884&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;rdflib&lt;/td&gt;
-&lt;td&gt;6036.76&lt;/td&gt;
+&lt;td&gt;6186.903193&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;hod&lt;/td&gt;
-&lt;td&gt;17.53&lt;/td&gt;
+&lt;td&gt;18.360305&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head lang="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+	<meta name="description" content="A metadata schema for buildings">
+	<meta name="generator" content="Hugo 0.18-DEV" />
+	
+	<title>Benchmarks &mdash; HodDB</title>
+	
+	<link rel="stylesheet" href="http://hoddb.org/css/alabaster.css" type="text/css" />
+	<link rel="stylesheet" href="http://hoddb.org/css/highlight.css" type="text/css" />
+
+	
+
+	<link rel="shortcut icon" href="http://hoddb.org/favicon.ico" type="image/x-icon"/>
+</head>
+
+	<body role="document">
+		<div class="document">
+			<div class="documentwrapper">
+				<div class="bodywrapper">
+					<div class="body" role="main">
+						
+	<h1>Benchmarks</h1>
+	
+	
+
+<p>Some initial benchmarks of HodDB</p>
+
+<p>All code can be found at <a href="https://github.com/gtfierro/brick_database_eval">https://github.com/gtfierro/brick_database_eval</a>.
+Just run the Jupyter notebook and make sure Docker is installed.</p>
+
+<p>Databases evaluated here:</p>
+
+<ul>
+<li><a href="https://jena.apache.org/documentation/serving_data/">Jena/Fuseki</a></li>
+<li><a href="http://franz.com/agraph/downloads/">alegrograph</a></li>
+<li><a href="https://github.com/gh-rdf3x/gh-rdf3x">rdf3x</a></li>
+<li><a href="https://rdflib.readthedocs.io/en/stable/">rdflib</a></li>
+<li><a href="hoddb.org">hoddb</a></li>
+</ul>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+<li>Jena/Fuseki only completed in a reasonable time on the first, trivial, query.</li>
+<li>RDF3X is consistently the fastest, but has the following issues:
+
+<ul>
+<li>cannot use underscores in node/edge names</li>
+<li>cannot use <code>*</code> or <code>+</code> operators on predicates</li>
+<li>cannot use UNION</li>
+<li>does not support loading multiple graphs</li>
+</ul></li>
+</ul>
+
+<h3 id="query-1">Query 1</h3>
+
+<pre><code class="language-sparql">SELECT ?vav
+WHERE {
+    ?vav rdf:type brick:VAV .
+}
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Avg Execution Time (ms)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>alegro</td>
+<td>9.71</td>
+</tr>
+
+<tr>
+<td>fuseki</td>
+<td>12.87</td>
+</tr>
+
+<tr>
+<td>rdf3x</td>
+<td>5.92</td>
+</tr>
+
+<tr>
+<td>rdflib</td>
+<td>29.40</td>
+</tr>
+
+<tr>
+<td>hod</td>
+<td>7.58</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="query-2">Query 2</h3>
+
+<pre><code class="language-sparql">SELECT DISTINCT ?sensor ?room
+WHERE {
+
+    ?sensor rdf:type/rdfs:subClassOf* brick:Zone_Temperature_Sensor .
+    ?room rdf:type brick:Room .
+    ?vav rdf:type brick:VAV .
+    ?zone rdf:type brick:HVAC_Zone .
+
+    ?vav bf:feeds+ ?zone .
+    ?zone bf:hasPart ?room .
+
+    {?sensor bf:isPointOf ?vav }
+    UNION
+    {?sensor bf:isPointOf ?room }
+}
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Avg Execution Time (ms)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>alegro</td>
+<td>1714.37</td>
+</tr>
+
+<tr>
+<td>fuseki</td>
+<td>24977452.12 (~7 hours)</td>
+</tr>
+
+<tr>
+<td>rdf3x</td>
+<td>9.86</td>
+</tr>
+
+<tr>
+<td>rdflib</td>
+<td>11967.27</td>
+</tr>
+
+<tr>
+<td>hod</td>
+<td>18.66</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="query-3">Query 3</h3>
+
+<pre><code class="language-sparql">SELECT ?vlv_cmd ?vav
+WHERE {
+    {
+      { ?vlv_cmd rdf:type brick:Reheat_Valve_Command }
+      UNION
+      { ?vlv_cmd rdf:type brick:Cooling_Valve_Command }
+    }
+    ?vav rdf:type brick:VAV .
+    ?vav bf:hasPoint+ ?vlv_cmd .
+}
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Avg Execution Time (ms)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>alegro</td>
+<td>786.14</td>
+</tr>
+
+<tr>
+<td>rdf3x</td>
+<td>7.54</td>
+</tr>
+
+<tr>
+<td>rdflib</td>
+<td>6036.76</td>
+</tr>
+
+<tr>
+<td>hod</td>
+<td>17.53</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="query-4">Query 4</h3>
+
+<pre><code class="language-sparql">SELECT ?floor ?room ?zone
+WHERE {
+    ?floor rdf:type brick:Floor .
+    ?room rdf:type brick:Room .
+    ?zone rdf:type brick:HVAC_Zone .
+
+    ?room bf:isPartOf+ ?floor .
+    ?room bf:isPartOf+ ?zone .
+}
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Avg Execution Time (ms)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>alegro</td>
+<td>109.66</td>
+</tr>
+
+<tr>
+<td>rdf3x</td>
+<td>9.25</td>
+</tr>
+
+<tr>
+<td>rdflib</td>
+<td>421.21</td>
+</tr>
+
+<tr>
+<td>hod</td>
+<td>38.24</td>
+</tr>
+</tbody>
+</table>
+
+
+
+						
+					</div>
+				</div>
+			</div>
+			
+			<div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+	<div class="sphinxsidebarwrapper">
+		<p class="logo">
+			<a href="http://hoddb.org/">
+				<img class="logo" src="http://hoddb.org/favicon.ico" alt="Logo"/>
+				<h1 class="logo logo-name">HodDB</h1>
+			</a>
+		</p>
+		
+		<p class="blurb">A metadata schema for buildings</p>
+
+		
+
+	<p>
+		<iframe src="https://ghbtns.com/github-btn.html?user=gtfierro&repo=hod&type=watch&count=true&size=large"
+		allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+	</p>
+
+	
+
+	
+		
+
+		
+
+<h3>Navigation</h3>
+<ul>
+	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/">HodDB</a>
+	</li>
+	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/installation/">Installation</a>
+	</li>
+	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/configuration/">Configuration</a>
+	</li>
+	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/using/">Using HodDB</a>
+	</li>
+	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/making/">Making a Brick Model</a>
+	</li>
+	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/query/">Query Language</a>
+	</li>
+	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/benchmarks/">Benchmarks</a>
+	</li>
+	
+</ul>
+
+
+		<h3>Related Topics</h3>
+<ul>
+  <li><a href="http://hoddb.org/">Documentation overview</a><ul>
+  
+  
+</ul>
+
+	</div>
+</div>
+<div class="clearer"></div>
+</div>
+			<div class="footer">
+	&copy; 2017 
+	|
+	Powered by <a href="http://gohugo.io/">Hugo 0.18-DEV</a>
+	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
+	
+</div>
+
+<a href="https://github.com/gtfierro/hod" class="github">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" class="github"/>
+</a>
+
+
+			
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+			<script>hljs.initHighlightingOnLoad();</script>
+			
+
+			
+		</div>
+	</body>
+</html>

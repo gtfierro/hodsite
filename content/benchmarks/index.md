@@ -19,7 +19,7 @@ Databases evaluated here:
 
 **Notes**:
 
-- Jena/Fuseki only completed in a reasonable time on the first, trivial, query. 
+- Jena/Fuseki only completed in a reasonable time on the first, trivial, query
 - RDF3X is consistently the fastest, but has the following issues:
     - cannot use underscores in node/edge names
     - cannot use `*` or `+` operators on predicates
@@ -88,10 +88,10 @@ WHERE {
 
 Database | Avg Execution Time (ms)
 ---------|------------------
-alegro   | 786.14
-rdf3x    | 7.54
-rdflib   | 6036.76
-hod      | 17.53
+alegro   |  792.135339
+rdf3x    |    7.225884
+rdflib   | 6186.903193
+hod      |   18.360305
 
 ### Query 4
 

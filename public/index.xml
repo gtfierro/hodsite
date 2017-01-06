@@ -773,6 +773,233 @@ g.serialize(destination=&#39;mybuilding.ttl&#39;,format=&#39;turtle&#39;)
     </item>
     
     <item>
+      <title>Benchmarks</title>
+      <link>http://hoddb.org/benchmarks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hoddb.org/benchmarks/</guid>
+      <description>
+
+&lt;p&gt;Some initial benchmarks of HodDB&lt;/p&gt;
+
+&lt;p&gt;All code can be found at &lt;a href=&#34;https://github.com/gtfierro/brick_database_eval&#34;&gt;https://github.com/gtfierro/brick_database_eval&lt;/a&gt;.
+Just run the Jupyter notebook and make sure Docker is installed.&lt;/p&gt;
+
+&lt;p&gt;Databases evaluated here:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jena.apache.org/documentation/serving_data/&#34;&gt;Jena/Fuseki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://franz.com/agraph/downloads/&#34;&gt;alegrograph&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gh-rdf3x/gh-rdf3x&#34;&gt;rdf3x&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rdflib.readthedocs.io/en/stable/&#34;&gt;rdflib&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;hoddb.org&#34;&gt;hoddb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Notes&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Jena/Fuseki only completed in a reasonable time on the first, trivial, query.&lt;/li&gt;
+&lt;li&gt;RDF3X is consistently the fastest, but has the following issues:
+
+&lt;ul&gt;
+&lt;li&gt;cannot use underscores in node/edge names&lt;/li&gt;
+&lt;li&gt;cannot use &lt;code&gt;*&lt;/code&gt; or &lt;code&gt;+&lt;/code&gt; operators on predicates&lt;/li&gt;
+&lt;li&gt;cannot use UNION&lt;/li&gt;
+&lt;li&gt;does not support loading multiple graphs&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;query-1&#34;&gt;Query 1&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sparql&#34;&gt;SELECT ?vav
+WHERE {
+    ?vav rdf:type brick:VAV .
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Database&lt;/th&gt;
+&lt;th&gt;Avg Execution Time (ms)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;alegro&lt;/td&gt;
+&lt;td&gt;9.71&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;fuseki&lt;/td&gt;
+&lt;td&gt;12.87&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rdf3x&lt;/td&gt;
+&lt;td&gt;5.92&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rdflib&lt;/td&gt;
+&lt;td&gt;29.40&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;hod&lt;/td&gt;
+&lt;td&gt;7.58&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;query-2&#34;&gt;Query 2&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sparql&#34;&gt;SELECT DISTINCT ?sensor ?room
+WHERE {
+
+    ?sensor rdf:type/rdfs:subClassOf* brick:Zone_Temperature_Sensor .
+    ?room rdf:type brick:Room .
+    ?vav rdf:type brick:VAV .
+    ?zone rdf:type brick:HVAC_Zone .
+
+    ?vav bf:feeds+ ?zone .
+    ?zone bf:hasPart ?room .
+
+    {?sensor bf:isPointOf ?vav }
+    UNION
+    {?sensor bf:isPointOf ?room }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Database&lt;/th&gt;
+&lt;th&gt;Avg Execution Time (ms)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;alegro&lt;/td&gt;
+&lt;td&gt;1714.37&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;fuseki&lt;/td&gt;
+&lt;td&gt;24977452.12 (~7 hours)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rdf3x&lt;/td&gt;
+&lt;td&gt;9.86&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rdflib&lt;/td&gt;
+&lt;td&gt;11967.27&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;hod&lt;/td&gt;
+&lt;td&gt;18.66&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;query-3&#34;&gt;Query 3&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sparql&#34;&gt;SELECT ?vlv_cmd ?vav
+WHERE {
+    {
+      { ?vlv_cmd rdf:type brick:Reheat_Valve_Command }
+      UNION
+      { ?vlv_cmd rdf:type brick:Cooling_Valve_Command }
+    }
+    ?vav rdf:type brick:VAV .
+    ?vav bf:hasPoint+ ?vlv_cmd .
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Database&lt;/th&gt;
+&lt;th&gt;Avg Execution Time (ms)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;alegro&lt;/td&gt;
+&lt;td&gt;786.14&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rdf3x&lt;/td&gt;
+&lt;td&gt;7.54&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rdflib&lt;/td&gt;
+&lt;td&gt;6036.76&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;hod&lt;/td&gt;
+&lt;td&gt;17.53&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;query-4&#34;&gt;Query 4&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sparql&#34;&gt;SELECT ?floor ?room ?zone
+WHERE {
+    ?floor rdf:type brick:Floor .
+    ?room rdf:type brick:Room .
+    ?zone rdf:type brick:HVAC_Zone .
+
+    ?room bf:isPartOf+ ?floor .
+    ?room bf:isPartOf+ ?zone .
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Database&lt;/th&gt;
+&lt;th&gt;Avg Execution Time (ms)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;alegro&lt;/td&gt;
+&lt;td&gt;109.66&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rdf3x&lt;/td&gt;
+&lt;td&gt;9.25&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rdflib&lt;/td&gt;
+&lt;td&gt;421.21&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;hod&lt;/td&gt;
+&lt;td&gt;38.24&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>http://hoddb.org/outline/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

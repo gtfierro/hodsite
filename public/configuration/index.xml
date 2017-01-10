@@ -29,10 +29,10 @@
 #DBPath: _hoddb
 
 # the path to the TTL file containing Brick relationships
-#BrickFrameTTL: &amp;quot;BrickFrame.ttl&amp;quot;
+#BrickFrameTTL: &amp;quot;$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl&amp;quot;
 
 # the path to the TTL file containing Brick classes
-#BrickClassTTL: &amp;quot;Brick.ttl&amp;quot;
+#BrickClassTTL: &amp;quot;$GOPATH/src/github.com/gtfierro/hod/Brick.ttl&amp;quot;
 
 # whether or not to reload the Brick database files
 #ReloadBrick: true

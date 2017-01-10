@@ -21,10 +21,10 @@ Configuration defaults are as follows; there's usually no reason to change these
 #DBPath: _hoddb
 
 # the path to the TTL file containing Brick relationships
-#BrickFrameTTL: "BrickFrame.ttl"
+#BrickFrameTTL: "$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl"
 
 # the path to the TTL file containing Brick classes
-#BrickClassTTL: "Brick.ttl"
+#BrickClassTTL: "$GOPATH/src/github.com/gtfierro/hod/Brick.ttl"
 
 # whether or not to reload the Brick database files
 #ReloadBrick: true

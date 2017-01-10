@@ -37,18 +37,23 @@
 ####
 
 # the location of the database files
-#DBPath = _hoddb
+#DBPath: _hoddb
 
 # the path to the TTL file containing Brick relationships
-#BrickFrameTTL = &quot;BrickFrame.ttl&quot;
+#BrickFrameTTL: &quot;BrickFrame.ttl&quot;
 
 # the path to the TTL file containing Brick classes
-#BrickClassTTL = &quot;Brick.ttl&quot;
-#
+#BrickClassTTL: &quot;Brick.ttl&quot;
+
+# whether or not to reload the Brick database files
+#ReloadBrick: true
 
 ####
 # configuration for verbosity during operation
 ####
+#
+# Show the namespace prefixes
+#ShowNamespaces: true
 
 # Show the built dependency graph of query terms
 #ShowDependencyGraph: false
@@ -78,6 +83,9 @@
 
 # Whether or not to serve on localhost. If false, serves on a public interface
 #Localhost: true
+#
+# Path to the server directory of hod, which contains the necessary HTML files
+#StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
 
 ####
 # Profiling Information for HTTP Server

@@ -18,18 +18,23 @@ Configuration defaults are as follows; there's usually no reason to change these
 ####
 
 # the location of the database files
-#DBPath = _hoddb
+#DBPath: _hoddb
 
 # the path to the TTL file containing Brick relationships
-#BrickFrameTTL = "BrickFrame.ttl"
+#BrickFrameTTL: "BrickFrame.ttl"
 
 # the path to the TTL file containing Brick classes
-#BrickClassTTL = "Brick.ttl"
-#
+#BrickClassTTL: "Brick.ttl"
+
+# whether or not to reload the Brick database files
+#ReloadBrick: true
 
 ####
 # configuration for verbosity during operation
 ####
+#
+# Show the namespace prefixes
+#ShowNamespaces: true
 
 # Show the built dependency graph of query terms
 #ShowDependencyGraph: false
@@ -59,6 +64,9 @@ Configuration defaults are as follows; there's usually no reason to change these
 
 # Whether or not to serve on localhost. If false, serves on a public interface
 #Localhost: true
+#
+# Path to the server directory of hod, which contains the necessary HTML files
+#StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
 
 ####
 # Profiling Information for HTTP Server

@@ -30,4 +30,4 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 
 ### Public Query Server
 
-Available at [http://query.hoddb.org/](http://query.hoddb.org/)
+Available at [https://query.hoddb.org/](https://query.hoddb.org/)

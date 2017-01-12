@@ -1102,7 +1102,7 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 
 &lt;h3 id=&#34;public-query-server&#34;&gt;Public Query Server&lt;/h3&gt;
 
-&lt;p&gt;Available at &lt;a href=&#34;http://query.hoddb.org/&#34;&gt;http://query.hoddb.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Available at &lt;a href=&#34;https://query.hoddb.org/&#34;&gt;https://query.hoddb.org/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

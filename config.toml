@@ -1,4 +1,4 @@
-baseurl = "http://hoddb.org/"
+baseurl = "https://hoddb.org/"
 languageCode = "en-us"
 metadataformat = "yaml"
 title = "HodDB"

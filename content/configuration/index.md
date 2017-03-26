@@ -63,10 +63,15 @@ Configuration defaults are as follows; there's usually no reason to change these
 #UseIPv6: false
 
 # Whether or not to serve on localhost. If false, serves on a public interface
-#Localhost: true
-#
+#ListenAddress: 0.0.0.0
+
 # Path to the server directory of hod, which contains the necessary HTML files
 #StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
+
+# If specified, serve the frontend over HTTPS using golang.org/x/crypto/acme/autocert
+# If left blank (default), just serve over HTTP
+# Note: if this is specified, ServerPort MUST be 443
+#TLSHost: ""
 
 ####
 # Profiling Information for HTTP Server

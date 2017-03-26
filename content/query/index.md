@@ -4,6 +4,8 @@ title: Query Language
 weight: 5
 ---
 
+Here we present an overview of the SPARQL-like query language implemented by Hod
+
 - HodDB Query language:
     - basics:
       - prefixes

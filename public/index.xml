@@ -2,18 +2,117 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HodDB</title>
-    <link>http://hoddb.org/index.xml</link>
+    <link>https://hoddb.org/index.xml</link>
     <description>Recent content on HodDB</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://hoddb.org/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hoddb.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>https://hoddb.org/outline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoddb.org/outline/</guid>
+      <description>&lt;p&gt;An outline for the documentation:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Index Page:
+
+&lt;ul&gt;
+&lt;li&gt;brief introduction (and links) to Brick&lt;/li&gt;
+&lt;li&gt;identify need for fast Brick database&lt;/li&gt;
+&lt;li&gt;HodDB features:
+
+&lt;ul&gt;
+&lt;li&gt;sub 100ms queries&lt;/li&gt;
+&lt;li&gt;links to external services such as timeseries uuids&lt;/li&gt;
+&lt;li&gt;history of building configuration (work-in-progress)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Installing/Buildiing HodDB&lt;/li&gt;
+&lt;li&gt;Configuring HodDB&lt;/li&gt;
+&lt;li&gt;Using HodDB
+
+&lt;ul&gt;
+&lt;li&gt;Loading data into HodDB&lt;/li&gt;
+&lt;li&gt;CLI queries&lt;/li&gt;
+&lt;li&gt;HTTP server + features&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;HodDB Query language:
+
+&lt;ul&gt;
+&lt;li&gt;basics:
+
+&lt;ul&gt;
+&lt;li&gt;prefixes&lt;/li&gt;
+&lt;li&gt;triples&lt;/li&gt;
+&lt;li&gt;path types&lt;/li&gt;
+&lt;li&gt;OR clauses&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;links&lt;/li&gt;
+&lt;li&gt;example queries explained!&lt;/li&gt;
+&lt;li&gt;make sure to have figures&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Quickstart!
+
+&lt;ul&gt;
+&lt;li&gt;all the commands in one place, high level and brief explanations&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HodDB</title>
+      <link>https://hoddb.org/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoddb.org/</guid>
+      <description>
+
+&lt;h2 id=&#34;a-database-for-brick&#34;&gt;A Database for Brick&lt;/h2&gt;
+
+&lt;p&gt;HodDB is a database for storing &lt;a href=&#34;http://brickschema.org/&#34;&gt;Brick&lt;/a&gt; models of buildings and serving queries on those models. More generally, it is an RDF triplestore with limited reasoning support, but many other features.&lt;/p&gt;
+
+&lt;p&gt;HodDB has the following goals:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sub-100ms SPARQL queries on small graphs (buildings are typically &amp;lt; 100,000 triples)&lt;/li&gt;
+&lt;li&gt;facilitate integration with external services:
+
+&lt;ul&gt;
+&lt;li&gt;attach key-value &amp;ldquo;links&amp;rdquo; such as timeseries UUIDs or application URIs&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;store the history of changes to the Brick model of the building
+
+&lt;ul&gt;
+&lt;li&gt;(currently under development)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;quickstart&#34;&gt;Quickstart&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install libraptor2-dev graphviz
+$ go get github.com/gtfierro/hod
+$ go install github.com/gtfierro/hod
+$ hod load path/to/building.ttl
+$ hod http
+NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;public-query-server&#34;&gt;Public Query Server&lt;/h3&gt;
+
+&lt;p&gt;Available at &lt;a href=&#34;https://query.hoddb.org/&#34;&gt;https://query.hoddb.org/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Installation</title>
-      <link>http://hoddb.org/installation/</link>
+      <link>https://hoddb.org/installation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/installation/</guid>
+      <guid>https://hoddb.org/installation/</guid>
       <description>
 
 &lt;ul&gt;
@@ -131,10 +230,10 @@ GLOBAL OPTIONS:
     
     <item>
       <title>Configuration</title>
-      <link>http://hoddb.org/configuration/</link>
+      <link>https://hoddb.org/configuration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/configuration/</guid>
+      <guid>https://hoddb.org/configuration/</guid>
       <description>&lt;p&gt;HodDB is configured with a YAML file. By default, this file is called &lt;code&gt;hodconfig.yml&lt;/code&gt; and is loaded from the current directory, though this can be changed with the &lt;code&gt;--config/-c&lt;/code&gt; command line option when executing the &lt;code&gt;hod&lt;/code&gt; binary.&lt;/p&gt;
 
 &lt;p&gt;Configuration defaults are as follows; there&amp;rsquo;s usually no reason to change these aside from the network configuration.&lt;/p&gt;
@@ -192,10 +291,15 @@ GLOBAL OPTIONS:
 #UseIPv6: false
 
 # Whether or not to serve on localhost. If false, serves on a public interface
-#Localhost: true
-#
+#ListenAddress: 0.0.0.0
+
 # Path to the server directory of hod, which contains the necessary HTML files
 #StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
+
+# If specified, serve the frontend over HTTPS using golang.org/x/crypto/acme/autocert
+# If left blank (default), just serve over HTTP
+# Note: if this is specified, ServerPort MUST be 443
+#TLSHost: &amp;quot;&amp;quot;
 
 ####
 # Profiling Information for HTTP Server
@@ -220,10 +324,10 @@ GLOBAL OPTIONS:
     
     <item>
       <title>Using HodDB</title>
-      <link>http://hoddb.org/using/</link>
+      <link>https://hoddb.org/using/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/using/</guid>
+      <guid>https://hoddb.org/using/</guid>
       <description>
 
 &lt;ul&gt;
@@ -293,7 +397,7 @@ brick =&amp;gt; http://buildsys.org/ontologies/Brick
 
 &lt;p&gt;Loading is idempotent, meaning the same &lt;code&gt;.ttl&lt;/code&gt; file can be loaded many times without affecting the performance or correctness of the database.&lt;/p&gt;
 
-&lt;p&gt;See &lt;a href=&#34;http://hoddb.org/examples&#34;&gt;the examples page&lt;/a&gt; for a small TTL file sample.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;https://hoddb.org/examples&#34;&gt;the examples page&lt;/a&gt; for a small TTL file sample.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: if more than one building is loaded into the same HodDB instance, then the results from the two buildings will be returned together and there is the possibility
 for namespace conflicts. Thus, at this early stage in HodDB development it is recommended to have a different HodDB instance for each building. Disk space is negligible: the Soda Hall Brick file has 3774 triples in it, and the on-disk representation only uses 1.5 MB.&lt;/p&gt;
@@ -527,10 +631,10 @@ It has its own set of documentation at &lt;a href=&#34;http://localhost:47808/he
     
     <item>
       <title>Making a Brick Model</title>
-      <link>http://hoddb.org/making/</link>
+      <link>https://hoddb.org/making/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/making/</guid>
+      <guid>https://hoddb.org/making/</guid>
       <description>
 
 &lt;ul&gt;
@@ -756,11 +860,13 @@ g.serialize(destination=&#39;mybuilding.ttl&#39;,format=&#39;turtle&#39;)
     
     <item>
       <title>Query Language</title>
-      <link>http://hoddb.org/query/</link>
+      <link>https://hoddb.org/query/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/query/</guid>
-      <description>&lt;ul&gt;
+      <guid>https://hoddb.org/query/</guid>
+      <description>&lt;p&gt;Here we present an overview of the SPARQL-like query language implemented by Hod&lt;/p&gt;
+
+&lt;ul&gt;
 &lt;li&gt;HodDB Query language:
 
 &lt;ul&gt;
@@ -782,10 +888,10 @@ g.serialize(destination=&#39;mybuilding.ttl&#39;,format=&#39;turtle&#39;)
     
     <item>
       <title>Benchmarks</title>
-      <link>http://hoddb.org/benchmarks/</link>
+      <link>https://hoddb.org/benchmarks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/benchmarks/</guid>
+      <guid>https://hoddb.org/benchmarks/</guid>
       <description>
 
 &lt;p&gt;Some initial benchmarks of HodDB&lt;/p&gt;
@@ -1004,105 +1110,6 @@ WHERE {
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://hoddb.org/outline/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://hoddb.org/outline/</guid>
-      <description>&lt;p&gt;An outline for the documentation:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Index Page:
-
-&lt;ul&gt;
-&lt;li&gt;brief introduction (and links) to Brick&lt;/li&gt;
-&lt;li&gt;identify need for fast Brick database&lt;/li&gt;
-&lt;li&gt;HodDB features:
-
-&lt;ul&gt;
-&lt;li&gt;sub 100ms queries&lt;/li&gt;
-&lt;li&gt;links to external services such as timeseries uuids&lt;/li&gt;
-&lt;li&gt;history of building configuration (work-in-progress)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Installing/Buildiing HodDB&lt;/li&gt;
-&lt;li&gt;Configuring HodDB&lt;/li&gt;
-&lt;li&gt;Using HodDB
-
-&lt;ul&gt;
-&lt;li&gt;Loading data into HodDB&lt;/li&gt;
-&lt;li&gt;CLI queries&lt;/li&gt;
-&lt;li&gt;HTTP server + features&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;HodDB Query language:
-
-&lt;ul&gt;
-&lt;li&gt;basics:
-
-&lt;ul&gt;
-&lt;li&gt;prefixes&lt;/li&gt;
-&lt;li&gt;triples&lt;/li&gt;
-&lt;li&gt;path types&lt;/li&gt;
-&lt;li&gt;OR clauses&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;links&lt;/li&gt;
-&lt;li&gt;example queries explained!&lt;/li&gt;
-&lt;li&gt;make sure to have figures&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Quickstart!
-
-&lt;ul&gt;
-&lt;li&gt;all the commands in one place, high level and brief explanations&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>HodDB</title>
-      <link>http://hoddb.org/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://hoddb.org/</guid>
-      <description>
-
-&lt;h2 id=&#34;a-database-for-brick&#34;&gt;A Database for Brick&lt;/h2&gt;
-
-&lt;p&gt;HodDB is a database for storing &lt;a href=&#34;http://brickschema.org/&#34;&gt;Brick&lt;/a&gt; models of buildings and serving queries on those models. More generally, it is an RDF triplestore with limited reasoning support, but many other features.&lt;/p&gt;
-
-&lt;p&gt;HodDB has the following goals:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;sub-100ms SPARQL queries on small graphs (buildings are typically &amp;lt; 100,000 triples)&lt;/li&gt;
-&lt;li&gt;facilitate integration with external services:
-
-&lt;ul&gt;
-&lt;li&gt;attach key-value &amp;ldquo;links&amp;rdquo; such as timeseries UUIDs or application URIs&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;store the history of changes to the Brick model of the building
-
-&lt;ul&gt;
-&lt;li&gt;(currently under development)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;quickstart&#34;&gt;Quickstart&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install libraptor2-dev graphviz
-$ go get github.com/gtfierro/hod
-$ go install github.com/gtfierro/hod
-$ hod load path/to/building.ttl
-$ hod http
-NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;public-query-server&#34;&gt;Public Query Server&lt;/h3&gt;
-
-&lt;p&gt;Available at &lt;a href=&#34;https://query.hoddb.org/&#34;&gt;https://query.hoddb.org/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

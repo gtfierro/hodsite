@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Benchmarks on HodDB</title>
-    <link>http://hoddb.org/benchmarks/index.xml</link>
-    <description>Recent content in Benchmarks on HodDB</description>
+    <title>Benchmarks-rsses on HodDB</title>
+    <link>https://hoddb.org/benchmarks/index.xml</link>
+    <description>Recent content in Benchmarks-rsses on HodDB</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://hoddb.org/benchmarks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hoddb.org/benchmarks/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Benchmarks</title>
-      <link>http://hoddb.org/benchmarks/</link>
+      <link>https://hoddb.org/benchmarks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/benchmarks/</guid>
+      <guid>https://hoddb.org/benchmarks/</guid>
       <description>
 
 &lt;p&gt;Some initial benchmarks of HodDB&lt;/p&gt;

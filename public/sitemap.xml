@@ -2,39 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hoddb.org/</loc>
+    <loc>https://hoddb.org/</loc>
   </url>
   
   <url>
-    <loc>http://hoddb.org/installation/</loc>
+    <loc>https://hoddb.org/outline/</loc>
   </url>
   
   <url>
-    <loc>http://hoddb.org/configuration/</loc>
+    <loc>https://hoddb.org/</loc>
   </url>
   
   <url>
-    <loc>http://hoddb.org/using/</loc>
+    <loc>https://hoddb.org/installation/</loc>
   </url>
   
   <url>
-    <loc>http://hoddb.org/making/</loc>
+    <loc>https://hoddb.org/configuration/</loc>
   </url>
   
   <url>
-    <loc>http://hoddb.org/query/</loc>
+    <loc>https://hoddb.org/using/</loc>
   </url>
   
   <url>
-    <loc>http://hoddb.org/benchmarks/</loc>
+    <loc>https://hoddb.org/making/</loc>
   </url>
   
   <url>
-    <loc>http://hoddb.org/outline/</loc>
+    <loc>https://hoddb.org/query/</loc>
   </url>
   
   <url>
-    <loc>http://hoddb.org/</loc>
+    <loc>https://hoddb.org/benchmarks/</loc>
   </url>
   
 </urlset>

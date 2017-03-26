@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Usings on HodDB</title>
-    <link>http://hoddb.org/using/index.xml</link>
-    <description>Recent content in Usings on HodDB</description>
+    <title>Using-rsses on HodDB</title>
+    <link>https://hoddb.org/using/index.xml</link>
+    <description>Recent content in Using-rsses on HodDB</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://hoddb.org/using/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hoddb.org/using/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Using HodDB</title>
-      <link>http://hoddb.org/using/</link>
+      <link>https://hoddb.org/using/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://hoddb.org/using/</guid>
+      <guid>https://hoddb.org/using/</guid>
       <description>
 
 &lt;ul&gt;
@@ -83,7 +83,7 @@ brick =&amp;gt; http://buildsys.org/ontologies/Brick
 
 &lt;p&gt;Loading is idempotent, meaning the same &lt;code&gt;.ttl&lt;/code&gt; file can be loaded many times without affecting the performance or correctness of the database.&lt;/p&gt;
 
-&lt;p&gt;See &lt;a href=&#34;http://hoddb.org/examples&#34;&gt;the examples page&lt;/a&gt; for a small TTL file sample.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;https://hoddb.org/examples&#34;&gt;the examples page&lt;/a&gt; for a small TTL file sample.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: if more than one building is loaded into the same HodDB instance, then the results from the two buildings will be returned together and there is the possibility
 for namespace conflicts. Thus, at this early stage in HodDB development it is recommended to have a different HodDB instance for each building. Disk space is negligible: the Soda Hall Brick file has 3774 triples in it, and the on-disk representation only uses 1.5 MB.&lt;/p&gt;

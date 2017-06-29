@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.17" />
+	<meta name="generator" content="Hugo 0.22-DEV" />
 	
 	<title> HodDB</title>
 	
@@ -29,17 +29,19 @@
 
 <h2 id="a-database-for-brick">A Database for Brick</h2>
 
-<p>HodDB is a database for storing <a href="http://brickschema.org/">Brick</a> models of buildings and serving queries on those models. More generally, it is an RDF triplestore with limited reasoning support, but many other features.</p>
+<p>HodDB is a specialized RDF/SPARQLl triplestore database for <a href="http://brickschema.org/">Brick</a>.
+It stores models of buildings and serves queries on those models.</p>
 
 <p>HodDB has the following goals:</p>
 
 <ul>
-<li>sub-100ms SPARQL queries on small graphs (buildings are typically &lt; 100,000 triples)</li>
+<li>sub-100ms SPARQL queries on Brick graphs</li>
 <li>facilitate integration with external services:
 
 <ul>
-<li>attach key-value &ldquo;links&rdquo; such as timeseries UUIDs or application URIs</li>
+<li>use Literals to store timeseries UUIDs or application URIs</li>
 </ul></li>
+<li><a href="https://github.com/immesys/bw2">BOSSWAVE</a> integration</li>
 <li>store the history of changes to the Brick model of the building
 
 <ul>
@@ -49,12 +51,21 @@
 
 <h3 id="quickstart">Quickstart</h3>
 
+<p>From source:</p>
+
 <pre><code class="language-bash">$ sudo apt install libraptor2-dev graphviz
 $ go get github.com/gtfierro/hod
 $ go install github.com/gtfierro/hod
 $ hod load path/to/building.ttl
-$ hod http
+$ hod server
 NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
+</code></pre>
+
+<p>From Docker:</p>
+
+<pre><code class="language-bash">$ sudo apt install docker.io # if necessary
+$ docker pull gtfierro/hoddb
+$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
 </code></pre>
 
 <h3 id="public-query-server">Public Query Server</h3>
@@ -98,10 +109,6 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 <ul>
 	
 	<li class="toctree-l1">
-		<a class="reference internal" href="/">HodDB</a>
-	</li>
-	
-	<li class="toctree-l1">
 		<a class="reference internal" href="/installation/">Installation</a>
 	</li>
 	
@@ -125,6 +132,10 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 		<a class="reference internal" href="/benchmarks/">Benchmarks</a>
 	</li>
 	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/">HodDB</a>
+	</li>
+	
 </ul>
 
 
@@ -137,7 +148,7 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.17</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.22-DEV</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

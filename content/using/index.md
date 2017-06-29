@@ -6,12 +6,11 @@ weight: 3
 
 - [Loading Data](#loadingdata)
 	- [Loading Brick Files](#loadingbrick)
-	- [Links Files](#linksfile)
-	- [Loading Links Files](#loadinglinks)
 - [CLI Queries](#cliqueries)
 	- [CLI Configuration Options](#cliconfigs)
 - [HTTP API](#httpapi)
 - [HTTP Frontend](#httpfront)
+- [BOSSWAVE API](#bosswaveapi)
 - [Tools](#tools)
 
 <a name="loadingdata"></a>
@@ -68,64 +67,6 @@ See [the examples page](/examples) for a small TTL file sample.
 for namespace conflicts. Thus, at this early stage in HodDB development it is recommended to have a different HodDB instance for each building. Disk space is negligible: the Soda Hall Brick file has 3774 triples in it, and the on-disk representation only uses 1.5 MB.
 
 *Note*: right now, HodDB only supports loading in buildings via the command line. Future versions may allow loading buildings over HTTP.
-
-<a name="linksfile"></a>
-#### Links File
-
-HodDB supports "links" which are simple string key-value pairs that act as pointers to external resources. Brick stores a representation of the structure and relationships for building subsystems, but only stores the edges and nodes in that graph.
-
-In a building operating system, there may be a set of associated resources for each "entity" in the building graph:
-
-- UUID for associated timeseries streams
-- Link to a driver implementation
-- Link to a UI for the entity
-- Link to documentation for the entity
-- etc.
-
-Rather than storing this information using RDF triples which would be verbose and cumbersome, HodDB uses a separate data model for storing such "links".
-
-Links files use the full URIs of the graph entities, so make sure to note the building prefix when creating the links file.
-
-Links files are JSON and follow this structure:
-
-```json
-{
-	// how to add 2 links to an entity
-	"<full uri of building entity>": {
-		"<link name>": "<link value>",
-		"<link name>": "<link value>"
-	},
-	// deleting one link and adding another
-	"<full uri of building entity>": {
-		"<link name>": "",
-		"<link name>": "<link value>"
-	},
-	// deleting all links for a given entity
-	"<full uri of building entity>": {}
-}
-```
-
-For example:
-
-```json
-{
-    "http://buildsys.org/ontologies/building_example#temp_sensor_hvac_zone_R739": {
-        "UUID": "3a038c7c-c7e6-11e6-bfc1-1002b58053c7"
-    }
-}
-```
-
-This associates the given UUID for a timeseries to the temperature sensor for Room 739 in the example building.
-
-<a name="loadinglinks"></a>
-#### Loading Links
-
-In order to load a JSON links file, we use the `hod loadLinks` command:
-
-```bash
-$ hod loadLinks links.json
-NOTICE actions.go:89 Dec 24 14:26:25  ▶ Adding 10 links, Removing 0 links
-```
 
 <a name="cliqueries"></a>
 ### CLI Queries
@@ -273,6 +214,12 @@ The exposed endpoints are:
 
 <a name="httpfront"></a>
 ### HTTP Frontend
+
+There is a prototype HodDB interactive query interface available at the base URI, [http://localhost:47808](http://localhost:47808).
+It has its own set of documentation at [http://localhost:47808/help](http://localhost:47808/help).
+
+<a name="bosswaveapi"></a>
+### BOSSWAVE API
 
 There is a prototype HodDB interactive query interface available at the base URI, [http://localhost:47808](http://localhost:47808).
 It has its own set of documentation at [http://localhost:47808/help](http://localhost:47808/help).

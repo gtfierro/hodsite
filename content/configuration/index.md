@@ -29,27 +29,46 @@ Configuration defaults are as follows; there's usually no reason to change these
 # whether or not to reload the Brick database files
 #ReloadBrick: true
 
+# By default, each query w/n a generation is cached (up to 64 MB)
+# If DisableQueryCache is flipped to true, then this cache is disabled
+# and all queries run directly against the database
+#DisableQueryCache: false
+
+####
+# Interface Enabling
+####
+#
+# Enable HTTP server
+#EnableHTTP: true
+#
+# Enable BOSSWAVE server
+#EnableBOSSWAVE: false
+
 ####
 # configuration for verbosity during operation
 ####
 #
 # Show the namespace prefixes
-#ShowNamespaces: true
+ShowNamespaces: true
 
 # Show the built dependency graph of query terms
-#ShowDependencyGraph: false
+ShowDependencyGraph: false
 
 # Show the set of operations in the query plan
-#ShowQueryPlan: false
+ShowQueryPlan: false
 
 # Show the latencies of creating the query plan
-#ShowQueryPlanLatencies: false
+ShowQueryPlanLatencies: false
 
 # Show the latencies of each operation in the query plan
-#ShowOperationLatencies: false
+ShowOperationLatencies: false
 
 # Show the full latency of the query (and its larger components)
-#ShowQueryLatencies: true
+ShowQueryLatencies: true
+
+# Set log level. In order of increasing verbosity:
+# Debug, Info, Notice, Warning, Error, Critical
+LogLevel: Error
 
 
 ####
@@ -57,21 +76,33 @@ Configuration defaults are as follows; there's usually no reason to change these
 ####
 
 # port to run the server on
-#ServerPort: 47808
+ServerPort: 47808
 
 # Whether or not to serve on IPv6
-#UseIPv6: false
+UseIPv6: false
 
 # Whether or not to serve on localhost. If false, serves on a public interface
-#ListenAddress: 0.0.0.0
+ListenAddress: 0.0.0.0
 
 # Path to the server directory of hod, which contains the necessary HTML files
-#StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
+StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
 
 # If specified, serve the frontend over HTTPS using golang.org/x/crypto/acme/autocert
 # If left blank (default), just serve over HTTP
-# Note: if this is specified, ServerPort MUST be 443
-#TLSHost: ""
+TLSHost: ""
+
+####
+# BOSSWAVE Server Configuration
+####
+
+# BOSSWAVE agent
+BW2_AGENT: $BW2_AGENT
+
+# BOSSWAVE entity
+BW2_DEFAULT_ENTITY: $BW2_DEFAULT_ENTITY
+
+# Base URI
+HodURI: scratch.ns/hod
 
 ####
 # Profiling Information for HTTP Server
@@ -83,11 +114,11 @@ Configuration defaults are as follows; there's usually no reason to change these
 # torch graphs, you will need to keep these both at false
 
 # Enable CPU profile
-#EnableCPUProfile: false
+EnableCPUProfile: false
 
 # Enable MEM profile
-#EnableMEMProfile: false
+EnableMEMProfile: false
 
 # Enable Block profile
-#EnableBlockProfile: false
+EnableBlockProfile: false
 ```

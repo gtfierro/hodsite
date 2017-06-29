@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>https://hoddb.org/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hoddb.org/outline/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hoddb.org/</loc>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://hoddb.org/installation/</loc>
@@ -35,6 +24,59 @@
   
   <url>
     <loc>https://hoddb.org/benchmarks/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/outline/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/benchmarks/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/configuration/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/installation/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/making/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/query/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoddb.org/using/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

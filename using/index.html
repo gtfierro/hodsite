@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.17" />
+	<meta name="generator" content="Hugo 0.22-DEV" />
 	
 	<title>Using HodDB &mdash; HodDB</title>
 	
@@ -32,8 +32,6 @@
 
 <ul>
 <li><a href="#loadingbrick">Loading Brick Files</a></li>
-<li><a href="#linksfile">Links Files</a></li>
-<li><a href="#loadinglinks">Loading Links Files</a></li>
 </ul></li>
 <li><a href="#cliqueries">CLI Queries</a>
 
@@ -42,6 +40,7 @@
 </ul></li>
 <li><a href="#httpapi">HTTP API</a></li>
 <li><a href="#httpfront">HTTP Frontend</a></li>
+<li><a href="#bosswaveapi">BOSSWAVE API</a></li>
 <li><a href="#tools">Tools</a></li>
 </ul>
 
@@ -100,65 +99,6 @@ brick =&gt; http://buildsys.org/ontologies/Brick
 for namespace conflicts. Thus, at this early stage in HodDB development it is recommended to have a different HodDB instance for each building. Disk space is negligible: the Soda Hall Brick file has 3774 triples in it, and the on-disk representation only uses 1.5 MB.</p>
 
 <p><em>Note</em>: right now, HodDB only supports loading in buildings via the command line. Future versions may allow loading buildings over HTTP.</p>
-
-<p><a name="linksfile"></a></p>
-
-<h4 id="links-file">Links File</h4>
-
-<p>HodDB supports &ldquo;links&rdquo; which are simple string key-value pairs that act as pointers to external resources. Brick stores a representation of the structure and relationships for building subsystems, but only stores the edges and nodes in that graph.</p>
-
-<p>In a building operating system, there may be a set of associated resources for each &ldquo;entity&rdquo; in the building graph:</p>
-
-<ul>
-<li>UUID for associated timeseries streams</li>
-<li>Link to a driver implementation</li>
-<li>Link to a UI for the entity</li>
-<li>Link to documentation for the entity</li>
-<li>etc.</li>
-</ul>
-
-<p>Rather than storing this information using RDF triples which would be verbose and cumbersome, HodDB uses a separate data model for storing such &ldquo;links&rdquo;.</p>
-
-<p>Links files use the full URIs of the graph entities, so make sure to note the building prefix when creating the links file.</p>
-
-<p>Links files are JSON and follow this structure:</p>
-
-<pre><code class="language-json">{
-	// how to add 2 links to an entity
-	&quot;&lt;full uri of building entity&gt;&quot;: {
-		&quot;&lt;link name&gt;&quot;: &quot;&lt;link value&gt;&quot;,
-		&quot;&lt;link name&gt;&quot;: &quot;&lt;link value&gt;&quot;
-	},
-	// deleting one link and adding another
-	&quot;&lt;full uri of building entity&gt;&quot;: {
-		&quot;&lt;link name&gt;&quot;: &quot;&quot;,
-		&quot;&lt;link name&gt;&quot;: &quot;&lt;link value&gt;&quot;
-	},
-	// deleting all links for a given entity
-	&quot;&lt;full uri of building entity&gt;&quot;: {}
-}
-</code></pre>
-
-<p>For example:</p>
-
-<pre><code class="language-json">{
-    &quot;http://buildsys.org/ontologies/building_example#temp_sensor_hvac_zone_R739&quot;: {
-        &quot;UUID&quot;: &quot;3a038c7c-c7e6-11e6-bfc1-1002b58053c7&quot;
-    }
-}
-</code></pre>
-
-<p>This associates the given UUID for a timeseries to the temperature sensor for Room 739 in the example building.</p>
-
-<p><a name="loadinglinks"></a></p>
-
-<h4 id="loading-links">Loading Links</h4>
-
-<p>In order to load a JSON links file, we use the <code>hod loadLinks</code> command:</p>
-
-<pre><code class="language-bash">$ hod loadLinks links.json
-NOTICE actions.go:89 Dec 24 14:26:25  ▶ Adding 10 links, Removing 0 links
-</code></pre>
 
 <p><a name="cliqueries"></a></p>
 
@@ -310,6 +250,13 @@ NOTICE server.go:78 Dec 24 17:28:53  ▶ Starting HTTP Server on  localhost:4780
 <p>There is a prototype HodDB interactive query interface available at the base URI, <a href="http://localhost:47808">http://localhost:47808</a>.
 It has its own set of documentation at <a href="http://localhost:47808/help">http://localhost:47808/help</a>.</p>
 
+<p><a name="bosswaveapi"></a></p>
+
+<h3 id="bosswave-api">BOSSWAVE API</h3>
+
+<p>There is a prototype HodDB interactive query interface available at the base URI, <a href="http://localhost:47808">http://localhost:47808</a>.
+It has its own set of documentation at <a href="http://localhost:47808/help">http://localhost:47808/help</a>.</p>
+
 <p><a name="tools"></a></p>
 
 <h3 id="other-tools">Other Tools</h3>
@@ -360,10 +307,6 @@ It has its own set of documentation at <a href="http://localhost:47808/help">htt
 <ul>
 	
 	<li class="toctree-l1">
-		<a class="reference internal" href="/">HodDB</a>
-	</li>
-	
-	<li class="toctree-l1">
 		<a class="reference internal" href="/installation/">Installation</a>
 	</li>
 	
@@ -387,6 +330,10 @@ It has its own set of documentation at <a href="http://localhost:47808/help">htt
 		<a class="reference internal" href="/benchmarks/">Benchmarks</a>
 	</li>
 	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/">HodDB</a>
+	</li>
+	
 </ul>
 
 
@@ -404,7 +351,7 @@ It has its own set of documentation at <a href="http://localhost:47808/help">htt
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.17</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.22-DEV</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

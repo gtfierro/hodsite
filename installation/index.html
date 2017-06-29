@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.17" />
+	<meta name="generator" content="Hugo 0.22-DEV" />
 	
 	<title>Installation &mdash; HodDB</title>
 	
@@ -37,14 +37,15 @@
 
 <h3 id="docker">Docker</h3>
 
-<p>If you have <a href="https://docs.docker.com/engine/installation/">Docker installed</a>, then HodDB can be started by first pulling the latest <code>gtfierro/hod</code> Docker image and then starting it with the appropriate parameters.</p>
+<p>If you have <a href="https://docs.docker.com/engine/installation/">Docker installed</a>, then HodDB can be started by first pulling the latest <code>gtfierro/hoddb</code> Docker image and then starting it with the appropriate parameters.</p>
 
-<pre><code class="language-bash">$ docker pull gtfierro/hod
-$ docker run -d --name hoddb -p47808:47808 gtfierro/hod
+<pre><code class="language-bash">$ docker pull gtfierro/hoddb
+$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
 </code></pre>
 
-<p>This Docker image comes with the <a href="https://raw.githubusercontent.com/gtfierro/hod/master/buildings/berkeley.ttl">Soda Hall Brick file</a> preloaded.
-The HTTP interface will be available at <a href="http://localhost:47808">http://localhost:47808</a>; the exposed port is configurable via the <code>docker run</code> command above.</p>
+<p>The docker container expects <code>hodconfig.yml</code> (configuration file) and <code>building.ttl</code> (Brick model) to be in the <code>/etc/hod</code> directory.</p>
+
+<p>The HTTP interface will be available at <a href="http://localhost:47808">http://localhost:47808</a>; the exposed port is configurable via the <code>docker run</code> command above.</p>
 
 <p>To build your own Docker image, use the template <a href="https://github.com/gtfierro/brick_database_eval/tree/master/hod">provided here</a>, adjusting <code>build.sh</code> and <code>Dockerfile</code> to load the correct <code>.ttl</code> file representing the building.</p>
 
@@ -63,7 +64,8 @@ The HTTP interface will be available at <a href="http://localhost:47808">http://
 
 <p>After unpacking the archive, HodDB can be started via the command line:</p>
 
-<pre><code class="language-bash">$ ./hod 
+<pre><code class="language-bash"># NOTE this output may change slightly
+$ ./hod
 NAME:
    hod - BRICK database and query engine
 
@@ -71,7 +73,7 @@ USAGE:
    hod [global options] command [command options] [arguments...]
 
 VERSION:
-   0.2
+   0.4.3
 
 COMMANDS:
      benchload  Benchmark loading a turtle file
@@ -112,7 +114,8 @@ $ go install github.com/gtfierro/hod
 
 <p>After this, then HodDB can be executed on the command line:</p>
 
-<pre><code class="language-bash">$ hod 
+<pre><code class="language-bash"># NOTE this output may change slightly
+$ hod
 NAME:
    hod - BRICK database and query engine
 
@@ -174,10 +177,6 @@ GLOBAL OPTIONS:
 <ul>
 	
 	<li class="toctree-l1">
-		<a class="reference internal" href="/">HodDB</a>
-	</li>
-	
-	<li class="toctree-l1">
 		<a class="reference internal" href="/installation/">Installation</a>
 	</li>
 	
@@ -201,6 +200,10 @@ GLOBAL OPTIONS:
 		<a class="reference internal" href="/benchmarks/">Benchmarks</a>
 	</li>
 	
+	<li class="toctree-l1">
+		<a class="reference internal" href="/">HodDB</a>
+	</li>
+	
 </ul>
 
 
@@ -218,7 +221,7 @@ GLOBAL OPTIONS:
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.17</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.22-DEV</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

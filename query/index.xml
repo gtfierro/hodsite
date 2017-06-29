@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Query-rsses on HodDB</title>
-    <link>https://hoddb.org/query/index.xml</link>
-    <description>Recent content in Query-rsses on HodDB</description>
+    <title>Queries on HodDB</title>
+    <link>https://hoddb.org/query/</link>
+    <description>Recent content in Queries on HodDB</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://hoddb.org/query/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://hoddb.org/query/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Query Language</title>
@@ -14,26 +16,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hoddb.org/query/</guid>
-      <description>&lt;p&gt;Here we present an overview of the SPARQL-like query language implemented by Hod&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;HodDB Query language:
-
-&lt;ul&gt;
-&lt;li&gt;basics:
-
-&lt;ul&gt;
-&lt;li&gt;prefixes&lt;/li&gt;
-&lt;li&gt;triples&lt;/li&gt;
-&lt;li&gt;path types&lt;/li&gt;
-&lt;li&gt;OR clauses&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;links&lt;/li&gt;
-&lt;li&gt;example queries explained!&lt;/li&gt;
-&lt;li&gt;make sure to have figures&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Here we present an overview of the SPARQL-like query language implemented by Hod
+ HodDB Query language:  basics:  prefixes triples path types OR clauses  links example queries explained! make sure to have figures   </description>
     </item>
     
   </channel>

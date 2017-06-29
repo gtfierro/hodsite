@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Configuration-rsses on HodDB</title>
-    <link>https://hoddb.org/configuration/index.xml</link>
-    <description>Recent content in Configuration-rsses on HodDB</description>
+    <title>Configurations on HodDB</title>
+    <link>https://hoddb.org/configuration/</link>
+    <description>Recent content in Configurations on HodDB</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://hoddb.org/configuration/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://hoddb.org/configuration/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Configuration</title>
@@ -14,92 +16,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hoddb.org/configuration/</guid>
-      <description>&lt;p&gt;HodDB is configured with a YAML file. By default, this file is called &lt;code&gt;hodconfig.yml&lt;/code&gt; and is loaded from the current directory, though this can be changed with the &lt;code&gt;--config/-c&lt;/code&gt; command line option when executing the &lt;code&gt;hod&lt;/code&gt; binary.&lt;/p&gt;
-
-&lt;p&gt;Configuration defaults are as follows; there&amp;rsquo;s usually no reason to change these aside from the network configuration.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;### HodDB Configuration
-# commented out lines are default configuration options
-
-####
-# Location and structure of database
-####
-
-# the location of the database files
-#DBPath: _hoddb
-
-# the path to the TTL file containing Brick relationships
-#BrickFrameTTL: &amp;quot;$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl&amp;quot;
-
-# the path to the TTL file containing Brick classes
-#BrickClassTTL: &amp;quot;$GOPATH/src/github.com/gtfierro/hod/Brick.ttl&amp;quot;
-
-# whether or not to reload the Brick database files
-#ReloadBrick: true
-
-####
-# configuration for verbosity during operation
-####
-#
-# Show the namespace prefixes
-#ShowNamespaces: true
-
-# Show the built dependency graph of query terms
-#ShowDependencyGraph: false
-
-# Show the set of operations in the query plan
-#ShowQueryPlan: false
-
-# Show the latencies of creating the query plan
-#ShowQueryPlanLatencies: false
-
-# Show the latencies of each operation in the query plan
-#ShowOperationLatencies: false
-
-# Show the full latency of the query (and its larger components)
-#ShowQueryLatencies: true
-
-
-####
-# HTTP Server Configuration
-####
-
-# port to run the server on
-#ServerPort: 47808
-
-# Whether or not to serve on IPv6
-#UseIPv6: false
-
-# Whether or not to serve on localhost. If false, serves on a public interface
-#ListenAddress: 0.0.0.0
-
-# Path to the server directory of hod, which contains the necessary HTML files
-#StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
-
-# If specified, serve the frontend over HTTPS using golang.org/x/crypto/acme/autocert
-# If left blank (default), just serve over HTTP
-# Note: if this is specified, ServerPort MUST be 443
-#TLSHost: &amp;quot;&amp;quot;
-
-####
-# Profiling Information for HTTP Server
-####
-# Note that best practices dictate that these be done in a mutually exclusive
-# manner, e.g. do not enable CPU and MEM profiling at the same time because
-# they will end up measuring the effect of measuring
-# Also note that if you are trying to use the net/http/profile trick for generating
-# torch graphs, you will need to keep these both at false
-
-# Enable CPU profile
-#EnableCPUProfile: false
-
-# Enable MEM profile
-#EnableMEMProfile: false
-
-# Enable Block profile
-#EnableBlockProfile: false
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>HodDB is configured with a YAML file. By default, this file is called hodconfig.yml and is loaded from the current directory, though this can be changed with the --config/-c command line option when executing the hod binary.
+Configuration defaults are as follows; there&amp;rsquo;s usually no reason to change these aside from the network configuration.
+### HodDB Configuration # commented out lines are default configuration options #### # Location and structure of database #### # the location of the database files #DBPath: _hoddb # the path to the TTL file containing Brick relationships #BrickFrameTTL: &amp;quot;$GOPATH/src/github.</description>
     </item>
     
   </channel>

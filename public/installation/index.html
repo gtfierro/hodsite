@@ -40,14 +40,14 @@
 <h3 id="docker">Docker</h3>
 
 <p>If you have <a href="https://docs.docker.com/engine/installation/">Docker installed</a>, then HodDB can be started by pulling the <code>gtfierro/hod:latest</code> Docker image and then starting it with the appropriate parameters.
-HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as <code>localpath</code> below):</p>
+HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as <code>configdir</code> below):</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span></code></pre></td>
 <td style=";vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker pull gtfierro/hod:latest
-<span style="color:#008000"># you can change &#39;configdir&#39; to whatever local path
-</span><span style="color:#008000"></span>$ docker run -d --name hod -v configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest</code></pre></td></tr></table>
+<span style="color:#008000"># you can change &#39;configdir&#39; to whatever absolute path
+</span><span style="color:#008000"></span>$ docker run -d --name hod -v <span style="color:#a31515">`</span>pwd<span style="color:#a31515">`</span>/configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest</code></pre></td></tr></table>
 </div>
 </div>
 <p>You should place the following inside the directory that gets mounted to <code>/etc/hod</code></p>

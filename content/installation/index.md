@@ -12,12 +12,12 @@ weight: 1
 ### Docker
 
 If you have [Docker installed](https://docs.docker.com/engine/installation/), then HodDB can be started by pulling the `gtfierro/hod:latest` Docker image and then starting it with the appropriate parameters.
-HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as `localpath` below):
+HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as `configdir` below):
 
 ```bash
 $ docker pull gtfierro/hod:latest
-# you can change 'configdir' to whatever local path
-$ docker run -d --name hod -v configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest
+# you can change 'configdir' to whatever absolute path
+$ docker run -d --name hod -v `pwd`/configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest
 ```
 
 You should place the following inside the directory that gets mounted to `/etc/hod`
@@ -29,6 +29,7 @@ See [the configuration documentation](/configuration) for how to populate these 
 
 
 The HTTP interface will be available at [http://localhost:47808](http://localhost:47808); the exposed port is configurable via the `docker run` command above (change the second `47808`).
+
 
 <a name="binary"></a>
 ### Binary
@@ -139,3 +140,4 @@ GLOBAL OPTIONS:
    --help, -h     show help
    --version, -v  print the version
 ```
+

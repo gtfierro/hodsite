@@ -27,7 +27,9 @@
 						
 	<h1>Configuration</h1>
 	
-	<p>HodDB is configured with a YAML file. By default, this file is called <code>hodconfig.yml</code> and is loaded from the current directory, though this can be changed with the <code>--config/-c</code> command line option when executing the <code>hod</code> binary. All paths below are relative to the location from which hod is executed.</p>
+	
+
+<p>HodDB is configured with a YAML file. By default, this file is called <code>hodconfig.yml</code> and is loaded from the current directory, though this can be changed with the <code>--config/-c</code> command line option when executing the <code>hod</code> binary. All paths below are relative to the location from which hod is executed.</p>
 
 <p>Configuration defaults are as follows; there&rsquo;s usually no reason to change these aside from the list of buildings to load and the network configuration.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -141,6 +143,33 @@ EnableMEMProfile: <span style="color:#00f">false</span>
 
 <span style="color:#008000"># Enable Block profile</span>
 EnableBlockProfile: <span style="color:#00f">false</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="example">Example</h4>
+
+<p>Here is a brief example of how to set up the configuration.</p>
+
+<p>The directory &lsquo;sample&rsquo; has the <code>hodconfig.yaml</code> file above. We create a folder called <code>buildings</code> to store our 3 TTL files representing 3 Brick models. This is indicted to HodDB
+in the <code>Buildings</code> configuration option above.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">7</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tree
+.
+├── buildings
+│   ├── ciee.ttl
+│   ├── sdh.ttl
+│   └── soda.ttl
+└── hodconfig.yaml</code></pre></td></tr></table>
+</div>
+</div>
+<p>We can then execute HodDB against this configuration with</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker run -d --name hod -v <span style="color:#a31515">`</span>pwd<span style="color:#a31515">`</span>/sample:/etc/hod -p 47808:47808 gtfierro/hod:latest</code></pre></td></tr></table>
 </div>
 </div>
 

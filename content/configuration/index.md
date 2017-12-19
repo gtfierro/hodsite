@@ -8,7 +8,6 @@ HodDB is configured with a YAML file. By default, this file is called `hodconfig
 
 Configuration defaults are as follows; there's usually no reason to change these aside from the list of buildings to load and the network configuration.
 
-
 ```yaml
 ### HodDB Configuration
 # commented out lines are default configuration options
@@ -117,4 +116,27 @@ EnableMEMProfile: false
 
 # Enable Block profile
 EnableBlockProfile: false
+```
+
+#### Example
+
+Here is a brief example of how to set up the configuration.
+
+The directory 'sample' has the `hodconfig.yaml` file above. We create a folder called `buildings` to store our 3 TTL files representing 3 Brick models. This is indicted to HodDB
+in the `Buildings` configuration option above.
+
+```bash
+$ tree
+.
+├── buildings
+│   ├── ciee.ttl
+│   ├── sdh.ttl
+│   └── soda.ttl
+└── hodconfig.yaml
+```
+
+We can then execute HodDB against this configuration with
+
+```bash
+$ docker run -d --name hod -v `pwd`/sample:/etc/hod -p 47808:47808 gtfierro/hod:latest
 ```

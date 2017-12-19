@@ -7,19 +7,29 @@ weight: 0
 
 ## A Database for Brick
 
-HodDB is a specialized RDF/SPARQLl triplestore database for [Brick](http://brickschema.org/). 
+HodDB is a specialized RDF database and SPARQL query processor for [Brick](http://brickschema.org/). 
 It stores models of buildings and serves queries on those models.
 
-HodDB has the following goals:
+HodDB has the following features:
 
-* sub-100ms SPARQL queries on Brick graphs 
-* facilitate integration with external services:
-    * use Literals to store timeseries UUIDs or application URIs
+* sub-100ms SPARQL queries on Brick graphsmodels
+* web interface for interacting with Brick models
 * [BOSSWAVE](https://github.com/immesys/bw2) integration
-* store the history of changes to the Brick model of the building
-    * (currently under development)
+* integration with external services:
+    * uses Literals to store timeseries UUIDs or application URIs
+
 
 ### Quickstart
+
+**These will be updated soon!**
+
+From Docker:
+
+```bash
+$ sudo apt install docker.io # if necessary
+$ docker pull gtfierro/hoddb
+$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
+```
 
 From source:
 
@@ -30,14 +40,6 @@ $ go install github.com/gtfierro/hod
 $ hod load path/to/building.ttl
 $ hod server
 NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
-```
-
-From Docker:
-
-```bash
-$ sudo apt install docker.io # if necessary
-$ docker pull gtfierro/hoddb
-$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
 ```
 
 ### Public Query Server

@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.22-DEV" />
+	<meta name="generator" content="Hugo 0.24.1" />
 	
 	<title> HodDB</title>
 	
@@ -29,27 +29,32 @@
 
 <h2 id="a-database-for-brick">A Database for Brick</h2>
 
-<p>HodDB is a specialized RDF/SPARQLl triplestore database for <a href="http://brickschema.org/">Brick</a>.
+<p>HodDB is a specialized RDF database and SPARQL query processor for <a href="http://brickschema.org/">Brick</a>.
 It stores models of buildings and serves queries on those models.</p>
 
-<p>HodDB has the following goals:</p>
+<p>HodDB has the following features:</p>
 
 <ul>
-<li>sub-100ms SPARQL queries on Brick graphs</li>
-<li>facilitate integration with external services:
-
-<ul>
-<li>use Literals to store timeseries UUIDs or application URIs</li>
-</ul></li>
+<li>sub-100ms SPARQL queries on Brick graphsmodels</li>
+<li>web interface for interacting with Brick models</li>
 <li><a href="https://github.com/immesys/bw2">BOSSWAVE</a> integration</li>
-<li>store the history of changes to the Brick model of the building
+<li>integration with external services:
 
 <ul>
-<li>(currently under development)</li>
+<li>uses Literals to store timeseries UUIDs or application URIs</li>
 </ul></li>
 </ul>
 
 <h3 id="quickstart">Quickstart</h3>
+
+<p><strong>These will be updated soon!</strong></p>
+
+<p>From Docker:</p>
+
+<pre><code class="language-bash">$ sudo apt install docker.io # if necessary
+$ docker pull gtfierro/hoddb
+$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
+</code></pre>
 
 <p>From source:</p>
 
@@ -59,13 +64,6 @@ $ go install github.com/gtfierro/hod
 $ hod load path/to/building.ttl
 $ hod server
 NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
-</code></pre>
-
-<p>From Docker:</p>
-
-<pre><code class="language-bash">$ sudo apt install docker.io # if necessary
-$ docker pull gtfierro/hoddb
-$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
 </code></pre>
 
 <h3 id="public-query-server">Public Query Server</h3>
@@ -148,7 +146,7 @@ $ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.22-DEV</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.24.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.22-DEV" />
+	<meta name="generator" content="Hugo 0.24.1" />
 	
 	<title>Installation &mdash; HodDB</title>
 	
@@ -37,19 +37,24 @@
 
 <h3 id="docker">Docker</h3>
 
-<p>If you have <a href="https://docs.docker.com/engine/installation/">Docker installed</a>, then HodDB can be started by first pulling the latest <code>gtfierro/hoddb</code> Docker image and then starting it with the appropriate parameters.</p>
+<p>If you have <a href="https://docs.docker.com/engine/installation/">Docker installed</a>, then HodDB can be started by pulling the <code>gtfierro/hod:latest</code> Docker image and then starting it with the appropriate parameters.
+HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as <code>localpath</code> below):</p>
 
-<pre><code class="language-bash">$ docker pull gtfierro/hoddb
-$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
+<pre><code class="language-bash">$ docker pull gtfierro/hod:latest
+# you can change 'configdir' to whatever local path
+$ docker run -d --name hod -v configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest
 </code></pre>
 
-<p>The docker container expects <code>hodconfig.yml</code> (configuration file) and <code>building.ttl</code> (Brick model) to be in the <code>/etc/hod</code> directory.</p>
+<p>You should place the following inside the directory that gets mounted to <code>/etc/hod</code></p>
 
-<p>The HTTP interface will be available at <a href="http://localhost:47808">http://localhost:47808</a>; the exposed port is configurable via the <code>docker run</code> command above.</p>
+<ul>
+<li><code>hodconfig.yaml</code>: the configuration file for HodDB</li>
+<li>the Brick models (<code>.ttl</code> files) to be loaded into HodDB</li>
+</ul>
 
-<p>To build your own Docker image, use the template <a href="https://github.com/gtfierro/brick_database_eval/tree/master/hod">provided here</a>, adjusting <code>build.sh</code> and <code>Dockerfile</code> to load the correct <code>.ttl</code> file representing the building.</p>
+<p>See <a href="/configuration">the configuration documentation</a> for how to populate these files.</p>
 
-<p>As HodDB matures it will be possible to load buildings over the HTTP interface, but this is not currently supported.</p>
+<p>The HTTP interface will be available at <a href="http://localhost:47808">http://localhost:47808</a>; the exposed port is configurable via the <code>docker run</code> command above (change the second <code>47808</code>).</p>
 
 <p><a name="binary"></a></p>
 
@@ -57,7 +62,7 @@ $ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
 
 <p>To have slightly more control over the installation, a binary and configuration file can be downloaded from <a href="https://github.com/gtfierro/hod/releases/latest">GitHub</a>.</p>
 
-<p>This will require the installation of the <a href="http://librdf.org/raptor/">Raptor RDF Syntax Library</a> and GraphViz, which can be done over <code>apt</code>:</p>
+<p>This will require the installation of the <a href="http://librdf.org/raptor/">Raptor RDF Syntax Library</a> and GraphViz, which can be done using <code>apt</code>:</p>
 
 <pre><code class="language-bash">$ sudo apt install libraptor2-dev graphviz
 </code></pre>
@@ -66,6 +71,14 @@ $ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
 
 <pre><code class="language-bash"># NOTE this output may change slightly
 $ ./hod
+ _    _           _ _____  ____ 
+| |  | |         | |  __ \|  _ \  
+| |__| | ___   __| | |  | | |_) | 
+|  __  |/ _ \ / _` | |  | |  _ &lt;  
+| |  | | (_) | (_| | |__| | |_) | 
+|_|  |_|\___/ \__,_|_____/|____/  
+Commit: 71deeb3   Release: 0.5.2
+
 NAME:
    hod - BRICK database and query engine
 
@@ -73,17 +86,17 @@ USAGE:
    hod [global options] command [command options] [arguments...]
 
 VERSION:
-   0.4.3
+   0.5.2
 
 COMMANDS:
+     cli        Start hoddb from existing database
+     server     Start hoddb server from existing database. Default to HTTP server only, but can do both that and BOSSWAVE
+     query      Query from command line (non-interactive)
      benchload  Benchmark loading a turtle file
      dump       Dump contents of turtle file
      viewclass  PDF visualization of class structure of file
      dumpgraph  PDF visualization of TTL file. WARNING this can get really big
-     load       Load dataset into hoddb
-     loadLinks  Load link json file into hoddb
-     cli        Start hoddb from existing database
-     http       Start hoddb HTTP server from existing database
+     ttlstat    Outputs statistics on the provided TTL file. Loads all file provided as arguments
      help, h    Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
@@ -108,7 +121,8 @@ GLOBAL OPTIONS:
 
 <p>To install/update HodDB, you need <a href="https://golang.org/doc/install">Go</a> installed and your <code>$GOPATH</code> and <code>$GOROOT</code> environment variables configured (how to set these is discussed in the Go installation guide), as well as <code>$GOPATH/bin</code> added to your <code>$PATH</code>.</p>
 
-<pre><code class="language-bash">$ go get -u github.com/gtfierro/hod
+<pre><code class="language-bash">$ sudo apt install libraptor2-dev graphviz
+$ go get -u github.com/gtfierro/hod
 $ go install github.com/gtfierro/hod
 </code></pre>
 
@@ -116,6 +130,14 @@ $ go install github.com/gtfierro/hod
 
 <pre><code class="language-bash"># NOTE this output may change slightly
 $ hod
+ _    _           _ _____  ____ 
+| |  | |         | |  __ \|  _ \  
+| |__| | ___   __| | |  | | |_) | 
+|  __  |/ _ \ / _` | |  | |  _ &lt;  
+| |  | | (_) | (_| | |__| | |_) | 
+|_|  |_|\___/ \__,_|_____/|____/  
+Commit: 71deeb3   Release: 0.5.2
+
 NAME:
    hod - BRICK database and query engine
 
@@ -123,17 +145,17 @@ USAGE:
    hod [global options] command [command options] [arguments...]
 
 VERSION:
-   0.2
+   0.5.2
 
 COMMANDS:
+     cli        Start hoddb from existing database
+     server     Start hoddb server from existing database. Default to HTTP server only, but can do both that and BOSSWAVE
+     query      Query from command line (non-interactive)
      benchload  Benchmark loading a turtle file
      dump       Dump contents of turtle file
      viewclass  PDF visualization of class structure of file
      dumpgraph  PDF visualization of TTL file. WARNING this can get really big
-     load       Load dataset into hoddb
-     loadLinks  Load link json file into hoddb
-     cli        Start hoddb from existing database
-     http       Start hoddb HTTP server from existing database
+     ttlstat    Outputs statistics on the provided TTL file. Loads all file provided as arguments
      help, h    Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
@@ -221,7 +243,7 @@ GLOBAL OPTIONS:
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.22-DEV</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.24.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

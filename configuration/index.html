@@ -25,9 +25,9 @@
 						
 	<h1>Configuration</h1>
 	
-	<p>HodDB is configured with a YAML file. By default, this file is called <code>hodconfig.yml</code> and is loaded from the current directory, though this can be changed with the <code>--config/-c</code> command line option when executing the <code>hod</code> binary.</p>
+	<p>HodDB is configured with a YAML file. By default, this file is called <code>hodconfig.yml</code> and is loaded from the current directory, though this can be changed with the <code>--config/-c</code> command line option when executing the <code>hod</code> binary. All paths below are relative to the location from which hod is executed.</p>
 
-<p>Configuration defaults are as follows; there&rsquo;s usually no reason to change these aside from the network configuration.</p>
+<p>Configuration defaults are as follows; there&rsquo;s usually no reason to change these aside from the list of buildings to load and the network configuration.</p>
 
 <pre><code class="language-yaml">### HodDB Configuration
 # commented out lines are default configuration options
@@ -36,59 +36,29 @@
 # Location and structure of database
 ####
 
+Buildings:
+    ciee: buildings/ciee.ttl
+    sdh: buildings/sdh.ttl
+    soda: buildings/soda.ttl
+
 # the location of the database files
-#DBPath: _hoddb
+DBPath: _hoddb
 
 # the path to the TTL file containing Brick relationships
-#BrickFrameTTL: &quot;$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl&quot;
+BrickFrameTTL: &quot;$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl&quot;
 
 # the path to the TTL file containing Brick classes
-#BrickClassTTL: &quot;$GOPATH/src/github.com/gtfierro/hod/Brick.ttl&quot;
-
-# whether or not to reload the Brick database files
-#ReloadBrick: true
-
-# By default, each query w/n a generation is cached (up to 64 MB)
-# If DisableQueryCache is flipped to true, then this cache is disabled
-# and all queries run directly against the database
-#DisableQueryCache: false
+BrickClassTTL: &quot;$GOPATH/src/github.com/gtfierro/hod/Brick.ttl&quot;
 
 ####
 # Interface Enabling
 ####
 #
 # Enable HTTP server
-#EnableHTTP: true
+EnableHTTP: true
 #
 # Enable BOSSWAVE server
-#EnableBOSSWAVE: false
-
-####
-# configuration for verbosity during operation
-####
-#
-# Show the namespace prefixes
-ShowNamespaces: true
-
-# Show the built dependency graph of query terms
-ShowDependencyGraph: false
-
-# Show the set of operations in the query plan
-ShowQueryPlan: false
-
-# Show the latencies of creating the query plan
-ShowQueryPlanLatencies: false
-
-# Show the latencies of each operation in the query plan
-ShowOperationLatencies: false
-
-# Show the full latency of the query (and its larger components)
-ShowQueryLatencies: true
-
-# Set log level. In order of increasing verbosity:
-# Debug, Info, Notice, Warning, Error, Critical
-LogLevel: Error
-
+EnableBOSSWAVE: false
 
 ####
 # HTTP Server Configuration
@@ -122,6 +92,32 @@ BW2_DEFAULT_ENTITY: $BW2_DEFAULT_ENTITY
 
 # Base URI
 HodURI: scratch.ns/hod
+
+####
+# configuration for verbosity during operation
+####
+#
+# Show the namespace prefixes
+ShowNamespaces: false
+
+# Show the built dependency graph of query terms
+ShowDependencyGraph: false
+
+# Show the set of operations in the query plan
+ShowQueryPlan: false
+
+# Show the latencies of creating the query plan
+ShowQueryPlanLatencies: false
+
+# Show the latencies of each operation in the query plan
+ShowOperationLatencies: false
+
+# Show the full latency of the query (and its larger components)
+ShowQueryLatencies: false
+
+# Set log level. In order of increasing verbosity:
+# Debug, Info, Notice, Warning, Error, Critical
+LogLevel: Error
 
 ####
 # Profiling Information for HTTP Server

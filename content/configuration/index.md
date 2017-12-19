@@ -140,3 +140,17 @@ We can then execute HodDB against this configuration with
 ```bash
 $ docker run -d --name hod -v `pwd`/sample:/etc/hod -p 47808:47808 gtfierro/hod:latest
 ```
+
+You can then stop/start HodDB using
+
+```bash
+$ docker stop hod
+$ docker start hod
+```
+
+and remove its data with
+
+```bash
+$ docker kill hod
+$ docker rm hod
+```

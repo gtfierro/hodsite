@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.24.1" />
+	<meta name="generator" content="Hugo 0.31.1" />
 	
 	<title>Using HodDB &mdash; HodDB</title>
 	
@@ -15,7 +15,9 @@
 	
 
 	<link rel="shortcut icon" href="https://hoddb.org/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="https://hoddb.org/css/override.css" type="text/css" />
 </head>
+
 
 	<body role="document">
 		<div class="document">
@@ -61,8 +63,11 @@
 <h4 id="loading-brick-files">Loading Brick Files</h4>
 
 <p>In order to load a <code>.ttl</code> file, we use the <code>hod load</code> command:</p>
-
-<pre><code class="language-bash">$ hod load buildings/berkeley.ttl
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">22</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">23</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">24</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">25</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hod load buildings/berkeley.ttl
 INFO actions.go:50 Dec 24 13:49:30  ▶ Loaded 3774 triples, 8 namespaces in 128.412302ms (29390/sec)
 INFO db.go:454 Dec 24 13:49:31  ▶ Built lookup tables in 163.014409ms
 INFO db.go:460 Dec 24 13:49:31  ▶ Built graph in 421.345208ms
@@ -86,9 +91,9 @@ xsd =&gt; http://www.w3.org/2001/XMLSchema
 owl =&gt; http://www.w3.org/2002/07/owl
 rdf =&gt; http://www.w3.org/1999/02/22-rdf-syntax-ns
 rdfs =&gt; http://www.w3.org/2000/01/rdf-schema
-brick =&gt; http://buildsys.org/ontologies/Brick
-</code></pre>
-
+brick =&gt; http://buildsys.org/ontologies/Brick</code></pre></td></tr></table>
+</div>
+</div>
 <p>The Brick <code>ttl</code> files are loaded implicitly when HodDB is invoked, using the paths provided in the configuration file.</p>
 
 <p>Loading is idempotent, meaning the same <code>.ttl</code> file can be loaded many times without affecting the performance or correctness of the database.</p>
@@ -228,11 +233,14 @@ NOTICE api.go:60 Dec 24 15:49:04  ▶ Full Query took 28.793678ms
 <h3 id="http-api">HTTP API</h3>
 
 <p>The HodDB HTTP server can be started on the command line via:</p>
-
-<pre><code class="language-bash">hod http
-NOTICE server.go:78 Dec 24 17:28:53  ▶ Starting HTTP Server on  localhost:47808
-</code></pre>
-
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hod http
+NOTICE server.go:78 Dec 24 17:28:53  ▶ Starting HTTP Server on  localhost:47808</code></pre></td></tr></table>
+</div>
+</div>
 <p>The served port can be configured using the <code>ServerPort</code> config option. IPv6 and public/localhost serving are configured via the <code>UseIPv6</code> and <code>Localhost</code> fields respectively.</p>
 
 <p>The exposed endpoints are:</p>
@@ -351,7 +359,7 @@ It has its own set of documentation at <a href="http://localhost:47808/help">htt
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.24.1</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.31.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

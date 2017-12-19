@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.24.1" />
+	<meta name="generator" content="Hugo 0.31.1" />
 	
 	<title>Installation &mdash; HodDB</title>
 	
@@ -15,7 +15,9 @@
 	
 
 	<link rel="shortcut icon" href="https://hoddb.org/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="https://hoddb.org/css/override.css" type="text/css" />
 </head>
+
 
 	<body role="document">
 		<div class="document">
@@ -39,12 +41,15 @@
 
 <p>If you have <a href="https://docs.docker.com/engine/installation/">Docker installed</a>, then HodDB can be started by pulling the <code>gtfierro/hod:latest</code> Docker image and then starting it with the appropriate parameters.
 HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as <code>localpath</code> below):</p>
-
-<pre><code class="language-bash">$ docker pull gtfierro/hod:latest
-# you can change 'configdir' to whatever local path
-$ docker run -d --name hod -v configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest
-</code></pre>
-
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker pull gtfierro/hod:latest
+<span style="color:#008000"># you can change &#39;configdir&#39; to whatever local path
+</span><span style="color:#008000"></span>$ docker run -d --name hod -v configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest</code></pre></td></tr></table>
+</div>
+</div>
 <p>You should place the following inside the directory that gets mounted to <code>/etc/hod</code></p>
 
 <ul>
@@ -63,20 +68,26 @@ $ docker run -d --name hod -v configdir:/etc/hod -p 47808:47808 gtfierro/hod:lat
 <p>To have slightly more control over the installation, a binary and configuration file can be downloaded from <a href="https://github.com/gtfierro/hod/releases/latest">GitHub</a>.</p>
 
 <p>This will require the installation of the <a href="http://librdf.org/raptor/">Raptor RDF Syntax Library</a> and GraphViz, which can be done using <code>apt</code>:</p>
-
-<pre><code class="language-bash">$ sudo apt install libraptor2-dev graphviz
-</code></pre>
-
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install libraptor2-dev graphviz</code></pre></td></tr></table>
+</div>
+</div>
 <p>After unpacking the archive, HodDB can be started via the command line:</p>
-
-<pre><code class="language-bash"># NOTE this output may change slightly
-$ ./hod
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">22</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">23</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">24</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">25</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">26</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">27</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">28</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">29</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">30</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">31</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">32</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">33</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000"># NOTE this output may change slightly
+</span><span style="color:#008000"></span>$ ./hod
  _    _           _ _____  ____ 
-| |  | |         | |  __ \|  _ \  
+| |  | |         | |  __ <span style="color:#a31515">\|</span>  _ <span style="color:#a31515">\ </span> 
 | |__| | ___   __| | |  | | |_) | 
-|  __  |/ _ \ / _` | |  | |  _ &lt;  
+|  __  |/ _ <span style="color:#a31515">\ </span>/ _<span style="color:#a31515">`</span> | |  | |  _ &lt;  
 | |  | | (_) | (_| | |__| | |_) | 
-|_|  |_|\___/ \__,_|_____/|____/  
+|_|  |_|<span style="color:#a31515">\_</span>__/ <span style="color:#a31515">\_</span>_,_|_____/|____/  
 Commit: 71deeb3   Release: 0.5.2
 
 NAME:
@@ -90,20 +101,20 @@ VERSION:
 
 COMMANDS:
      cli        Start hoddb from existing database
-     server     Start hoddb server from existing database. Default to HTTP server only, but can do both that and BOSSWAVE
+     server     Start hoddb server from existing database. Default to HTTP server only, but can <span style="color:#00f">do</span> both that and BOSSWAVE
      query      Query from command line (non-interactive)
      benchload  Benchmark loading a turtle file
      dump       Dump contents of turtle file
      viewclass  PDF visualization of class structure of file
      dumpgraph  PDF visualization of TTL file. WARNING this can get really big
      ttlstat    Outputs statistics on the provided TTL file. Loads all file provided as arguments
-     help, h    Shows a list of commands or help for one command
+     help, h    Shows a list of commands or help <span style="color:#00f">for</span> one command
 
 GLOBAL OPTIONS:
    --help, -h     show help
-   --version, -v  print the version
-</code></pre>
-
+   --version, -v  print the version</code></pre></td></tr></table>
+</div>
+</div>
 <p>You may see an error print out looking something like</p>
 
 <pre><code>./hod: /usr/local/lib/libraptor2.so.0: no version information available (required by ./hod)
@@ -120,22 +131,28 @@ GLOBAL OPTIONS:
 <p>HodDB can also be installed from source. This method is good for developing HodDB, or alternatively staying up to date with the &ldquo;bleeding edge&rdquo;, which is probably only good if you need the latest fixes and can&rsquo;t wait for an official release.</p>
 
 <p>To install/update HodDB, you need <a href="https://golang.org/doc/install">Go</a> installed and your <code>$GOPATH</code> and <code>$GOROOT</code> environment variables configured (how to set these is discussed in the Go installation guide), as well as <code>$GOPATH/bin</code> added to your <code>$PATH</code>.</p>
-
-<pre><code class="language-bash">$ sudo apt install libraptor2-dev graphviz
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install libraptor2-dev graphviz
 $ go get -u github.com/gtfierro/hod
-$ go install github.com/gtfierro/hod
-</code></pre>
-
+$ go install github.com/gtfierro/hod</code></pre></td></tr></table>
+</div>
+</div>
 <p>After this, then HodDB can be executed on the command line:</p>
-
-<pre><code class="language-bash"># NOTE this output may change slightly
-$ hod
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">22</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">23</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">24</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">25</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">26</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">27</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">28</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">29</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">30</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">31</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">32</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">33</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000"># NOTE this output may change slightly
+</span><span style="color:#008000"></span>$ hod
  _    _           _ _____  ____ 
-| |  | |         | |  __ \|  _ \  
+| |  | |         | |  __ <span style="color:#a31515">\|</span>  _ <span style="color:#a31515">\ </span> 
 | |__| | ___   __| | |  | | |_) | 
-|  __  |/ _ \ / _` | |  | |  _ &lt;  
+|  __  |/ _ <span style="color:#a31515">\ </span>/ _<span style="color:#a31515">`</span> | |  | |  _ &lt;  
 | |  | | (_) | (_| | |__| | |_) | 
-|_|  |_|\___/ \__,_|_____/|____/  
+|_|  |_|<span style="color:#a31515">\_</span>__/ <span style="color:#a31515">\_</span>_,_|_____/|____/  
 Commit: 71deeb3   Release: 0.5.2
 
 NAME:
@@ -149,20 +166,20 @@ VERSION:
 
 COMMANDS:
      cli        Start hoddb from existing database
-     server     Start hoddb server from existing database. Default to HTTP server only, but can do both that and BOSSWAVE
+     server     Start hoddb server from existing database. Default to HTTP server only, but can <span style="color:#00f">do</span> both that and BOSSWAVE
      query      Query from command line (non-interactive)
      benchload  Benchmark loading a turtle file
      dump       Dump contents of turtle file
      viewclass  PDF visualization of class structure of file
      dumpgraph  PDF visualization of TTL file. WARNING this can get really big
      ttlstat    Outputs statistics on the provided TTL file. Loads all file provided as arguments
-     help, h    Shows a list of commands or help for one command
+     help, h    Shows a list of commands or help <span style="color:#00f">for</span> one command
 
 GLOBAL OPTIONS:
    --help, -h     show help
-   --version, -v  print the version
-</code></pre>
-
+   --version, -v  print the version</code></pre></td></tr></table>
+</div>
+</div>
 
 
 						
@@ -243,7 +260,7 @@ GLOBAL OPTIONS:
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.24.1</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.31.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

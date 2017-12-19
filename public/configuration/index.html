@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.24.1" />
+	<meta name="generator" content="Hugo 0.31.1" />
 	
 	<title>Configuration &mdash; HodDB</title>
 	
@@ -15,7 +15,9 @@
 	
 
 	<link rel="shortcut icon" href="https://hoddb.org/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="https://hoddb.org/css/override.css" type="text/css" />
 </head>
+
 
 	<body role="document">
 		<div class="document">
@@ -28,116 +30,119 @@
 	<p>HodDB is configured with a YAML file. By default, this file is called <code>hodconfig.yml</code> and is loaded from the current directory, though this can be changed with the <code>--config/-c</code> command line option when executing the <code>hod</code> binary. All paths below are relative to the location from which hod is executed.</p>
 
 <p>Configuration defaults are as follows; there&rsquo;s usually no reason to change these aside from the list of buildings to load and the network configuration.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 22</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 23</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 24</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 25</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 26</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 27</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 28</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 29</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 30</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 31</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 32</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 33</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 34</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 35</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 36</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 37</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 38</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 39</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 40</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 41</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 42</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 43</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 44</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 45</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 46</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 47</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 48</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 49</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 50</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 51</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 52</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 53</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 54</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 55</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 56</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 57</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 58</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 59</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 60</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 61</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 62</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 63</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 64</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 65</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 66</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 67</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 68</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 69</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 70</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 71</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 72</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 73</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 74</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 75</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 76</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 77</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 78</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 79</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 80</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 81</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 82</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 83</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 84</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 85</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 86</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 87</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 88</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 89</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 90</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 91</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 92</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 93</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 94</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 95</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 96</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 97</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 98</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 99</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">100</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">101</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">102</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">103</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">104</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">105</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">106</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">107</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#008000">### HodDB Configuration</span>
+<span style="color:#008000"># commented out lines are default configuration options</span>
 
-<pre><code class="language-yaml">### HodDB Configuration
-# commented out lines are default configuration options
-
-####
-# Location and structure of database
-####
+<span style="color:#008000">####</span>
+<span style="color:#008000"># Location and structure of database</span>
+<span style="color:#008000">####</span>
 
 Buildings:
     ciee: buildings/ciee.ttl
     sdh: buildings/sdh.ttl
     soda: buildings/soda.ttl
 
-# the location of the database files
+<span style="color:#008000"># the location of the database files</span>
 DBPath: _hoddb
 
-# the path to the TTL file containing Brick relationships
-BrickFrameTTL: &quot;$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl&quot;
+<span style="color:#008000"># the path to the TTL file containing Brick relationships</span>
+BrickFrameTTL: <span style="color:#a31515">&#34;$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl&#34;</span>
 
-# the path to the TTL file containing Brick classes
-BrickClassTTL: &quot;$GOPATH/src/github.com/gtfierro/hod/Brick.ttl&quot;
+<span style="color:#008000"># the path to the TTL file containing Brick classes</span>
+BrickClassTTL: <span style="color:#a31515">&#34;$GOPATH/src/github.com/gtfierro/hod/Brick.ttl&#34;</span>
 
-####
-# Interface Enabling
-####
-#
-# Enable HTTP server
-EnableHTTP: true
-#
-# Enable BOSSWAVE server
-EnableBOSSWAVE: false
+<span style="color:#008000">####</span>
+<span style="color:#008000"># Interface Enabling</span>
+<span style="color:#008000">####</span>
+<span style="color:#008000">#</span>
+<span style="color:#008000"># Enable HTTP server</span>
+EnableHTTP: <span style="color:#00f">true</span>
+<span style="color:#008000">#</span>
+<span style="color:#008000"># Enable BOSSWAVE server</span>
+EnableBOSSWAVE: <span style="color:#00f">false</span>
 
-####
-# HTTP Server Configuration
-####
+<span style="color:#008000">####</span>
+<span style="color:#008000"># HTTP Server Configuration</span>
+<span style="color:#008000">####</span>
 
-# port to run the server on
+<span style="color:#008000"># port to run the server on</span>
 ServerPort: 47808
 
-# Whether or not to serve on IPv6
-UseIPv6: false
+<span style="color:#008000"># Whether or not to serve on IPv6</span>
+UseIPv6: <span style="color:#00f">false</span>
 
-# Whether or not to serve on localhost. If false, serves on a public interface
+<span style="color:#008000"># Whether or not to serve on localhost. If false, serves on a public interface</span>
 ListenAddress: 0.0.0.0
 
-# Path to the server directory of hod, which contains the necessary HTML files
+<span style="color:#008000"># Path to the server directory of hod, which contains the necessary HTML files</span>
 StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
 
-# If specified, serve the frontend over HTTPS using golang.org/x/crypto/acme/autocert
-# If left blank (default), just serve over HTTP
-TLSHost: &quot;&quot;
+<span style="color:#008000"># If specified, serve the frontend over HTTPS using golang.org/x/crypto/acme/autocert</span>
+<span style="color:#008000"># If left blank (default), just serve over HTTP</span>
+TLSHost: <span style="color:#a31515">&#34;&#34;</span>
 
-####
-# BOSSWAVE Server Configuration
-####
+<span style="color:#008000">####</span>
+<span style="color:#008000"># BOSSWAVE Server Configuration</span>
+<span style="color:#008000">####</span>
 
-# BOSSWAVE agent
+<span style="color:#008000"># BOSSWAVE agent</span>
 BW2_AGENT: $BW2_AGENT
 
-# BOSSWAVE entity
+<span style="color:#008000"># BOSSWAVE entity</span>
 BW2_DEFAULT_ENTITY: $BW2_DEFAULT_ENTITY
 
-# Base URI
+<span style="color:#008000"># Base URI</span>
 HodURI: scratch.ns/hod
 
-####
-# configuration for verbosity during operation
-####
-#
-# Show the namespace prefixes
-ShowNamespaces: false
+<span style="color:#008000">####</span>
+<span style="color:#008000"># configuration for verbosity during operation</span>
+<span style="color:#008000">####</span>
+<span style="color:#008000">#</span>
+<span style="color:#008000"># Show the namespace prefixes</span>
+ShowNamespaces: <span style="color:#00f">false</span>
 
-# Show the built dependency graph of query terms
-ShowDependencyGraph: false
+<span style="color:#008000"># Show the built dependency graph of query terms</span>
+ShowDependencyGraph: <span style="color:#00f">false</span>
 
-# Show the set of operations in the query plan
-ShowQueryPlan: false
+<span style="color:#008000"># Show the set of operations in the query plan</span>
+ShowQueryPlan: <span style="color:#00f">false</span>
 
-# Show the latencies of creating the query plan
-ShowQueryPlanLatencies: false
+<span style="color:#008000"># Show the latencies of creating the query plan</span>
+ShowQueryPlanLatencies: <span style="color:#00f">false</span>
 
-# Show the latencies of each operation in the query plan
-ShowOperationLatencies: false
+<span style="color:#008000"># Show the latencies of each operation in the query plan</span>
+ShowOperationLatencies: <span style="color:#00f">false</span>
 
-# Show the full latency of the query (and its larger components)
-ShowQueryLatencies: false
+<span style="color:#008000"># Show the full latency of the query (and its larger components)</span>
+ShowQueryLatencies: <span style="color:#00f">false</span>
 
-# Set log level. In order of increasing verbosity:
-# Debug, Info, Notice, Warning, Error, Critical
+<span style="color:#008000"># Set log level. In order of increasing verbosity:</span>
+<span style="color:#008000"># Debug, Info, Notice, Warning, Error, Critical</span>
 LogLevel: Error
 
-####
-# Profiling Information for HTTP Server
-####
-# Note that best practices dictate that these be done in a mutually exclusive
-# manner, e.g. do not enable CPU and MEM profiling at the same time because
-# they will end up measuring the effect of measuring
-# Also note that if you are trying to use the net/http/profile trick for generating
-# torch graphs, you will need to keep these both at false
+<span style="color:#008000">####</span>
+<span style="color:#008000"># Profiling Information for HTTP Server</span>
+<span style="color:#008000">####</span>
+<span style="color:#008000"># Note that best practices dictate that these be done in a mutually exclusive</span>
+<span style="color:#008000"># manner, e.g. do not enable CPU and MEM profiling at the same time because</span>
+<span style="color:#008000"># they will end up measuring the effect of measuring</span>
+<span style="color:#008000"># Also note that if you are trying to use the net/http/profile trick for generating</span>
+<span style="color:#008000"># torch graphs, you will need to keep these both at false</span>
 
-# Enable CPU profile
-EnableCPUProfile: false
+<span style="color:#008000"># Enable CPU profile</span>
+EnableCPUProfile: <span style="color:#00f">false</span>
 
-# Enable MEM profile
-EnableMEMProfile: false
+<span style="color:#008000"># Enable MEM profile</span>
+EnableMEMProfile: <span style="color:#00f">false</span>
 
-# Enable Block profile
-EnableBlockProfile: false
-</code></pre>
-
+<span style="color:#008000"># Enable Block profile</span>
+EnableBlockProfile: <span style="color:#00f">false</span></code></pre></td></tr></table>
+</div>
+</div>
 
 
 						
@@ -218,7 +223,7 @@ EnableBlockProfile: false
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.24.1</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.31.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

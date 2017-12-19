@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.24.1" />
+	<meta name="generator" content="Hugo 0.31.1" />
 	
 	<title>Benchmarks &mdash; HodDB</title>
 	
@@ -15,7 +15,9 @@
 	
 
 	<link rel="shortcut icon" href="https://hoddb.org/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="https://hoddb.org/css/override.css" type="text/css" />
 </head>
+
 
 	<body role="document">
 		<div class="document">
@@ -57,13 +59,16 @@ Just run the Jupyter notebook and make sure Docker is installed.</p>
 </ul>
 
 <h3 id="query-1">Query 1</h3>
-
-<pre><code class="language-sparql">SELECT ?vav
-WHERE {
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">4</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#00f">SELECT</span> ?vav
+<span style="color:#00f">WHERE</span> {
     ?vav rdf:type brick:VAV .
-}
-</code></pre>
-
+}</code></pre></td></tr></table>
+</div>
+</div>
 <table>
 <thead>
 <tr>
@@ -101,9 +106,12 @@ WHERE {
 </table>
 
 <h3 id="query-2">Query 2</h3>
-
-<pre><code class="language-sparql">SELECT DISTINCT ?sensor ?room
-WHERE {
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">15</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#00f">SELECT</span> <span style="color:#00f">DISTINCT</span> ?sensor ?room
+<span style="color:#00f">WHERE</span> {
 
     ?sensor rdf:type/rdfs:subClassOf* brick:Zone_Temperature_Sensor .
     ?room rdf:type brick:Room .
@@ -114,11 +122,11 @@ WHERE {
     ?zone bf:hasPart ?room .
 
     {?sensor bf:isPointOf ?vav }
-    UNION
+    <span style="color:#00f">UNION</span>
     {?sensor bf:isPointOf ?room }
-}
-</code></pre>
-
+}</code></pre></td></tr></table>
+</div>
+</div>
 <table>
 <thead>
 <tr>
@@ -156,19 +164,22 @@ WHERE {
 </table>
 
 <h3 id="query-3">Query 3</h3>
-
-<pre><code class="language-sparql">SELECT ?vlv_cmd ?vav
-WHERE {
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#00f">SELECT</span> ?vlv_cmd ?vav
+<span style="color:#00f">WHERE</span> {
     {
       { ?vlv_cmd rdf:type brick:Reheat_Valve_Command }
-      UNION
+      <span style="color:#00f">UNION</span>
       { ?vlv_cmd rdf:type brick:Cooling_Valve_Command }
     }
     ?vav rdf:type brick:VAV .
     ?vav bf:hasPoint+ ?vlv_cmd .
-}
-</code></pre>
-
+}</code></pre></td></tr></table>
+</div>
+</div>
 <table>
 <thead>
 <tr>
@@ -201,18 +212,21 @@ WHERE {
 </table>
 
 <h3 id="query-4">Query 4</h3>
-
-<pre><code class="language-sparql">SELECT ?floor ?room ?zone
-WHERE {
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">9</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#00f">SELECT</span> ?floor ?room ?zone
+<span style="color:#00f">WHERE</span> {
     ?floor rdf:type brick:Floor .
     ?room rdf:type brick:Room .
     ?zone rdf:type brick:HVAC_Zone .
 
     ?room bf:isPartOf+ ?floor .
     ?room bf:isPartOf+ ?zone .
-}
-</code></pre>
-
+}</code></pre></td></tr></table>
+</div>
+</div>
 <table>
 <thead>
 <tr>
@@ -324,7 +338,7 @@ WHERE {
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.24.1</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.31.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

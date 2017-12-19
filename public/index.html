@@ -5,9 +5,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.24.1" />
+	<meta name="generator" content="Hugo 0.31.1" />
 	
-	<title>HodDB &mdash; HodDB</title>
+	<title> HodDB</title>
 	
 	<link rel="stylesheet" href="https://hoddb.org/css/alabaster.css" type="text/css" />
 	<link rel="stylesheet" href="https://hoddb.org/css/highlight.css" type="text/css" />
@@ -15,7 +15,9 @@
 	
 
 	<link rel="shortcut icon" href="https://hoddb.org/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="https://hoddb.org/css/override.css" type="text/css" />
 </head>
+
 
 	<body role="document">
 		<div class="document">
@@ -23,9 +25,9 @@
 				<div class="bodywrapper">
 					<div class="body" role="main">
 						
-	<h1>HodDB</h1>
 	
-	
+		<h1>HodDB</h1>
+		
 
 <h2 id="a-database-for-brick">A Database for Brick</h2>
 
@@ -50,26 +52,33 @@ It stores models of buildings and serves queries on those models.</p>
 <p><strong>These will be updated soon!</strong></p>
 
 <p>From Docker:</p>
-
-<pre><code class="language-bash">$ sudo apt install docker.io # if necessary
-$ docker pull gtfierro/hoddb
-$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
-</code></pre>
-
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install docker.io <span style="color:#008000"># if necessary
+</span><span style="color:#008000"></span>$ docker pull gtfierro/hoddb
+$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb</code></pre></td></tr></table>
+</div>
+</div>
 <p>From source:</p>
-
-<pre><code class="language-bash">$ sudo apt install libraptor2-dev graphviz
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">6</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install libraptor2-dev graphviz
 $ go get github.com/gtfierro/hod
 $ go install github.com/gtfierro/hod
 $ hod load path/to/building.ttl
 $ hod server
-NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
-</code></pre>
-
+NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="public-query-server">Public Query Server</h3>
 
 <p>Available at <a href="https://query.hoddb.org/">https://query.hoddb.org/</a></p>
 
+	
 
 
 						
@@ -136,12 +145,7 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 </ul>
 
 
-		<h3>Related Topics</h3>
-<ul>
-  <li><a href="https://hoddb.org/">Documentation overview</a><ul>
-  
-  
-</ul>
+		
 
 	</div>
 </div>
@@ -150,7 +154,7 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 			<div class="footer">
 	&copy; 2017 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.24.1</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.31.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

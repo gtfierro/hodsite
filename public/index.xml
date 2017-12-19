@@ -18,7 +18,7 @@
       <guid>https://hoddb.org/installation/</guid>
       <description>Docker Binary Source  
 Docker If you have Docker installed, then HodDB can be started by pulling the gtfierro/hod:latest Docker image and then starting it with the appropriate parameters. HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as localpath below):
-$ docker pull gtfierro/hod:latest # you can change &#39;configdir&#39; to whatever local path $ docker run -d --name hod -v configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest  You should place the following inside the directory that gets mounted to /etc/hod</description>
+123 $ docker pull gtfierro/hod:latest # you can change &amp;#39;configdir&amp;#39; to whatever local path $ docker run -d --name hod -v configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest   You should place the following inside the directory that gets mounted to /etc/hod</description>
     </item>
     
     <item>
@@ -72,7 +72,7 @@ Data Model Brick can be thought of as a vocabulary for describing the things in 
 All code can be found at https://github.com/gtfierro/brick_database_eval. Just run the Jupyter notebook and make sure Docker is installed.
 Databases evaluated here:
  Jena/Fuseki alegrograph rdf3x rdflib hoddb  Notes:
- Jena/Fuseki only completed in a reasonable time on the first, trivial, query RDF3X is consistently the fastest, but has the following issues:  cannot use underscores in node/edge names cannot use * or + operators on predicates cannot use UNION does not support loading multiple graphs   Query 1 SELECT ?</description>
+ Jena/Fuseki only completed in a reasonable time on the first, trivial, query RDF3X is consistently the fastest, but has the following issues:  cannot use underscores in node/edge names cannot use * or + operators on predicates cannot use UNION does not support loading multiple graphs   Query 1 1234 SELECT ?</description>
     </item>
     
     <item>

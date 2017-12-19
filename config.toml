@@ -3,6 +3,9 @@ languageCode = "en-us"
 metadataformat = "yaml"
 title = "HodDB"
 theme = "hugo-alabaster-theme"
+PygmentsCodeFences = true
+PygmentsStyle = "vs"
+PygmentsOptions = "linenos=table"
 
 [params]
 	name = "HodDB"

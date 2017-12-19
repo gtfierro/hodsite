@@ -27,9 +27,8 @@ $ docker pull gtfierro/hod:latest # you can change &#39;configdir&#39; to whatev
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hoddb.org/configuration/</guid>
-      <description>HodDB is configured with a YAML file. By default, this file is called hodconfig.yml and is loaded from the current directory, though this can be changed with the --config/-c command line option when executing the hod binary.
-Configuration defaults are as follows; there&amp;rsquo;s usually no reason to change these aside from the network configuration.
-### HodDB Configuration # commented out lines are default configuration options #### # Location and structure of database #### # the location of the database files #DBPath: _hoddb # the path to the TTL file containing Brick relationships #BrickFrameTTL: &amp;quot;$GOPATH/src/github.</description>
+      <description>HodDB is configured with a YAML file. By default, this file is called hodconfig.yml and is loaded from the current directory, though this can be changed with the --config/-c command line option when executing the hod binary. All paths below are relative to the location from which hod is executed.
+Configuration defaults are as follows; there&amp;rsquo;s usually no reason to change these aside from the list of buildings to load and the network configuration.</description>
     </item>
     
     <item>

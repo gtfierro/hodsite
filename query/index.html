@@ -27,25 +27,124 @@
 						
 	<h1>Query Language</h1>
 	
-	<p>Here we present an overview of the SPARQL-like query language implemented by Hod</p>
+	
+
+<h2 id="rdf-primer">RDF Primer</h2>
+
+<p><img src="../img/refresher.png"></p>
+
+<p>Brick models are graphs consisting of <strong>nodes</strong> and <strong>directed edges</strong>.
+These graphs are usually represented using the RDF data model, which represents a directed, labeled graph as a set of <em>triples</em>.
+A triple consists of a <em>subject</em> (node), a <em>predicate</em> (directed edge) and an <em>object</em> (node).
+Each triple represents 2 nodes (the subject and object) connected with a directed edge (the predicate).
+We will interact with the graph by way of these triples.</p>
+
+<p><img src="../img/subpredobj.png" /></p>
+
+<p>Triples are usually stored in a self-contained text file in the <strong>Turtle format</strong> (file ending <code>.ttl</code>).</p>
+
+<p>The <strong>nodes</strong> in the Brick graph represent the sensors, actuators, equipment, subsystems, location and logical groupings in the building. <strong>Edges</strong> represent the relationships between these.
+There are only a few types of relationships  that Brick captures. Here&rsquo;s a brief recap of some common ones:</p>
 
 <ul>
-<li>HodDB Query language:
-
-<ul>
-<li>basics:
-
-<ul>
-<li>prefixes</li>
-<li>triples</li>
-<li>path types</li>
-<li>OR clauses</li>
-</ul></li>
-<li>links</li>
-<li>example queries explained!</li>
-<li>make sure to have figures</li>
-</ul></li>
+<li><strong>Subcomponents</strong>: <code>bf:hasPart</code>/<code>bf:isPartOf</code>. Used for mechanical composition, relating HVAC zones with physical spaces</li>
+<li><strong>Identifying flows</strong>: <code>bf:feeds</code>/<code>bf:isFedBy</code>. Used for flows of water, electricity, air, etc.</li>
+<li><strong>Sensing + actuation</strong>: <code>bf:hasPoint</code>/<code>bf:isPointOf</code>. Used for associating sensor, setpoints, statuses, commands, meters, etc with related equipment, locations, etc</li>
+<li><strong>Location</strong>: <code>bf:hasLocation</code>/<code>bf:isLocationOf</code>. Identifies the physical location of something</li>
+<li><strong>Instantiation</strong>: <code>rdf:type</code></li>
 </ul>
+
+<p>Recall that in the RDF data model, all nodes are either Literals (strings) or URIs. All URIs have a <strong>namespace</strong>: for example in the URI <code>https://brickschema.org/schema/1.0.1/Brick#VAV</code>, the namespace is <code>https://brickschema.org/schema/1.0.1/Brick#</code> and the &ldquo;node&rdquo; is <code>VAV</code>. For convenience, we will abbreviate the URI so we can write <code>brick:VAV</code> instead of <code>https://brickschema.org/schema/1.0.1/Brick#VAV</code>.</p>
+
+<p>Here are the abbreviations we will use:</p>
+
+<table>
+<thead>
+<tr>
+<th>Namespace</th>
+<th>Usage</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>https://brickschema.org/schema/1.0.1/Brick#</code></td>
+<td>Brick classes</td>
+<td><code>brick:</code></td>
+</tr>
+
+<tr>
+<td><code>https://brickschema.org/schema/1.0.1/BrickFrame#</code></td>
+<td>Brick relationships</td>
+<td><code>bf:</code></td>
+</tr>
+
+<tr>
+<td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td>
+<td>class instantiation</td>
+<td><code>rdf:</code></td>
+</tr>
+
+<tr>
+<td><code>http://www.w3.org/2000/01/rdf-schema#</code></td>
+<td>subclassing</td>
+<td><code>rdfs:</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>There&rsquo;s a lot in those namespaces, but don&rsquo;t worry! It will feel managable soon enough, and HodDB includes tools to make it easier to find the URIs you need.</p>
+
+<p><a name="examplebuilding"></a></p>
+
+<h3 id="example-building">Example Building</h3>
+
+<p>Our example building contains the following components:</p>
+
+<ul>
+<li>one floor (<code>floor_1</code>)</li>
+<li>one room on the floor (<code>room_1</code>)</li>
+<li>one HVAC zone, containing the one room (<code>hvaczone_1</code>)</li>
+<li>one zone temperature sensor in the room (<code>ztemp_1</code>)</li>
+<li>one VAV supplying the HVAC zone (<code>vav_1</code>)</li>
+<li>one AHU supplying the VAV (<code>ahu_1</code>)</li>
+</ul>
+
+<p>The Brick model of these relationships will be the triples representing the following graph</p>
+
+<p><img src="../img/building_graph.png" /></p>
+
+<p>This graph would be defined by this set of triples:</p>
+
+<pre><code>mybuilding:ahu_1         rdf:type        brick:AHU
+mybuilding:room_1        rdf:type        brick:Room
+mybuilding:ztemp_1       rdf:type        brick:Zone_Temperature_Sensor
+mybuilding:floor_1       rdf:type        brick:Floor
+mybuilding:hvaczone_1    rdf:type        brick:HVAC_Zone
+mybuilding:vav_1         rdf:type        brick:VAV
+mybuilding:ahu_1         bf:feeds        mybuilding:vav_1
+mybuilding:room_1        bf:isPartOf     mybuilding:floor_1
+mybuilding:room_1        bf:isPartOf     mybuilding:hvaczone_1
+mybuilding:ztemp_1       bf:isPointOf    mybuilding:vav_1
+mybuilding:vav_1         bf:feeds        mybuilding:hvaczone_1
+</code></pre>
+
+<p>Note that we are using a new namespace to &ldquo;store&rdquo; the names of the entities that are actually in our building.</p>
+
+<h2 id="sparql">SPARQL</h2>
+
+<p>SPARQL is a query language for RDF, but common Brick usage only uses a subset of its features.</p>
+
+<p>One way of thinking about SPARQL is treating a query like pattern matching over the graph (i.e. finding graph isomorphisms). A SPARQL query consists of a <code>WHERE</code> clause containing the patterns of triples we want to match, and a <code>SELECT</code> clause identifying which parts of those triples we want to return.</p>
+
+<h3 id="variables">Variables</h3>
+
+<h3 id="basic-query-construction">Basic Query Construction</h3>
+
+<h3 id="querying-multiple-buildings">Querying Multiple Buildings</h3>
+
+<h2 id="hoddb-integration">HodDB Integration</h2>
 
 
 

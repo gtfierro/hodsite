@@ -140,6 +140,28 @@ mybuilding:vav_1         bf:feeds        mybuilding:hvaczone_1
 
 <h3 id="variables">Variables</h3>
 
+<p>SPARQL variables are indicated by a <code>?</code> prefix (e.g. <code>?vav</code>). Variables take the place of subjects, predicates and objects in the terms of our query.</p>
+
+<p>Consider a Brick model that lists a bunch of VAVs</p>
+
+<pre><code>mybuilding:vav_1         rdf:type        brick:VAV
+mybuilding:vav_2         rdf:type        brick:VAV
+mybuilding:vav_3         rdf:type        brick:VAV
+mybuilding:vav_4         rdf:type        brick:VAV
+mybuilding:vav_5         rdf:type        brick:VAV
+</code></pre>
+
+<p>Finding all VAVs in the building (e.g. <code>mybuilding:vav_1</code>) is equivalent to finding all nodes that have an <code>rdf:type</code> edge to the <code>brick:VAV</code> node.
+Put another way, we want to find the <em>subject</em> of all triples in the Graph that have <code>rdf:type</code> as the <em>predicate</em> and <code>brick:VAV</code> as the <em>object</em>.
+Expressed as a triple, this is:</p>
+
+<pre><code>?vav        rdf:type        brick:VAV
+</code></pre>
+
+<p>Variables can be used more than once in a query, and a term can contain more than one variable.</p>
+
+<p>Variables in the <code>SELECT</code> clause are returned as the results of the query.</p>
+
 <h3 id="basic-query-construction">Basic Query Construction</h3>
 
 <h3 id="querying-multiple-buildings">Querying Multiple Buildings</h3>

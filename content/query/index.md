@@ -83,7 +83,29 @@ One way of thinking about SPARQL is treating a query like pattern matching over 
 
 ### Variables
 
+SPARQL variables are indicated by a `?` prefix (e.g. `?vav`). Variables take the place of subjects, predicates and objects in the terms of our query.
 
+Consider a Brick model that lists a bunch of VAVs
+
+```
+mybuilding:vav_1         rdf:type        brick:VAV
+mybuilding:vav_2         rdf:type        brick:VAV
+mybuilding:vav_3         rdf:type        brick:VAV
+mybuilding:vav_4         rdf:type        brick:VAV
+mybuilding:vav_5         rdf:type        brick:VAV
+```
+
+Finding all VAVs in the building (e.g. `mybuilding:vav_1`) is equivalent to finding all nodes that have an `rdf:type` edge to the `brick:VAV` node.
+Put another way, we want to find the *subject* of all triples in the Graph that have `rdf:type` as the *predicate* and `brick:VAV` as the *object*.
+Expressed as a triple, this is:
+
+```
+?vav        rdf:type        brick:VAV
+```
+
+Variables can be used more than once in a query, and a term can contain more than one variable.
+
+Variables in the `SELECT` clause are returned as the results of the query.
 
 ### Basic Query Construction
 

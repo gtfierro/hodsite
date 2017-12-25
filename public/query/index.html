@@ -29,6 +29,26 @@
 	
 	
 
+<ul>
+<li><a href="#rdfprimer">RDF Primer</a>
+
+<ul>
+<li><a href="#examplebuilding">Example Building</a></li>
+</ul></li>
+<li><a href="#sparql">SPARQL</a>
+
+<ul>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#queryconstruction">Query Construction</a></li>
+<li><a href="#listingneighbors">Listing Neighbors</a></li>
+<li><a href="#listingtypes">Listing Types</a></li>
+<li><a href="#stuckdamper">Stuck Damper</a></li>
+<li><a href="#simultaneousheatcool">Simultaneous Heating/Cooling</a></li>
+</ul></li>
+</ul>
+
+<p><a name="rdfprimer"></a></p>
+
 <h2 id="rdf-primer">RDF Primer</h2>
 
 <p><img src="../img/refresher.png"></p>
@@ -132,11 +152,15 @@ mybuilding:vav_1         bf:feeds        mybuilding:hvaczone_1
 
 <p>Note that we are using a new namespace to &ldquo;store&rdquo; the names of the entities that are actually in our building.</p>
 
+<p><a name="sparql"></a></p>
+
 <h2 id="sparql">SPARQL</h2>
 
 <p>SPARQL is a query language for RDF, but common Brick usage only uses a subset of its features.</p>
 
 <p>One way of thinking about SPARQL is treating a query like pattern matching over the graph (i.e. finding graph isomorphisms). A SPARQL query consists of a <code>WHERE</code> clause containing the patterns of triples we want to match, and a <code>SELECT</code> clause identifying which parts of those triples we want to return.</p>
+
+<p><a name="variables"></a></p>
 
 <h3 id="variables">Variables</h3>
 
@@ -158,13 +182,190 @@ Expressed as a triple, this is:</p>
 <pre><code>?vav        rdf:type        brick:VAV
 </code></pre>
 
+<p>And the returned results would be <code>mybuilding:vav_1</code>, <code>mybuilding:vav_2</code>, etc.</p>
+
 <p>Variables can be used more than once in a query, and a term can contain more than one variable.</p>
 
-<p>Variables in the <code>SELECT</code> clause are returned as the results of the query.</p>
+<p>Variables in the <code>SELECT</code> clause determine the &ldquo;rows&rdquo; that get returned as the result of a query.</p>
+
+<p><a name="queryconstruction"></a></p>
 
 <h3 id="basic-query-construction">Basic Query Construction</h3>
 
-<h3 id="querying-multiple-buildings">Querying Multiple Buildings</h3>
+<p>To start, let&rsquo;s list all of the VAVs in the building. To do this, we want to find all nodes that have a <code>rdf:type</code> edge (which indicates instantiation) to the <code>brick:VAV</code> node which represents the Brick VAV class. In the corresponding triple, we will put <code>rdf:type</code> in the &ldquo;predicate&rdquo; slot and <code>brick:VAV</code> in the &ldquo;object&rdquo; slot. In the subject slot, we will place a variable that will be populated when the query executes:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?vav rdf:type brick:VAV</code></pre></td></tr></table>
+</div>
+</div>
+<p>This corresponds to finding instances of the following subgraph:</p>
+
+<p><img src="../img/vavclassq.png"></p>
+
+<p><a name="listingneighbors"></a></p>
+
+<h4 id="listing-neighbors">Listing Neighbors</h4>
+
+<p>A natural question when interacting with a new Brick model is what kind of information is associated with a particular VAV. We can express this as a SPARQL query by seeing which triples exist that have a VAV as the subject.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">ex:VAV_RM-1100D   ?pred   ?obj </code></pre></td></tr></table>
+</div>
+</div>
+<p>This corresponds to finding instances of the following subgraph:</p>
+
+<p><img src="../img/vavneighbor.png"></p>
+
+<p><a name="listingtypes"></a></p>
+
+<h4 id="listing-types">Listing Types</h4>
+
+<p>The above queries work well if we know the exact classes instantiated in our Brick model. If we don&rsquo;t have this information and want to discover it, we can leverage Brick&rsquo;s class hierarchy.</p>
+
+<p><img src="../img/tempsensorclass.png"></p>
+
+<p>A common use case is finding which kinds of temperature sensors exist in the Brick model. The basic form of this uses both the <code>rdf:type</code> relationship (instantiation) and the <code>rdfs:subClassOf</code> relationship. By default, mentioning a predicate only traverses a single edge in the graph. We use SPARQL&rsquo;s <code>*</code> operator to match &ldquo;0 or more&rdquo; instances of an edge to transparently query more than one level of the hierarchy. SPARQL also provides a <code>+</code> operator to match &ldquo;1 or more&rdquo; edges.</p>
+
+<p>This matches instances that are <em>immediate</em> subclasses of <code>brick:Temperature_Sensor</code></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?sensor   rdf:type/rdfs:subClassOf    brick:Temperature_Sensor</code></pre></td></tr></table>
+</div>
+</div>
+<p>This matches instances of <code>brick:Temperature_Sensor</code> as well as instances of <em>any</em> subclass of <code>brick:Temperature_Sensor</code></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?sensor   rdf:type/rdfs:subClassOf*    brick:Temperature_Sensor</code></pre></td></tr></table>
+</div>
+</div>
+<p>This query corresponds to the following subgraph in the case of Zone Air Temperature Sensors</p>
+
+<p><img src="../img/tempsensorquery.png"></p>
+
+<p>We can now run this query on our real Brick model to see what flavors of Temperature Sensor exist</p>
+
+<p>If we are not interested in the intermediate class name, we can combine the expression of the <code>rdf:type</code> and <code>rdfs:subClassOf*</code> predicates using the <code>/</code> SPARQL operator:</p>
+
+<hr />
+
+<p>One of the main benefits of Brick is its ability to represent multiple building subsystems and query across them. We will explore these capabilities of Brick through the implementation of two analytics applications:
+- Stuck Damper Detection
+- Simultaneous Heating and Cooling Detection</p>
+
+<p>The point of these explorations is not to implement cutting-edge fault detection/diagnosis algorithms, but rather to illustrate how Brick can make it easier to find the relevant data streams and make an implementation portable across buildings.</p>
+
+<p><a name="stuckdamper"></a></p>
+
+<h4 id="stuck-damper-detection">Stuck Damper Detection</h4>
+
+<p>One method of detecting stuck dampers is to look at the difference between the supply air flow sensor and setpoint for a VAV.</p>
+
+<ul>
+<li>If the measured air flow is within some delta of the air flow setpoint, then the damper is fine</li>
+<li>Else, it might be broken</li>
+</ul>
+
+<p>First, we write the Brick query(ies) to extract the relevant data streams: namely, the supply air flow sensor and supply air flow setpoint for each VAV in our building. In addition to the names of those points, we also extract from the Brick model some &ldquo;timeseries identifier&rdquo; that will point us to where we can obtain the actual data. Here, we use the <code>brick:hasUuid</code> relationship which points to an RDF literal corresponding to the name of a CSV data file.</p>
+
+<p>Lets progressively build up the query. First, lets begin by identifying all the VAVs in the building:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?vav   rdf:type    brick:VAV .</code></pre></td></tr></table>
+</div>
+</div>
+<p>We will then identify the supply air flow setpoints and sensors using the <code>rdf:type</code> relationship, and because they measure an aspect of a VAV, we know they will be related to a VAV using the <code>isPointOf</code> relationship.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">4</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?setpoint   rdf:type     brick:Supply_Air_Flow_Setpoint .
+?sensor     rdf:type     brick:Supply_Air_Flow_Sensor .
+?setpoint   bf:isPointOf brick:VAV .
+?sensor     bf:isPointOf brick:VAV .</code></pre></td></tr></table>
+</div>
+</div>
+<p>Lastly, we pull out the UUIDs for the timeseries</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?setpoint   brick:hasUuid  ?setpoint_uuid .
+?sensor     brick:hasUuid  ?sensor_uuid .</code></pre></td></tr></table>
+</div>
+</div>
+<p><a name="simultaneousheatcool"></a></p>
+
+<h4 id="simultaneous-heating-and-cooling-detection">Simultaneous Heating and Cooling Detection</h4>
+
+<p>Properly identifying simultaneous heating and cooling in a building involves traversing the HVAC and spatial hierarchies of the building. We must first find rooms that are contained within more than one HVAC zone and therefore are conditioned by more than one VAV.</p>
+
+<p>From this, we have a few possible avenues. First, we can compare the reheat coil percentages for the VAVs feeding a single zone. Additionally, we can look at the cooling coil percentage for the AHU upstream of each VAV combined with the supply air flow as further evidence.</p>
+
+<p>To begin, we need to find rooms that are in more than one HVAC zone. We follow the same procedure for building up the query: identify the instances of the relevant classes, and then filter these by the required relationships.</p>
+
+<p>The instances we are interested in for this first queries are rooms and HVAC zones:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?room    rdf:type    brick:Room .
+?zone    rdf:type    brick:HVAC_Zone .</code></pre></td></tr></table>
+</div>
+</div>
+<p>We then relate rooms and HVAC zones using the proper <code>isPartOf</code> relationship:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?room   bf:isPartOf  ?zone .</code></pre></td></tr></table>
+</div>
+</div>
+<p>For each of the rooms in multiple HVAC zones, we get the reheat coil valve command for the VAVs feeding those zones. Following the rules of composition for the Brick model, we know there is:</p>
+
+<ul>
+<li>an <code>isPartOf</code> relationship from the room to the zone</li>
+<li>a <code>feeds</code> relationship from the VAV to the zone</li>
+<li>a <code>isPointOf</code> relationship from the reheat valve command to the VAV</li>
+</ul>
+
+<p>We combine these into the following SPARQL triples:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">8</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?zone    rdf:type    brick:HVAC_Zone .
+?vav     rdf:type    brick:VAV .
+?rhc     rdf:type    brick:Reheat_Valve_Command .
+
+&lt;<span style="">our</span> <span style="">room</span>&gt;  bf:isPartOf    ?zone .
+?vav        bf:feeds       ?zone .
+?rhc        bf:isPointOf   ?vav .
+?rhc        brick:hasUuid  ?rhc_uuid .</code></pre></td></tr></table>
+</div>
+</div>
+<p>The last triple gets us the UUID for the timeseries data representing the actual reheat valve command values.</p>
+
+<p>We add to our query the Supply Air Flow sensors so we can tell how much hot/cold air is being blown into a room from the different VAVs</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?saf    rdf:type      brick:Supply_Air_Flow_Sensor .
+?saf    bf:isPointOf  ?vav .
+?saf    brick:hasUuid ?saf_uuid .</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="querying-multiple-buildings">Querying Multiple Buildings</h2>
 
 <h2 id="hoddb-integration">HodDB Integration</h2>
 

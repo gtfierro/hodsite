@@ -58,7 +58,8 @@ Data Model Brick can be thought of as a vocabulary for describing the things in 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hoddb.org/query/</guid>
-      <description>RDF Primer Brick models are graphs consisting of nodes and directed edges. These graphs are usually represented using the RDF data model, which represents a directed, labeled graph as a set of triples. A triple consists of a subject (node), a predicate (directed edge) and an object (node). Each triple represents 2 nodes (the subject and object) connected with a directed edge (the predicate). We will interact with the graph by way of these triples.</description>
+      <description>RDF Primer  Example Building  SPARQL  Variables Query Construction Listing Neighbors Listing Types Stuck Damper Simultaneous Heating/Cooling   
+RDF Primer Brick models are graphs consisting of nodes and directed edges. These graphs are usually represented using the RDF data model, which represents a directed, labeled graph as a set of triples. A triple consists of a subject (node), a predicate (directed edge) and an object (node).</description>
     </item>
     
     <item>

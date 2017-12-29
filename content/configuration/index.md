@@ -16,6 +16,9 @@ Configuration defaults are as follows; there's usually no reason to change these
 # Location and structure of database
 ####
 
+# how we load data into the database.
+# The keys here are the names of the graphs and how they are referred to when
+# querying. The values are file paths to the source for each graph
 Buildings:
     ciee: buildings/ciee.ttl
     sdh: buildings/sdh.ttl

@@ -14,7 +14,7 @@ weight: 5
     * [Stuck Damper](#stuckdamper)
     * [Simultaneous Heating/Cooling](#simultaneousheatcool)
 
-<a name="rdfprimer"></a> 
+<a name="rdfprimer"></a>
 ## RDF Primer
 
 <img src="../img/refresher.png">
@@ -86,14 +86,14 @@ mybuilding:vav_1         bf:feeds        mybuilding:hvaczone_1
 
 Note that we are using a new namespace to "store" the names of the entities that are actually in our building.
 
-<a name="sparql"></a> 
+<a name="sparql"></a>
 ## SPARQL
 
 SPARQL is a query language for RDF, but common Brick usage only uses a subset of its features.
 
 One way of thinking about SPARQL is treating a query like pattern matching over the graph (i.e. finding graph isomorphisms). A SPARQL query consists of a `WHERE` clause containing the patterns of triples we want to match, and a `SELECT` clause identifying which parts of those triples we want to return.
 
-<a name="variables"></a> 
+<a name="variables"></a>
 ### Variables
 
 SPARQL variables are indicated by a `?` prefix (e.g. `?vav`). Variables take the place of subjects, predicates and objects in the terms of our query.
@@ -122,7 +122,7 @@ Variables can be used more than once in a query, and a term can contain more tha
 
 Variables in the `SELECT` clause determine the "rows" that get returned as the result of a query.
 
-<a name="queryconstruction"></a> 
+<a name="queryconstruction"></a>
 ### Basic Query Construction
 
 To start, let's list all of the VAVs in the building. To do this, we want to find all nodes that have a `rdf:type` edge (which indicates instantiation) to the `brick:VAV` node which represents the Brick VAV class. In the corresponding triple, we will put `rdf:type` in the "predicate" slot and `brick:VAV` in the "object" slot. In the subject slot, we will place a variable that will be populated when the query executes:
@@ -135,20 +135,20 @@ This corresponds to finding instances of the following subgraph:
 
 <img src="../img/vavclassq.png">
 
-<a name="listingneighbors"></a> 
+<a name="listingneighbors"></a>
 #### Listing Neighbors
 
 A natural question when interacting with a new Brick model is what kind of information is associated with a particular VAV. We can express this as a SPARQL query by seeing which triples exist that have a VAV as the subject.
 
 ```sparql
-ex:VAV_RM-1100D   ?pred   ?obj 
+ex:VAV_RM-1100D   ?pred   ?obj
 ```
 
 This corresponds to finding instances of the following subgraph:
 
 <img src="../img/vavneighbor.png">
 
-<a name="listingtypes"></a> 
+<a name="listingtypes"></a>
 #### Listing Types
 
 The above queries work well if we know the exact classes instantiated in our Brick model. If we don't have this information and want to discover it, we can leverage Brick's class hierarchy.
@@ -184,7 +184,7 @@ One of the main benefits of Brick is its ability to represent multiple building 
 
 The point of these explorations is not to implement cutting-edge fault detection/diagnosis algorithms, but rather to illustrate how Brick can make it easier to find the relevant data streams and make an implementation portable across buildings.
 
-<a name="stuckdamper"></a> 
+<a name="stuckdamper"></a>
 #### Stuck Damper Detection
 
 One method of detecting stuck dampers is to look at the difference between the supply air flow sensor and setpoint for a VAV.
@@ -216,7 +216,7 @@ Lastly, we pull out the UUIDs for the timeseries
 ?sensor     brick:hasUuid  ?sensor_uuid .
 ```
 
-<a name="simultaneousheatcool"></a> 
+<a name="simultaneousheatcool"></a>
 #### Simultaneous Heating and Cooling Detection
 
 Properly identifying simultaneous heating and cooling in a building involves traversing the HVAC and spatial hierarchies of the building. We must first find rooms that are contained within more than one HVAC zone and therefore are conditioned by more than one VAV.
@@ -267,6 +267,20 @@ We add to our query the Supply Air Flow sensors so we can tell how much hot/cold
 ?saf    brick:hasUuid ?saf_uuid .
 ```
 
+<a name="querymultiple"></a>
 ## Querying Multiple Buildings
+
+As of version 0.5.1, Hod supports loading and querying multiple graphs in parallel. The most helpful use for this is loading multiple buildings into a single HodDB database and querying across them.
+
+Load in buildings and name them using the `Buildings` key of the `hodconfig.yaml` file ([documentation link](/configuration)).
+
+By default, all of the graphs in HodDB are queried. This can be changed (or made explicit) through the use of a `FROM` clause, which specifies the graphs to query by name in a space-delimited list.
+For example, consider a databse in which we've loaded 2 graphs: `bldg123` and `bldgABC`.
+
+`SELECT` clause         | Graphs Queried
+------------------------|---------------
+`SELECT * WHERE { ... }` | `bldg123`, `bldgABC`
+`SELECT * FROM bldg123 WHERE { ... }` | `bldg123`
+`SELECT * FROM bldg123 bldgABC WHERE { ... }` | `bldg123`, `bldgABC`
 
 ## HodDB Integration

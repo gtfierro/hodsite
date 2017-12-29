@@ -299,3 +299,4 @@ SELECT ?tstat ?uri WHERE {
     ?tstat rdf:type brick:Thermostat .
     ?tstat bf:uri ?uri
 };
+```

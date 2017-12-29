@@ -218,6 +218,19 @@ Lastly, we pull out the UUIDs for the timeseries
 ?sensor     brick:hasUuid  ?sensor_uuid .
 ```
 
+All together:
+
+```sparql
+SELECT * WHERE {
+?setpoint   rdf:type     brick:Supply_Air_Flow_Setpoint .
+?sensor     rdf:type     brick:Supply_Air_Flow_Sensor .
+?setpoint   bf:isPointOf brick:VAV .
+?sensor     bf:isPointOf brick:VAV .
+?setpoint   brick:hasUuid  ?setpoint_uuid .
+?sensor     brick:hasUuid  ?sensor_uuid .
+};
+```
+
 <a name="simultaneousheatcool"></a>
 #### Simultaneous Heating and Cooling Detection
 
@@ -267,6 +280,24 @@ We add to our query the Supply Air Flow sensors so we can tell how much hot/cold
 ?saf    rdf:type      brick:Supply_Air_Flow_Sensor .
 ?saf    bf:isPointOf  ?vav .
 ?saf    brick:hasUuid ?saf_uuid .
+```
+
+All together
+
+```sparql
+SELECT * WHERE {
+?zone    rdf:type    brick:HVAC_Zone .
+?vav     rdf:type    brick:VAV .
+?rhc     rdf:type    brick:Reheat_Valve_Command .
+
+<our room>  bf:isPartOf    ?zone .
+?vav        bf:feeds       ?zone .
+?rhc        bf:isPointOf   ?vav .
+?rhc        brick:hasUuid  ?rhc_uuid .
+?saf    rdf:type      brick:Supply_Air_Flow_Sensor .
+?saf    bf:isPointOf  ?vav .
+?saf    brick:hasUuid ?saf_uuid .
+};
 ```
 
 <a name="querymultiple"></a>

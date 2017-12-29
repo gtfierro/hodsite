@@ -305,6 +305,21 @@ Expressed as a triple, this is:</p>
 ?sensor     brick:hasUuid  ?sensor_uuid .</code></pre></td></tr></table>
 </div>
 </div>
+<p>All together:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">8</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#00f">SELECT</span> * <span style="color:#00f">WHERE</span> {
+?setpoint   rdf:type     brick:Supply_Air_Flow_Setpoint .
+?sensor     rdf:type     brick:Supply_Air_Flow_Sensor .
+?setpoint   bf:isPointOf brick:VAV .
+?sensor     bf:isPointOf brick:VAV .
+?setpoint   brick:hasUuid  ?setpoint_uuid .
+?sensor     brick:hasUuid  ?sensor_uuid .
+};</code></pre></td></tr></table>
+</div>
+</div>
 <p><a name="simultaneousheatcool"></a></p>
 
 <h4 id="simultaneous-heating-and-cooling-detection">Simultaneous Heating and Cooling Detection</h4>
@@ -365,6 +380,26 @@ Expressed as a triple, this is:</p>
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">?saf    rdf:type      brick:Supply_Air_Flow_Sensor .
 ?saf    bf:isPointOf  ?vav .
 ?saf    brick:hasUuid ?saf_uuid .</code></pre></td></tr></table>
+</div>
+</div>
+<p>All together</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#00f">SELECT</span> * <span style="color:#00f">WHERE</span> {
+?zone    rdf:type    brick:HVAC_Zone .
+?vav     rdf:type    brick:VAV .
+?rhc     rdf:type    brick:Reheat_Valve_Command .
+
+&lt;<span style="">our</span> <span style="">room</span>&gt;  bf:isPartOf    ?zone .
+?vav        bf:feeds       ?zone .
+?rhc        bf:isPointOf   ?vav .
+?rhc        brick:hasUuid  ?rhc_uuid .
+?saf    rdf:type      brick:Supply_Air_Flow_Sensor .
+?saf    bf:isPointOf  ?vav .
+?saf    brick:hasUuid ?saf_uuid .
+};</code></pre></td></tr></table>
 </div>
 </div>
 <p><a name="querymultiple"></a></p>

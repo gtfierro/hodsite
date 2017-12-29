@@ -213,7 +213,7 @@ Expressed as a triple, this is:</p>
 <table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
 <td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">ex:VAV_RM-1100D   ?pred   ?obj </code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sparql" data-lang="sparql">ex:VAV_RM-1100D   ?pred   ?obj</code></pre></td></tr></table>
 </div>
 </div>
 <p>This corresponds to finding instances of the following subgraph:</p>
@@ -365,7 +365,42 @@ Expressed as a triple, this is:</p>
 ?saf    brick:hasUuid ?saf_uuid .</code></pre></td></tr></table>
 </div>
 </div>
+<p><a name="querymultiple"></a></p>
+
 <h2 id="querying-multiple-buildings">Querying Multiple Buildings</h2>
+
+<p>As of version 0.5.1, Hod supports loading and querying multiple graphs in parallel. The most helpful use for this is loading multiple buildings into a single HodDB database and querying across them.</p>
+
+<p>Load in buildings and name them using the <code>Buildings</code> key of the <code>hodconfig.yaml</code> file (<a href="/configuration">documentation link</a>).</p>
+
+<p>By default, all of the graphs in HodDB are queried. This can be changed (or made explicit) through the use of a <code>FROM</code> clause, which specifies the graphs to query by name in a space-delimited list.
+For example, consider a databse in which we&rsquo;ve loaded 2 graphs: <code>bldg123</code> and <code>bldgABC</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th><code>SELECT</code> clause</th>
+<th>Graphs Queried</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>SELECT * WHERE { ... }</code></td>
+<td><code>bldg123</code>, <code>bldgABC</code></td>
+</tr>
+
+<tr>
+<td><code>SELECT * FROM bldg123 WHERE { ... }</code></td>
+<td><code>bldg123</code></td>
+</tr>
+
+<tr>
+<td><code>SELECT * FROM bldg123 bldgABC WHERE { ... }</code></td>
+<td><code>bldg123</code>, <code>bldgABC</code></td>
+</tr>
+</tbody>
+</table>
 
 <h2 id="hoddb-integration">HodDB Integration</h2>
 

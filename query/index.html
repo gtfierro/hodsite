@@ -45,6 +45,8 @@
 <li><a href="#stuckdamper">Stuck Damper</a></li>
 <li><a href="#simultaneousheatcool">Simultaneous Heating/Cooling</a></li>
 </ul></li>
+<li><a href="#querymultiple">Querying Multiple Buildings</a></li>
+<li><a href="#dataintegration">Data Integration</a></li>
 </ul>
 
 <p><a name="rdfprimer"></a></p>
@@ -369,7 +371,7 @@ Expressed as a triple, this is:</p>
 
 <h2 id="querying-multiple-buildings">Querying Multiple Buildings</h2>
 
-<p>As of version 0.5.1, Hod supports loading and querying multiple graphs in parallel. The most helpful use for this is loading multiple buildings into a single HodDB database and querying across them.</p>
+<p>As of version 0.5.1, Hod supports loading and querying multiple graphs in parallel. The most helpful use for this is loading multiple buildings into a single HodDB database and querying across them..</p>
 
 <p>Load in buildings and name them using the <code>Buildings</code> key of the <code>hodconfig.yaml</code> file (<a href="/configuration">documentation link</a>).</p>
 
@@ -402,7 +404,21 @@ For example, consider a databse in which we&rsquo;ve loaded 2 graphs: <code>bldg
 </tbody>
 </table>
 
-<h2 id="hoddb-integration">HodDB Integration</h2>
+<p><a name="dataintegration"></a></p>
+
+<h2 id="data-integration">Data Integration</h2>
+
+<p>Brick models contain references to devices and other sources of data.
+There are two pieces of information typically associated with each data source: the UUID (timeseries identifier) and a URI (for BOSSWAVE publish/subscribe).
+UUIDs and URIs are stored as RDF Literals (strings) in the Brick graph, and are found using the <code>https://brickschema.org/schema/1.0.1/BrickFrame#uuid</code>/<code>bf:uuid</code> and <code>https://brickschema.org/schema/1.0.1/BrickFrame#uri</code>/<code>bf:uri</code> relationships.</p>
+
+<p>For example, to find all thermostats we can subscribe to, use this query:</p>
+
+<p>```sparql
+SELECT ?tstat ?uri WHERE {
+    ?tstat rdf:type brick:Thermostat .
+    ?tstat bf:uri ?uri
+};</p>
 
 
 

@@ -11,6 +11,7 @@ weight: 5
     * [Query Construction](#queryconstruction)
     * [Listing Neighbors](#listingneighbors)
     * [Listing Types](#listingtypes)
+* [Sample Queries](#samplequeries)
     * [Stuck Damper](#stuckdamper)
     * [Simultaneous Heating/Cooling](#simultaneousheatcool)
 * [Querying Multiple Buildings](#querymultiple)
@@ -178,7 +179,8 @@ We can now run this query on our real Brick model to see what flavors of Tempera
 
 If we are not interested in the intermediate class name, we can combine the expression of the `rdf:type` and `rdfs:subClassOf*` predicates using the `/` SPARQL operator:
 
----
+<a name="samplequeries"></a>
+### Sample Queries
 
 One of the main benefits of Brick is its ability to represent multiple building subsystems and query across them. We will explore these capabilities of Brick through the implementation of two analytics applications:
 - Stuck Damper Detection

@@ -5,7 +5,6 @@ weight: 3
 ---
 
 - [Loading Data](#loadingdata)
-	- [Loading Brick Files](#loadingbrick)
 - [CLI Queries](#cliqueries)
 	- [CLI Configuration Options](#cliconfigs)
 - [HTTP API](#httpapi)
@@ -24,49 +23,9 @@ HodDB stores buildings in a set of LevelDB databases; the location of these file
 
 In order to perform queries on the the database using the Brick classes and relationships, HodDB also needs to import the Turtle files that define the Brick schema. The location of these files are determined by the `BrickFrameTTL` and `BrickClassTTL` configuration options. The most recent version of these files can be downloaded from [http://brickschema.org/download/](http://brickschema.org/download/).
 
-<a name="loadingbrick"></a>
-#### Loading Brick Files
-
-In order to load a `.ttl` file, we use the `hod load` command:
-
-```bash
-$ hod load buildings/berkeley.ttl
-INFO actions.go:50 Dec 24 13:49:30  ▶ Loaded 3774 triples, 8 namespaces in 128.412302ms (29390/sec)
-INFO db.go:454 Dec 24 13:49:31  ▶ Built lookup tables in 163.014409ms
-INFO db.go:460 Dec 24 13:49:31  ▶ Built graph in 421.345208ms
-rdf => http://www.w3.org/1999/02/22-rdf-syntax-ns
-rdfs => http://www.w3.org/2000/01/rdf-schema
-skos => http://www.w3.org/2004/02/skos/core
-bf => http://buildsys.org/ontologies/BrickFrame
-tag => http://buildsys.org/ontologies/BrickTag
- => http://buildsys.org/ontologies/Brick
-owl => http://www.w3.org/2002/07/owl
-INFO db.go:454 Dec 24 13:49:32  ▶ Built lookup tables in 185.460746ms
-INFO db.go:460 Dec 24 13:49:32  ▶ Built graph in 143.048733ms
-tag => http://buildsys.org/ontologies/BrickTag
- => http://buildsys.org/ontologies/Brick
-btag => http://buildsys.org/ontologies/BrickTag
-skos => http://www.w3.org/2004/02/skos/core
-bf => http://buildsys.org/ontologies/BrickFrame
-soda_hall => http://buildsys.org/ontologies/building_example
-xml => http://www.w3.org/XML/1998/namespace
-xsd => http://www.w3.org/2001/XMLSchema
-owl => http://www.w3.org/2002/07/owl
-rdf => http://www.w3.org/1999/02/22-rdf-syntax-ns
-rdfs => http://www.w3.org/2000/01/rdf-schema
-brick => http://buildsys.org/ontologies/Brick
-```
-
-The Brick `ttl` files are loaded implicitly when HodDB is invoked, using the paths provided in the configuration file.
-
-Loading is idempotent, meaning the same `.ttl` file can be loaded many times without affecting the performance or correctness of the database.
+The Brick `ttl` files in the configuration file (`hodconfig.yaml`) are loaded implicitly when HodDB is started.
 
 See [the examples page](/examples) for a small TTL file sample.
-
-*Note*: if more than one building is loaded into the same HodDB instance, then the results from the two buildings will be returned together and there is the possibility
-for namespace conflicts. Thus, at this early stage in HodDB development it is recommended to have a different HodDB instance for each building. Disk space is negligible: the Soda Hall Brick file has 3774 triples in it, and the on-disk representation only uses 1.5 MB.
-
-*Note*: right now, HodDB only supports loading in buildings via the command line. Future versions may allow loading buildings over HTTP.
 
 <a name="cliqueries"></a>
 ### CLI Queries

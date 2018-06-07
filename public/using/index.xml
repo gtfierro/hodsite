@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hoddb.org/using/</guid>
-      <description>Loading Data  Loading Brick Files  CLI Queries  CLI Configuration Options  HTTP API HTTP Frontend BOSSWAVE API Tools  
+      <description>Loading Data CLI Queries  CLI Configuration Options  HTTP API HTTP Frontend BOSSWAVE API Tools  
 Loading Data Overview In Brick, buildings are described using RDF triples. These triples are stored in Turtle (.ttl) files, which can be loaded into a HodDB instance.
 HodDB stores buildings in a set of LevelDB databases; the location of these files is determined by the DBPath configuration option which defaults to .</description>
     </item>

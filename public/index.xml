@@ -37,7 +37,7 @@ Configuration defaults are as follows; there&amp;rsquo;s usually no reason to ch
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hoddb.org/using/</guid>
-      <description>Loading Data  Loading Brick Files  CLI Queries  CLI Configuration Options  HTTP API HTTP Frontend BOSSWAVE API Tools  
+      <description>Loading Data CLI Queries  CLI Configuration Options  HTTP API HTTP Frontend BOSSWAVE API Tools  
 Loading Data Overview In Brick, buildings are described using RDF triples. These triples are stored in Turtle (.ttl) files, which can be loaded into a HodDB instance.
 HodDB stores buildings in a set of LevelDB databases; the location of these files is determined by the DBPath configuration option which defaults to .</description>
     </item>
@@ -58,7 +58,7 @@ Data Model Brick can be thought of as a vocabulary for describing the things in 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hoddb.org/query/</guid>
-      <description>RDF Primer  Example Building  SPARQL  Variables Query Construction Listing Neighbors Listing Types Stuck Damper Simultaneous Heating/Cooling  Querying Multiple Buildings Data Integration  
+      <description>RDF Primer  Example Building  SPARQL  Variables Query Construction Listing Neighbors Listing Types  Sample Queries  Stuck Damper Simultaneous Heating/Cooling  Querying Multiple Buildings Data Integration  
 RDF Primer Brick models are graphs consisting of nodes and directed edges. These graphs are usually represented using the RDF data model, which represents a directed, labeled graph as a set of triples. A triple consists of a subject (node), a predicate (directed edge) and an object (node).</description>
     </item>
     
@@ -93,7 +93,8 @@ Databases evaluated here:
       <guid>https://hoddb.org/</guid>
       <description>A Database for Brick HodDB is a specialized RDF database and SPARQL query processor for Brick. It stores models of buildings and serves queries on those models.
 HodDB has the following features:
- sub-100ms SPARQL queries on Brick graphsmodels web interface for interacting with Brick models BOSSWAVE integration integration with external services:  uses Literals to store timeseries UUIDs or application URIs   Quickstart These will be updated soon!</description>
+ sub-100ms SPARQL queries on Brick graphsmodels web interface for interacting with Brick models BOSSWAVE integration integration with external services:  uses Literals to store timeseries UUIDs or application URIs   Quickstart From Docker:
+123 $ sudo apt install docker.</description>
     </item>
     
   </channel>

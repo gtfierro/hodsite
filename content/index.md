@@ -21,27 +21,28 @@ HodDB has the following features:
 
 ### Quickstart
 
-**These will be updated soon!**
-
 From Docker:
 
 ```bash
-$ sudo apt install docker.io # if necessary
-$ docker pull gtfierro/hoddb
-$ docker run -d --name hoddb -v /etc/hod:/etc/hod -p 47808:47808 gtfierro/hoddb
+$ sudo apt install docker.io # install docker if necessary
+$ curl -L https://github.com/gtfierro/hod/releases/download/v0.6.0/quickstart.tar.gz | tar xzv
+$ docker run -d --name hoddb -v $PWD/quickstart:/etc/hod -p 47808:47808 gtfierro/hoddb
 ```
+
+Then navigate to [http://localhost:47808/query](http://localhost:47808/query)
 
 From source:
 
 ```bash
 $ sudo apt install libraptor2-dev graphviz
 $ go get github.com/gtfierro/hod
-$ go install github.com/gtfierro/hod
-$ hod load path/to/building.ttl
+$ cd $GOPATH/src/github.com/gtfierro/hod
+$ make install
+$ cd quickstart
 $ hod server
 NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 ```
 
 ### Public Query Server
 
-Available at [https://query.hoddb.org/](https://query.hoddb.org/)
+~~available at [https://query.hoddb.org/](https://query.hoddb.org/)~~ currently unavailable

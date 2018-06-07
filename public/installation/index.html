@@ -43,14 +43,13 @@
 HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as <code>configdir</code> below):</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span></code></pre></td>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span></code></pre></td>
 <td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker pull gtfierro/hod:latest
-<span style="color:#008000"># you can change &#39;configdir&#39; to whatever absolute path
-</span><span style="color:#008000"></span>$ docker run -d --name hod -v <span style="color:#a31515">`</span>pwd<span style="color:#a31515">`</span>/configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest</code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -L https://github.com/gtfierro/hod/releases/download/v0.6.0/quickstart.tar.gz | tar xzv
+$ docker run -d --name hoddb -v $PWD/quickstart:/etc/hod -p 47808:47808 gtfierro/hoddb</code></pre></td></tr></table>
 </div>
 </div>
-<p>You should place the following inside the directory that gets mounted to <code>/etc/hod</code></p>
+<p>The following should be located inside the quickstart directory that gets mounted to <code>/etc/hod</code></p>
 
 <ul>
 <li><code>hodconfig.yaml</code>: the configuration file for HodDB</li>
@@ -133,11 +132,12 @@ GLOBAL OPTIONS:
 <p>To install/update HodDB, you need <a href="https://golang.org/doc/install">Go</a> installed and your <code>$GOPATH</code> and <code>$GOROOT</code> environment variables configured (how to set these is discussed in the Go installation guide), as well as <code>$GOPATH/bin</code> added to your <code>$PATH</code>.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span></code></pre></td>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">4</span></code></pre></td>
 <td style=";vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install libraptor2-dev graphviz
 $ go get -u github.com/gtfierro/hod
-$ go install github.com/gtfierro/hod</code></pre></td></tr></table>
+$ cd $GOPATH/src/github.com/gtfierro/hod
+$ make install</code></pre></td></tr></table>
 </div>
 </div>
 <p>After this, then HodDB can be executed on the command line:</p>

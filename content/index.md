@@ -34,6 +34,7 @@ Then navigate to [http://localhost:47808/query](http://localhost:47808/query)
 From source:
 
 ```bash
+# requires go >= 1.10 installed
 $ sudo apt install libraptor2-dev graphviz
 $ go get github.com/gtfierro/hod
 $ cd $GOPATH/src/github.com/gtfierro/hod

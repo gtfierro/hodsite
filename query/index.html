@@ -42,6 +42,10 @@
 <li><a href="#queryconstruction">Query Construction</a></li>
 <li><a href="#listingneighbors">Listing Neighbors</a></li>
 <li><a href="#listingtypes">Listing Types</a></li>
+</ul></li>
+<li><a href="#samplequeries">Sample Queries</a>
+
+<ul>
 <li><a href="#stuckdamper">Stuck Damper</a></li>
 <li><a href="#simultaneousheatcool">Simultaneous Heating/Cooling</a></li>
 </ul></li>
@@ -256,7 +260,9 @@ Expressed as a triple, this is:</p>
 
 <p>If we are not interested in the intermediate class name, we can combine the expression of the <code>rdf:type</code> and <code>rdfs:subClassOf*</code> predicates using the <code>/</code> SPARQL operator:</p>
 
-<hr />
+<p><a name="samplequeries"></a></p>
+
+<h3 id="sample-queries">Sample Queries</h3>
 
 <p>One of the main benefits of Brick is its ability to represent multiple building subsystems and query across them. We will explore these capabilities of Brick through the implementation of two analytics applications:
 - Stuck Damper Detection
@@ -536,7 +542,7 @@ UUIDs and URIs are stored as RDF Literals (strings) in the Brick graph, and are 
 <div class="clearer"></div>
 </div>
 			<div class="footer">
-	&copy; 2017 
+	&copy; 2018 
 	|
 	Powered by <a href="http://gohugo.io/">Hugo 0.31.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>

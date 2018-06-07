@@ -30,11 +30,7 @@
 	
 
 <ul>
-<li><a href="#loadingdata">Loading Data</a>
-
-<ul>
-<li><a href="#loadingbrick">Loading Brick Files</a></li>
-</ul></li>
+<li><a href="#loadingdata">Loading Data</a></li>
 <li><a href="#cliqueries">CLI Queries</a>
 
 <ul>
@@ -58,52 +54,9 @@
 
 <p>In order to perform queries on the the database using the Brick classes and relationships, HodDB also needs to import the Turtle files that define the Brick schema. The location of these files are determined by the <code>BrickFrameTTL</code> and <code>BrickClassTTL</code> configuration options. The most recent version of these files can be downloaded from <a href="http://brickschema.org/download/">http://brickschema.org/download/</a>.</p>
 
-<p><a name="loadingbrick"></a></p>
-
-<h4 id="loading-brick-files">Loading Brick Files</h4>
-
-<p>In order to load a <code>.ttl</code> file, we use the <code>hod load</code> command:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">22</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">23</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">24</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">25</span></code></pre></td>
-<td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hod load buildings/berkeley.ttl
-INFO actions.go:50 Dec 24 13:49:30  ▶ Loaded 3774 triples, 8 namespaces in 128.412302ms (29390/sec)
-INFO db.go:454 Dec 24 13:49:31  ▶ Built lookup tables in 163.014409ms
-INFO db.go:460 Dec 24 13:49:31  ▶ Built graph in 421.345208ms
-rdf =&gt; http://www.w3.org/1999/02/22-rdf-syntax-ns
-rdfs =&gt; http://www.w3.org/2000/01/rdf-schema
-skos =&gt; http://www.w3.org/2004/02/skos/core
-bf =&gt; http://buildsys.org/ontologies/BrickFrame
-tag =&gt; http://buildsys.org/ontologies/BrickTag
- =&gt; http://buildsys.org/ontologies/Brick
-owl =&gt; http://www.w3.org/2002/07/owl
-INFO db.go:454 Dec 24 13:49:32  ▶ Built lookup tables in 185.460746ms
-INFO db.go:460 Dec 24 13:49:32  ▶ Built graph in 143.048733ms
-tag =&gt; http://buildsys.org/ontologies/BrickTag
- =&gt; http://buildsys.org/ontologies/Brick
-btag =&gt; http://buildsys.org/ontologies/BrickTag
-skos =&gt; http://www.w3.org/2004/02/skos/core
-bf =&gt; http://buildsys.org/ontologies/BrickFrame
-soda_hall =&gt; http://buildsys.org/ontologies/building_example
-xml =&gt; http://www.w3.org/XML/1998/namespace
-xsd =&gt; http://www.w3.org/2001/XMLSchema
-owl =&gt; http://www.w3.org/2002/07/owl
-rdf =&gt; http://www.w3.org/1999/02/22-rdf-syntax-ns
-rdfs =&gt; http://www.w3.org/2000/01/rdf-schema
-brick =&gt; http://buildsys.org/ontologies/Brick</code></pre></td></tr></table>
-</div>
-</div>
-<p>The Brick <code>ttl</code> files are loaded implicitly when HodDB is invoked, using the paths provided in the configuration file.</p>
-
-<p>Loading is idempotent, meaning the same <code>.ttl</code> file can be loaded many times without affecting the performance or correctness of the database.</p>
+<p>The Brick <code>ttl</code> files in the configuration file (<code>hodconfig.yaml</code>) are loaded implicitly when HodDB is started.</p>
 
 <p>See <a href="/examples">the examples page</a> for a small TTL file sample.</p>
-
-<p><em>Note</em>: if more than one building is loaded into the same HodDB instance, then the results from the two buildings will be returned together and there is the possibility
-for namespace conflicts. Thus, at this early stage in HodDB development it is recommended to have a different HodDB instance for each building. Disk space is negligible: the Soda Hall Brick file has 3774 triples in it, and the on-disk representation only uses 1.5 MB.</p>
-
-<p><em>Note</em>: right now, HodDB only supports loading in buildings via the command line. Future versions may allow loading buildings over HTTP.</p>
 
 <p><a name="cliqueries"></a></p>
 
@@ -357,7 +310,7 @@ It has its own set of documentation at <a href="http://localhost:47808/help">htt
 <div class="clearer"></div>
 </div>
 			<div class="footer">
-	&copy; 2017 
+	&copy; 2018 
 	|
 	Powered by <a href="http://gohugo.io/">Hugo 0.31.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>

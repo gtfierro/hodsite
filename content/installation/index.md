@@ -15,12 +15,11 @@ If you have [Docker installed](https://docs.docker.com/engine/installation/), th
 HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as `configdir` below):
 
 ```bash
-$ docker pull gtfierro/hod:latest
-# you can change 'configdir' to whatever absolute path
-$ docker run -d --name hod -v `pwd`/configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest
+$ curl -L https://github.com/gtfierro/hod/releases/download/v0.6.0/quickstart.tar.gz | tar xzv
+$ docker run -d --name hoddb -v $PWD/quickstart:/etc/hod -p 47808:47808 gtfierro/hod:0.6.1
 ```
 
-You should place the following inside the directory that gets mounted to `/etc/hod`
+The following should be located inside the quickstart directory that gets mounted to `/etc/hod`
 
 - `hodconfig.yaml`: the configuration file for HodDB
 - the Brick models (`.ttl` files) to be loaded into HodDB
@@ -100,7 +99,8 @@ To install/update HodDB, you need [Go](https://golang.org/doc/install) installed
 ```bash
 $ sudo apt install libraptor2-dev graphviz
 $ go get -u github.com/gtfierro/hod
-$ go install github.com/gtfierro/hod
+$ cd $GOPATH/src/github.com/gtfierro/hod
+$ make install
 ```
 
 After this, then HodDB can be executed on the command line:

@@ -27,11 +27,9 @@ Buildings:
 # the location of the database files
 DBPath: _hoddb
 
-# the path to the TTL file containing Brick relationships
-BrickFrameTTL: "$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl"
-
-# the path to the TTL file containing Brick classes
-BrickClassTTL: "$GOPATH/src/github.com/gtfierro/hod/Brick.ttl"
+Ontologies:
+- "$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl"
+- "$GOPATH/src/github.com/gtfierro/hod/Brick.ttl"
 
 ####
 # Interface Enabling
@@ -55,9 +53,6 @@ UseIPv6: false
 
 # Whether or not to serve on localhost. If false, serves on a public interface
 ListenAddress: 0.0.0.0
-
-# Path to the server directory of hod, which contains the necessary HTML files
-StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
 
 # If specified, serve the frontend over HTTPS using golang.org/x/crypto/acme/autocert
 # If left blank (default), just serve over HTTP

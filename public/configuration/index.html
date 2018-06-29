@@ -32,125 +32,20 @@
 <p>HodDB is configured with a YAML file. By default, this file is called <code>hodconfig.yml</code> and is loaded from the current directory, though this can be changed with the <code>--config/-c</code> command line option when executing the <code>hod</code> binary. All paths below are relative to the location from which hod is executed.</p>
 
 <p>Configuration defaults are as follows; there&rsquo;s usually no reason to change these aside from the list of buildings to load and the network configuration.</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110</pre></div></td><td class="code"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008000">### HodDB Configuration</span>
-<span style="color: #008000"># commented out lines are default configuration options</span>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">  9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 22</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 23</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 24</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 25</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 26</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 27</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 28</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 29</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 30</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 31</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 32</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 33</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 34</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 35</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 36</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 37</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 38</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 39</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 40</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 41</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 42</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 43</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 44</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 45</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 46</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 47</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 48</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 49</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 50</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 51</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 52</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 53</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 54</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 55</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 56</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 57</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 58</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 59</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 60</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 61</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 62</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 63</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 64</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 65</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 66</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 67</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 68</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 69</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 70</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 71</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 72</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 73</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 74</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 75</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 76</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 77</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 78</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 79</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 80</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 81</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 82</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 83</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 84</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 85</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 86</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 87</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 88</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 89</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 90</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 91</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 92</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 93</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 94</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 95</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 96</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 97</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 98</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 99</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">100</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">101</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">102</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">103</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">104</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">105</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#008000">### HodDB Configuration</span>
+<span style="color:#008000"># commented out lines are default configuration options</span>
 
-<span style="color: #008000">####</span>
-<span style="color: #008000"># Location and structure of database</span>
-<span style="color: #008000">####</span>
+<span style="color:#008000">####</span>
+<span style="color:#008000"># Location and structure of database</span>
+<span style="color:#008000">####</span>
 
-<span style="color: #008000"># how we load data into the database.</span>
-<span style="color: #008000"># The keys here are the names of the graphs and how they are referred to when</span>
-<span style="color: #008000"># querying. The values are file paths to the source for each graph</span>
+<span style="color:#008000"># how we load data into the database.</span>
+<span style="color:#008000"># The keys here are the names of the graphs and how they are referred to when</span>
+<span style="color:#008000"># querying. The values are file paths to the source for each graph</span>
 Buildings:
     ciee: buildings/ciee.ttl
     sdh: buildings/sdh.ttl
@@ -159,11 +54,17 @@ Buildings:
 <span style="color: #008000"># the location of the database files</span>
 DBPath: _hoddb
 
+<<<<<<< HEAD
 <span style="color: #008000"># the path to the TTL file containing Brick relationships</span>
 BrickFrameTTL: <span style="color: #a31515">&quot;$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl&quot;</span>
 
 <span style="color: #008000"># the path to the TTL file containing Brick classes</span>
 BrickClassTTL: <span style="color: #a31515">&quot;$GOPATH/src/github.com/gtfierro/hod/Brick.ttl&quot;</span>
+=======
+Ontologies:
+- <span style="color:#a31515">&#34;$GOPATH/src/github.com/gtfierro/hod/BrickFrame.ttl&#34;</span>
+- <span style="color:#a31515">&#34;$GOPATH/src/github.com/gtfierro/hod/Brick.ttl&#34;</span>
+>>>>>>> 514444e8ef1c426b5483c7405872226371a0d8f6
 
 <span style="color: #008000">####</span>
 <span style="color: #008000"># Interface Enabling</span>
@@ -188,12 +89,18 @@ UseIPv6: false
 <span style="color: #008000"># Whether or not to serve on localhost. If false, serves on a public interface</span>
 ListenAddress: 0.0.0.0
 
+<<<<<<< HEAD
 <span style="color: #008000"># Path to the server directory of hod, which contains the necessary HTML files</span>
 StaticPath: $GOPATH/src/github.com/gtfierro/hod/server
 
 <span style="color: #008000"># If specified, serve the frontend over HTTPS using golang.org/x/crypto/acme/autocert</span>
 <span style="color: #008000"># If left blank (default), just serve over HTTP</span>
 TLSHost: <span style="color: #a31515">&quot;&quot;</span>
+=======
+<span style="color:#008000"># If specified, serve the frontend over HTTPS using golang.org/x/crypto/acme/autocert</span>
+<span style="color:#008000"># If left blank (default), just serve over HTTP</span>
+TLSHost: <span style="color:#a31515">&#34;&#34;</span>
+>>>>>>> 514444e8ef1c426b5483c7405872226371a0d8f6
 
 <span style="color: #008000">####</span>
 <span style="color: #008000"># BOSSWAVE Server Configuration</span>

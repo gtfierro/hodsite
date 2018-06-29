@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)http://10.4.6.242:3333/dashboard/db/xbos-dash?orgId=1&panelId=6&fullscreen&edit -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="#000">
+
+    <title>Grafana - XBOS Dash</title>
+
+		<!--<base href="/">--><base href=".">
+
+		
+		  <link rel="stylesheet" href="./Grafana - XBOS Dash_files/grafana.dark.css">
+		
+
+    <link rel="icon" type="image/png" href="http://10.4.6.242:3333/public/img/fav32.png">
+    <link rel="mask-icon" href="http://10.4.6.242:3333/public/img/grafana_mask_icon.svg" color="#F05A28">
+	<style></style><style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style>.ace_snippet-marker {    -moz-box-sizing: border-box;    box-sizing: border-box;    background: rgba(194, 193, 208, 0.09);    border: 1px dotted rgba(211, 208, 235, 0.62);    position: absolute;}</style><style>.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #CAD6FA;    z-index: 1;}.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid #abbffe;    margin-top: -1px;    background: rgba(233,233,253,0.4);}.ace_editor.ace_autocomplete .ace_line-hover {    position: absolute;    z-index: 2;}.ace_editor.ace_autocomplete .ace_scroller {   background: none;   border: none;   box-shadow: none;}.ace_rightAlignedText {    color: gray;    display: inline-block;    position: absolute;    right: 4px;    text-align: right;    z-index: -1;}.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #000;    text-shadow: 0 0 0.01em;}.ace_editor.ace_autocomplete {    width: 280px;    z-index: 200000;    background: #fbfbfb;    color: #444;    border: 1px lightgray solid;    position: fixed;    box-shadow: 2px 3px 5px rgba(0,0,0,.2);    line-height: 1.4;}</style><style></style><script type="text/javascript" charset="utf-8" async="" src="./Grafana - XBOS Dash_files/0.be20b78823b4c9d93a84.js"></script><style id="gf-code-dark">.gf-code-dark .ace_gutter {  background: #2f3129;  color: #8f908a  }  .gf-code-dark .ace_print-margin {  width: 1px;  background: #555651  }  .gf-code-dark {  background-color: #111;  color: #e0e0e0  }  .gf-code-dark .ace_cursor {  color: #f8f8f0  }  .gf-code-dark .ace_marker-layer .ace_selection {  background: #49483e  }  .gf-code-dark.ace_multiselect .ace_selection.ace_start {  box-shadow: 0 0 3px 0px #272822;  }  .gf-code-dark .ace_marker-layer .ace_step {  background: rgb(102, 82, 0)  }  .gf-code-dark .ace_marker-layer .ace_bracket {  margin: -1px 0 0 -1px;  border: 1px solid #49483e  }  .gf-code-dark .ace_marker-layer .ace_active-line {  background: #202020  }  .gf-code-dark .ace_gutter-active-line {  background-color: #272727  }  .gf-code-dark .ace_marker-layer .ace_selected-word {  border: 1px solid #49483e  }  .gf-code-dark .ace_invisible {  color: #52524d  }  .gf-code-dark .ace_entity.ace_name.ace_tag,  .gf-code-dark .ace_keyword,  .gf-code-dark .ace_meta.ace_tag,  .gf-code-dark .ace_storage {  color: #66d9ef  }  .gf-code-dark .ace_punctuation,  .gf-code-dark .ace_punctuation.ace_tag {  color: #fff  }  .gf-code-dark .ace_constant.ace_character,  .gf-code-dark .ace_constant.ace_language,  .gf-code-dark .ace_constant.ace_numeric,  .gf-code-dark .ace_constant.ace_other {  color: #fe85fc  }  .gf-code-dark .ace_invalid {  color: #f8f8f0;  background-color: #f92672  }  .gf-code-dark .ace_invalid.ace_deprecated {  color: #f8f8f0;  background-color: #ae81ff  }  .gf-code-dark .ace_support.ace_constant,  .gf-code-dark .ace_support.ace_function {  color: #59e6e3  }  .gf-code-dark .ace_fold {  background-color: #a6e22e;  border-color: #f8f8f2  }  .gf-code-dark .ace_storage.ace_type,  .gf-code-dark .ace_support.ace_class,  .gf-code-dark .ace_support.ace_type {  font-style: italic;  color: #66d9ef  }  .gf-code-dark .ace_entity.ace_name.ace_function,  .gf-code-dark .ace_entity.ace_other,  .gf-code-dark .ace_entity.ace_other.ace_attribute-name,  .gf-code-dark .ace_variable {  color: #a6e22e  }  .gf-code-dark .ace_variable.ace_parameter {  font-style: italic;  color: #fd971f  }  .gf-code-dark .ace_string {  color: #74e680  }  .gf-code-dark .ace_paren {    color: #f0a842  }  .gf-code-dark .ace_operator {    color: #FFF  }  .gf-code-dark .ace_comment {  color: #75715e  }  .gf-code-dark .ace_indent-guide {  background: url(data:image/png;base64,ivborw0kggoaaaansuheugaaaaeaaaaccayaaaczgbynaaaaekleqvqimwpq0fd0zxbzd/wpaajvaoxesgneaaaaaelftksuqmcc) right repeat-y  }
+/*# sourceURL=ace/css/gf-code-dark */</style></head>
+
+	<body class="page-dashboard">
+		<grafana-app class="grafana-app">
+
+			<aside class="sidemenu-wrapper">
+				<!---->
+			</aside>
+
+			<div class="page-alert-list">
+				<!---->
+			</div>
+
+			<!----><div ng-view="" class="main-view"><!----><div dash-class="" ng-if="dashboard" class="panel-in-fullscreen">
+	<dashnav dashboard="dashboard"><div class="navbar">
+	<div class="navbar-inner">
+		<a class="navbar-brand-btn pointer" ng-click="ctrl.toggleSideMenu()">
+			<span class="navbar-brand-btn-background">
+				<img src="./Grafana - XBOS Dash_files/grafana_icon.svg">
+			</span>
+			<i class="icon-gf icon-gf-grafana_wordmark"></i>
+			<i class="fa fa-caret-down"></i>
+			<i class="fa fa-chevron-left"></i>
+		</a>
+
+		<div class="navbar-section-wrapper">
+			<a class="navbar-page-btn" ng-click="ctrl.showSearch()">
+				<i class="icon-gf icon-gf-dashboard"></i>
+				XBOS Dash
+				<i class="fa fa-caret-down"></i>
+			</a>
+		</div>
+
+		<!---->
+
+		<ul class="nav pull-left dashnav-action-icons">
+			<li ng-show="::ctrl.dashboard.meta.canStar">
+				<a class="pointer" ng-click="ctrl.starDashboard()">
+					<i class="fa fa-star-o" ng-class="{&#39;fa-star-o&#39;: !ctrl.dashboard.meta.isStarred, &#39;fa-star&#39;: ctrl.dashboard.meta.isStarred}" style="color:orange"></i>
+				</a>
+			</li>
+			<li ng-show="::ctrl.dashboard.meta.canShare" class="dropdown">
+				<a class="pointer" ng-click="ctrl.hideTooltip($event)" bs-tooltip="&#39;Share dashboard&#39;" data-placement="bottom" data-toggle="dropdown" data-original-title="" title=""><i class="fa fa-share-square-o"></i></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a class="pointer" ng-click="ctrl.shareDashboard(0)">
+							<i class="fa fa-link"></i> Link to Dashboard
+							<div class="dropdown-desc">Share an internal link to the current dashboard. Some configuration options available.</div>
+						</a>
+					</li>
+					<li>
+						<a class="pointer" ng-click="ctrl.shareDashboard(1)">
+							<i class="icon-gf icon-gf-snapshot"></i>Snapshot
+							<div class="dropdown-desc">Interactive, publically accessible dashboard. Sensitive data is stripped out.</div>
+						</a>
+					</li>
+					<li>
+						<a class="pointer" ng-click="ctrl.shareDashboard(2)">
+							<i class="fa fa-cloud-upload"></i>Export
+							<div class="dropdown-desc">Export the dashboard to a JSON file for others and to share on Grafana.com</div>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li ng-show="::ctrl.dashboard.meta.canSave">
+				<a ng-click="ctrl.saveDashboard()" bs-tooltip="&#39;Save dashboard &lt;br&gt; CTRL+S&#39;" data-placement="bottom" data-original-title="" title=""><i class="fa fa-save"></i></a>
+			</li>
+			<!---->
+			<li class="dropdown">
+				<a class="pointer" data-toggle="dropdown">
+					<i class="fa fa-cog"></i>
+				</a>
+				<ul class="dropdown-menu dropdown-menu--navbar">
+					<!----><li ng-repeat="navItem in ::ctrl.navModel.menu" ng-class="{active: navItem.active}">
+						<a class="pointer" ng-href="" ng-click="ctrl.navItemClicked(navItem, $event)">
+							<i class="fa fa-fw fa-cog" ng-show="::navItem.icon"></i>
+							Settings
+						</a>
+					</li><!----><li ng-repeat="navItem in ::ctrl.navModel.menu" ng-class="{active: navItem.active}">
+						<a class="pointer" ng-href="" ng-click="ctrl.navItemClicked(navItem, $event)">
+							<i class="fa fa-fw fa-code" ng-show="::navItem.icon"></i>
+							Templating
+						</a>
+					</li><!----><li ng-repeat="navItem in ::ctrl.navModel.menu" ng-class="{active: navItem.active}">
+						<a class="pointer" ng-href="" ng-click="ctrl.navItemClicked(navItem, $event)">
+							<i class="fa fa-fw fa-comment" ng-show="::navItem.icon"></i>
+							Annotations
+						</a>
+					</li><!----><li ng-repeat="navItem in ::ctrl.navModel.menu" ng-class="{active: navItem.active}">
+						<a class="pointer" ng-href="" ng-click="ctrl.navItemClicked(navItem, $event)">
+							<i class="fa fa-fw fa-history" ng-show="::navItem.icon"></i>
+							Version history
+						</a>
+					</li><!----><li ng-repeat="navItem in ::ctrl.navModel.menu" ng-class="{active: navItem.active}">
+						<a class="pointer" ng-href="" ng-click="ctrl.navItemClicked(navItem, $event)">
+							<i class="fa fa-fw fa-eye" ng-show="::navItem.icon"></i>
+							View JSON
+						</a>
+					</li><!----><li ng-repeat="navItem in ::ctrl.navModel.menu" ng-class="{active: navItem.active}">
+						<a class="pointer" ng-href="" ng-click="ctrl.navItemClicked(navItem, $event)">
+							<i class="fa fa-fw fa-keyboard-o" ng-show="::navItem.icon"></i>
+							Shortcuts
+						</a>
+					</li><!----><li ng-repeat="navItem in ::ctrl.navModel.menu" ng-class="{active: navItem.active}">
+						<a class="pointer" ng-href="" ng-click="ctrl.navItemClicked(navItem, $event)">
+							<i class="fa fa-fw fa-save" ng-show="::navItem.icon"></i>
+							Save As ...
+						</a>
+					</li><!----><li ng-repeat="navItem in ::ctrl.navModel.menu" ng-class="{active: navItem.active}">
+						<a class="pointer" ng-href="" ng-click="ctrl.navItemClicked(navItem, $event)">
+							<i class="fa fa-fw fa-trash" ng-show="::navItem.icon"></i>
+							Delete
+						</a>
+					</li><!---->
+				</ul>
+			</li>
+		</ul>
+
+		<ul class="nav pull-right">
+			<li ng-show="ctrl.dashboard.meta.fullscreen" class="dashnav-back-to-dashboard">
+				<a ng-click="ctrl.exitFullscreen()">
+					Back to dashboard
+				</a>
+			</li>
+			<li>
+				<gf-time-picker dashboard="ctrl.dashboard"><ul class="nav gf-timepicker-nav">
+
+	<li class="dashnav-move-timeframe gf-timepicker-time-control" bs-tooltip="&#39;Shift time backward &lt;br&gt; (left arrow key)&#39;" data-placement="bottom" data-original-title="" title="">
+		<a ng-click="ctrl.move(-1)"><i class="fa fa-chevron-left"></i></a>
+	</li>
+	<li class="dashnav-zoom-out gf-timepicker-time-control" bs-tooltip="&#39;Time range zoom out &lt;br&gt; CTRL+Z&#39;" data-placement="bottom" data-original-title="" title="">
+		<a ng-click="ctrl.zoom(2)">Zoom Out</a></li>
+	
+	<li class="dashnav-move-timeframe gf-timepicker-time-control" bs-tooltip="&#39;Shift time forward &lt;br&gt; (right arrow key)&#39;" data-placement="bottom" data-original-title="" title="">
+		<a ng-click="ctrl.move(1)"><i class="fa fa-chevron-right"></i></a>
+	</li>
+
+	<li>
+		<a bs-tooltip="ctrl.tooltip" data-placement="bottom" ng-click="ctrl.openDropdown()" class="gf-timepicker-nav-btn" data-original-title="" title="">
+			<i class="fa fa-clock-o"></i>
+			<span ng-bind="ctrl.rangeString">Last 1 hour</span>
+			<span ng-show="ctrl.isUtc" class="gf-timepicker-utc ng-hide">
+				UTC
+			</span>
+
+			<span ng-show="ctrl.dashboard.refresh" class="text-warning ng-hide">
+				&nbsp;
+				Refresh every false
+			</span>
+		</a>
+	</li>
+
+	<li class="dashnav-refresh-action">
+		<a ng-click="ctrl.timeSrv.refreshDashboard()">
+			<i class="fa fa-refresh"></i>
+		</a>
+	</li>
+
+</ul>
+</gf-time-picker>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<dashboard-search>
+<!---->
+
+<!---->
+
+</dashboard-search>
+</dashnav>
+
+	<div class="dashboard-container">
+		<div dash-editor-view="" class="dash-edit-view"></div>
+		<div class="clearfix"></div>
+
+		<!---->
+
+		<div class="clearfix"></div>
+
+    <!----><dash-row class="dash-row" ng-repeat="row in dashboard.rows" row="row" dashboard="dashboard" style="display: none;"><!---->
+
+<!---->
+
+<!---->
+
+<!----><div class="panels-wrapper" ng-if="!ctrl.row.collapse" style="min-height: 249px;">
+  <div class="dash-row-menu-container ng-hide" data-click-hide="" ng-hide="ctrl.dashboard.meta.fullscreen">
+    <ul class="dash-row-menu" role="menu">
+      <li>
+        <a ng-click="ctrl.toggleCollapse()">
+          <i class="fa fa-minus"></i> Collapse
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuAddPanel()">
+          <i class="fa fa-plus"></i> Add Panel
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuRowOptions()">
+          <i class="fa fa-cog"></i> Row Options
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.moveRow(-1)">
+          <i class="fa fa-arrow-up"></i> Move Up
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.moveRow(1)">
+          <i class="fa fa-arrow-down"></i> Move Down
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuDeleteRow()">
+          <i class="fa fa-trash"></i> Remove
+        </a>
+      </li>
+    </ul>
+    <div class="dash-row-menu-grip">
+      <i class="fa fa-ellipsis-v"></i>
+    </div>
+  </div>
+
+  <!----><div ng-repeat="panel in ctrl.row.panels track by panel.id" class="panel" ui-draggable="!ctrl.dashboard.meta.fullscreen" drag="panel.id" ui-on-drop="ctrl.onDrop($data, panel)" drag-handle-class="drag-handle" panel-width="" style="width: 50%; display: none;">
+    <plugin-component type="panel" class="panel-margin"><panel-plugin-graph dashboard="ctrl.dashboard" panel="panel" row="ctrl.row"><grafana-panel ctrl="ctrl" class="">
+  <div class="panel-container tether-target tether-abutted tether-abutted-top tether-element-attached-bottom tether-element-attached-center tether-target-attached-top tether-target-attached-center" style="min-height: 249px;">
+    <div class="panel-header">
+      <span class="panel-info-corner panel-info-corner--">
+        <i class="fa"></i>
+        <span class="panel-info-corner-inner"></span>
+      </span>
+
+      <span class="panel-loading ng-hide" ng-show="ctrl.loading">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+
+      <div class="panel-title-container drag-handle" panel-menu=""><span class="panel-title drag-handle pointer"><span class="icon-gf panel-alert-icon"></span><span class="panel-title-text drag-handle">CPU - user</span><span class="panel-time-info ng-hide" ng-show="ctrl.timeInfo"><i class="fa fa-clock-o"></i> </span></span></div>
+    </div>
+
+    <div class="panel-content">
+      <ng-transclude>
+<div class="graph-wrapper" ng-class="{&#39;graph-legend-rightside&#39;: ctrl.panel.legend.rightSide}">
+  <div class="graph-canvas-wrapper">
+
+    <!---->
+
+    <div grafana-graph="" class="histogram-chart" ng-dblclick="ctrl.zoomOut()" style="height: 191px;">
+    <canvas class="flot-base" width="915" height="191" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 191px;"></canvas><div class="flot-text flot-temp-elem" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 61px; text-align: center;">20:35</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 134px; text-align: center;">20:40</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 207px; text-align: center;">20:45</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 280px; text-align: center;">20:50</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 353px; text-align: center;">20:55</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 426px; text-align: center;">21:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 499px; text-align: center;">21:05</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 572px; text-align: center;">21:10</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 645px; text-align: center;">21:15</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 718px; text-align: center;">21:20</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 791px; text-align: center;">21:25</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 864px; text-align: center;">21:30</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 161px; left: 11px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 121px; left: 1px; text-align: right;">1.0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 81px; left: 1px; text-align: right;">2.0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 41px; left: 1px; text-align: right;">3.0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">4.0</div></div></div><canvas class="flot-overlay" width="915" height="191" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 191px;"></canvas></div>
+
+  </div>
+
+  <div class="graph-legend-wrapper" graph-legend=""><section class="graph-legend"><div class="graph-legend-series" data-series-index="0"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#7EB26D"></i></div><a class="graph-legend-alias pointer" title="berkeley-corporate-yard.xbos.io:9100">berkeley-corporate-yard.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="1"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#EAB839"></i></div><a class="graph-legend-alias pointer" title="csu-dominguez-hills.xbos.io:9100">csu-dominguez-hills.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="2"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#6ED0E0"></i></div><a class="graph-legend-alias pointer" title="hayward-station-1.xbos.io:9100">hayward-station-1.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="3"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#EF843C"></i></div><a class="graph-legend-alias pointer" title="hayward-station-8.xbos.io:9100">hayward-station-8.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="4"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#E24D42"></i></div><a class="graph-legend-alias pointer" title="jesse-turner-center.xbos.io:9100">jesse-turner-center.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="5"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#1F78C1"></i></div><a class="graph-legend-alias pointer" title="orinda-community-center.xbos.io:9100">orinda-community-center.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="6"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#BA43A9"></i></div><a class="graph-legend-alias pointer" title="rfs.xbos.io:9100">rfs.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="7"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#705DA0"></i></div><a class="graph-legend-alias pointer" title="sdh.xbos.io:9100">sdh.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="8"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#508642"></i></div><a class="graph-legend-alias pointer" title="south-berkeley-senior-center.xbos.io:9100">south-berkeley-senior-center.xbos.io:9100</a></div></section></div>
+  </div>
+
+<div class="clearfix"></div>
+</ng-transclude>
+    </div>
+    <panel-resizer><span class="resize-panel-handle icon-gf icon-gf-grabber"></span></panel-resizer>
+  </div>
+
+  <!---->
+</grafana-panel></panel-plugin-graph></plugin-component>
+  </div><!----><div ng-repeat="panel in ctrl.row.panels track by panel.id" class="panel" ui-draggable="!ctrl.dashboard.meta.fullscreen" drag="panel.id" ui-on-drop="ctrl.onDrop($data, panel)" drag-handle-class="drag-handle" panel-width="" style="width: 50%; display: none;">
+    <plugin-component type="panel" class="panel-margin"><panel-plugin-graph dashboard="ctrl.dashboard" panel="panel" row="ctrl.row"><grafana-panel ctrl="ctrl">
+  <div class="panel-container" style="min-height: 249px;">
+    <div class="panel-header">
+      <span class="panel-info-corner panel-info-corner--">
+        <i class="fa"></i>
+        <span class="panel-info-corner-inner"></span>
+      </span>
+
+      <span class="panel-loading ng-hide" ng-show="ctrl.loading">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+
+      <div class="panel-title-container drag-handle" panel-menu=""><span class="panel-title drag-handle pointer"><span class="icon-gf panel-alert-icon"></span><span class="panel-title-text drag-handle">CPU - iowait</span><span class="panel-time-info ng-hide" ng-show="ctrl.timeInfo"><i class="fa fa-clock-o"></i> </span></span></div>
+    </div>
+
+    <div class="panel-content">
+      <ng-transclude>
+<div class="graph-wrapper" ng-class="{&#39;graph-legend-rightside&#39;: ctrl.panel.legend.rightSide}">
+  <div class="graph-canvas-wrapper">
+
+    <!---->
+
+    <div grafana-graph="" class="histogram-chart" ng-dblclick="ctrl.zoomOut()" style="height: 191px;">
+    <canvas class="flot-base" width="915" height="191" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 191px;"></canvas><div class="flot-text flot-temp-elem" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 58px; text-align: center;">20:35</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 132px; text-align: center;">20:40</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 205px; text-align: center;">20:45</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 278px; text-align: center;">20:50</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 351px; text-align: center;">20:55</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 425px; text-align: center;">21:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 498px; text-align: center;">21:05</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 571px; text-align: center;">21:10</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 645px; text-align: center;">21:15</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 718px; text-align: center;">21:20</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 791px; text-align: center;">21:25</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 174px; left: 864px; text-align: center;">21:30</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 161px; left: 1px; text-align: right;">28</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 129px; left: 1px; text-align: right;">30</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 97px; left: 1px; text-align: right;">32</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 65px; left: 1px; text-align: right;">34</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 33px; left: 1px; text-align: right;">36</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">38</div></div></div><canvas class="flot-overlay" width="915" height="191" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 191px;"></canvas></div>
+
+  </div>
+
+  <div class="graph-legend-wrapper" graph-legend=""><section class="graph-legend"><div class="graph-legend-series" data-series-index="0"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#7EB26D"></i></div><a class="graph-legend-alias pointer" title="A-series">A-series</a></div></section></div>
+  </div>
+
+<div class="clearfix"></div>
+</ng-transclude>
+    </div>
+    <panel-resizer><span class="resize-panel-handle icon-gf icon-gf-grabber"></span></panel-resizer>
+  </div>
+
+  <!---->
+</grafana-panel></panel-plugin-graph></plugin-component>
+  </div><!---->
+
+  <div panel-drop-zone="" class="panel panel-drop-zone" ui-on-drop="ctrl.onDrop($data)" data-drop="true" style="display: none;">
+    <div class="panel-margin">
+      <div class="panel-container">
+        <div class="panel-drop-zone-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div><!---->
+
+</dash-row><!----><dash-row class="dash-row" ng-repeat="row in dashboard.rows" row="row" dashboard="dashboard" style="display: none;"><!---->
+
+<!---->
+
+<!---->
+
+<!----><div class="panels-wrapper" ng-if="!ctrl.row.collapse" style="min-height: 250px;">
+  <div class="dash-row-menu-container ng-hide" data-click-hide="" ng-hide="ctrl.dashboard.meta.fullscreen">
+    <ul class="dash-row-menu" role="menu">
+      <li>
+        <a ng-click="ctrl.toggleCollapse()">
+          <i class="fa fa-minus"></i> Collapse
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuAddPanel()">
+          <i class="fa fa-plus"></i> Add Panel
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuRowOptions()">
+          <i class="fa fa-cog"></i> Row Options
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.moveRow(-1)">
+          <i class="fa fa-arrow-up"></i> Move Up
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.moveRow(1)">
+          <i class="fa fa-arrow-down"></i> Move Down
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuDeleteRow()">
+          <i class="fa fa-trash"></i> Remove
+        </a>
+      </li>
+    </ul>
+    <div class="dash-row-menu-grip">
+      <i class="fa fa-ellipsis-v"></i>
+    </div>
+  </div>
+
+  <!----><div ng-repeat="panel in ctrl.row.panels track by panel.id" class="panel" ui-draggable="!ctrl.dashboard.meta.fullscreen" drag="panel.id" ui-on-drop="ctrl.onDrop($data, panel)" drag-handle-class="drag-handle" panel-width="" style="width: 50%; display: none;">
+    <plugin-component type="panel" class="panel-margin"><panel-plugin-graph dashboard="ctrl.dashboard" panel="panel" row="ctrl.row"><grafana-panel ctrl="ctrl">
+  <div class="panel-container" style="min-height: 250px;">
+    <div class="panel-header">
+      <span class="panel-info-corner panel-info-corner--">
+        <i class="fa"></i>
+        <span class="panel-info-corner-inner"></span>
+      </span>
+
+      <span class="panel-loading ng-hide" ng-show="ctrl.loading">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+
+      <div class="panel-title-container drag-handle" panel-menu=""><span class="panel-title drag-handle pointer"><span class="icon-gf panel-alert-icon"></span><span class="panel-title-text drag-handle">Disk Utilization</span><span class="panel-time-info ng-hide" ng-show="ctrl.timeInfo"><i class="fa fa-clock-o"></i> </span></span></div>
+    </div>
+
+    <div class="panel-content">
+      <ng-transclude>
+<div class="graph-wrapper" ng-class="{&#39;graph-legend-rightside&#39;: ctrl.panel.legend.rightSide}">
+  <div class="graph-canvas-wrapper">
+
+    <!---->
+
+    <div grafana-graph="" class="histogram-chart" ng-dblclick="ctrl.zoomOut()" style="height: 192px;">
+    <canvas class="flot-base" width="915" height="192" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 192px;"></canvas><div class="flot-text flot-temp-elem" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 76px; text-align: center;">20:35</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 148px; text-align: center;">20:40</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 220px; text-align: center;">20:45</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 291px; text-align: center;">20:50</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 363px; text-align: center;">20:55</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 435px; text-align: center;">21:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 506px; text-align: center;">21:05</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 578px; text-align: center;">21:10</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 650px; text-align: center;">21:15</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 721px; text-align: center;">21:20</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 793px; text-align: center;">21:25</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 865px; text-align: center;">21:30</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 162px; left: 1px; text-align: right;">42.5%</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 129px; left: 1px; text-align: right;">45.0%</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 97px; left: 1px; text-align: right;">47.5%</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 65px; left: 1px; text-align: right;">50.0%</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 33px; left: 1px; text-align: right;">52.5%</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">55.0%</div></div></div><canvas class="flot-overlay" width="915" height="192" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 192px;"></canvas></div>
+
+  </div>
+
+  <div class="graph-legend-wrapper" graph-legend=""><section class="graph-legend"><div class="graph-legend-series" data-series-index="0"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#7EB26D"></i></div><a class="graph-legend-alias pointer" title="A-series">A-series</a></div></section></div>
+  </div>
+
+<div class="clearfix"></div>
+</ng-transclude>
+    </div>
+    <panel-resizer><span class="resize-panel-handle icon-gf icon-gf-grabber"></span></panel-resizer>
+  </div>
+
+  <!---->
+</grafana-panel></panel-plugin-graph></plugin-component>
+  </div><!----><div ng-repeat="panel in ctrl.row.panels track by panel.id" class="panel" ui-draggable="!ctrl.dashboard.meta.fullscreen" drag="panel.id" ui-on-drop="ctrl.onDrop($data, panel)" drag-handle-class="drag-handle" panel-width="" style="width: 50%; display: none;">
+    <plugin-component type="panel" class="panel-margin"><panel-plugin-graph dashboard="ctrl.dashboard" panel="panel" row="ctrl.row"><grafana-panel ctrl="ctrl">
+  <div class="panel-container" style="min-height: 250px;">
+    <div class="panel-header">
+      <span class="panel-info-corner panel-info-corner--">
+        <i class="fa"></i>
+        <span class="panel-info-corner-inner"></span>
+      </span>
+
+      <span class="panel-loading ng-hide" ng-show="ctrl.loading">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+
+      <div class="panel-title-container drag-handle" panel-menu=""><span class="panel-title drag-handle pointer"><span class="icon-gf panel-alert-icon"></span><span class="panel-title-text drag-handle">CPU load</span><span class="panel-time-info ng-hide" ng-show="ctrl.timeInfo"><i class="fa fa-clock-o"></i> </span></span></div>
+    </div>
+
+    <div class="panel-content">
+      <ng-transclude>
+<div class="graph-wrapper" ng-class="{&#39;graph-legend-rightside&#39;: ctrl.panel.legend.rightSide}">
+  <div class="graph-canvas-wrapper">
+
+    <!---->
+
+    <div grafana-graph="" class="histogram-chart" ng-dblclick="ctrl.zoomOut()" style="height: 192px;">
+    <canvas class="flot-base" width="915" height="192" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 192px;"></canvas><div class="flot-text flot-temp-elem" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 68px; text-align: center;">20:35</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 140px; text-align: center;">20:40</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 213px; text-align: center;">20:45</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 285px; text-align: center;">20:50</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 358px; text-align: center;">20:55</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 430px; text-align: center;">21:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 502px; text-align: center;">21:05</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 575px; text-align: center;">21:10</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 647px; text-align: center;">21:15</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 720px; text-align: center;">21:20</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 792px; text-align: center;">21:25</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 865px; text-align: center;">21:30</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 162px; left: 1px; text-align: right;">62.5</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 135px; left: 1px; text-align: right;">65.0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 108px; left: 1px; text-align: right;">67.5</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 81px; left: 1px; text-align: right;">70.0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 54px; left: 1px; text-align: right;">72.5</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 27px; left: 1px; text-align: right;">75.0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">77.5</div></div></div><canvas class="flot-overlay" width="915" height="192" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 192px;"></canvas></div>
+
+  </div>
+
+  <div class="graph-legend-wrapper" graph-legend=""><section class="graph-legend"><div class="graph-legend-series" data-series-index="0"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#7EB26D"></i></div><a class="graph-legend-alias pointer" title="A-series">A-series</a></div></section></div>
+  </div>
+
+<div class="clearfix"></div>
+</ng-transclude>
+    </div>
+    <panel-resizer><span class="resize-panel-handle icon-gf icon-gf-grabber"></span></panel-resizer>
+  </div>
+
+  <!---->
+</grafana-panel></panel-plugin-graph></plugin-component>
+  </div><!---->
+
+  <div panel-drop-zone="" class="panel panel-drop-zone" ui-on-drop="ctrl.onDrop($data)" data-drop="true" style="display: none;">
+    <div class="panel-margin">
+      <div class="panel-container">
+        <div class="panel-drop-zone-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div><!---->
+
+</dash-row><!----><dash-row class="dash-row" ng-repeat="row in dashboard.rows" row="row" dashboard="dashboard" style=""><!---->
+
+<!---->
+
+<!---->
+
+<!----><div class="panels-wrapper" ng-if="!ctrl.row.collapse" style="min-height: 245px;">
+  <div class="dash-row-menu-container ng-hide" data-click-hide="" ng-hide="ctrl.dashboard.meta.fullscreen">
+    <ul class="dash-row-menu" role="menu">
+      <li>
+        <a ng-click="ctrl.toggleCollapse()">
+          <i class="fa fa-minus"></i> Collapse
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuAddPanel()">
+          <i class="fa fa-plus"></i> Add Panel
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuRowOptions()">
+          <i class="fa fa-cog"></i> Row Options
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.moveRow(-1)">
+          <i class="fa fa-arrow-up"></i> Move Up
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.moveRow(1)">
+          <i class="fa fa-arrow-down"></i> Move Down
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuDeleteRow()">
+          <i class="fa fa-trash"></i> Remove
+        </a>
+      </li>
+    </ul>
+    <div class="dash-row-menu-grip">
+      <i class="fa fa-ellipsis-v"></i>
+    </div>
+  </div>
+
+  <!----><div ng-repeat="panel in ctrl.row.panels track by panel.id" class="panel" ui-draggable="!ctrl.dashboard.meta.fullscreen" drag="panel.id" ui-on-drop="ctrl.onDrop($data, panel)" drag-handle-class="drag-handle" panel-width="" style="width: 50%; display: none;">
+    <plugin-component type="panel" class="panel-margin"><panel-plugin-graph dashboard="ctrl.dashboard" panel="panel" row="ctrl.row"><grafana-panel ctrl="ctrl">
+  <div class="panel-container" style="min-height: 245px;">
+    <div class="panel-header">
+      <span class="panel-info-corner panel-info-corner--">
+        <i class="fa"></i>
+        <span class="panel-info-corner-inner"></span>
+      </span>
+
+      <span class="panel-loading ng-hide" ng-show="ctrl.loading">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+
+      <div class="panel-title-container drag-handle" panel-menu=""><span class="panel-title drag-handle pointer"><span class="icon-gf panel-alert-icon"></span><span class="panel-title-text drag-handle">Network In</span><span class="panel-time-info ng-hide" ng-show="ctrl.timeInfo"><i class="fa fa-clock-o"></i> </span></span></div>
+    </div>
+
+    <div class="panel-content">
+      <ng-transclude>
+<div class="graph-wrapper" ng-class="{&#39;graph-legend-rightside&#39;: ctrl.panel.legend.rightSide}">
+  <div class="graph-canvas-wrapper">
+
+    <!---->
+
+    <div grafana-graph="" class="histogram-chart" ng-dblclick="ctrl.zoomOut()" style="height: 187px;">
+    <canvas class="flot-base" width="915" height="187" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 187px;"></canvas><div class="flot-text flot-temp-elem" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 89px; text-align: center;">20:35</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 160px; text-align: center;">20:40</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 230px; text-align: center;">20:45</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 301px; text-align: center;">20:50</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 371px; text-align: center;">20:55</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 442px; text-align: center;">21:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 512px; text-align: center;">21:05</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 583px; text-align: center;">21:10</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 654px; text-align: center;">21:15</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 724px; text-align: center;">21:20</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 795px; text-align: center;">21:25</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 170px; left: 865px; text-align: center;">21:30</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 157px; left: 4px; text-align: right;">-2.5 Bps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 131px; left: 17px; text-align: right;">0 Bps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 105px; left: 8px; text-align: right;">2.5 Bps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 79px; left: 8px; text-align: right;">5.0 Bps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 53px; left: 8px; text-align: right;">7.5 Bps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 27px; left: 1px; text-align: right;">10.0 Bps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">12.5 Bps</div></div></div><canvas class="flot-overlay" width="915" height="187" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 187px;"></canvas></div>
+
+  </div>
+
+  <div class="graph-legend-wrapper" graph-legend=""><section class="graph-legend"><div class="graph-legend-series" data-series-index="0"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#7EB26D"></i></div><a class="graph-legend-alias pointer" title="A-series">A-series</a></div></section></div>
+  </div>
+
+<div class="clearfix"></div>
+</ng-transclude>
+    </div>
+    <panel-resizer><span class="resize-panel-handle icon-gf icon-gf-grabber"></span></panel-resizer>
+  </div>
+
+  <!---->
+</grafana-panel></panel-plugin-graph></plugin-component>
+  </div><!----><div ng-repeat="panel in ctrl.row.panels track by panel.id" class="panel" ui-draggable="!ctrl.dashboard.meta.fullscreen" drag="panel.id" ui-on-drop="ctrl.onDrop($data, panel)" drag-handle-class="drag-handle" panel-width="" style="width: 100%;">
+    <plugin-component type="panel" class="panel-margin"><panel-plugin-graph dashboard="ctrl.dashboard" panel="panel" row="ctrl.row"><grafana-panel ctrl="ctrl" class="panel-fullscreen">
+  <div class="panel-container tether-target tether-element-attached-bottom tether-element-attached-center tether-target-attached-top tether-target-attached-center panel-hover-highlight" style="min-height: 368px;">
+    <div class="panel-header">
+      <span class="panel-info-corner panel-info-corner--">
+        <i class="fa"></i>
+        <span class="panel-info-corner-inner"></span>
+      </span>
+
+      <span class="panel-loading" ng-show="ctrl.loading">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+
+      <div class="panel-title-container drag-handle" panel-menu=""><span class="panel-title drag-handle pointer"><span class="icon-gf panel-alert-icon"></span><span class="panel-title-text drag-handle">Network Out</span><span class="panel-time-info ng-hide" ng-show="ctrl.timeInfo"><i class="fa fa-clock-o"></i> </span></span></div>
+    </div>
+
+    <div class="panel-content">
+      <ng-transclude>
+<div class="graph-wrapper" ng-class="{&#39;graph-legend-rightside&#39;: ctrl.panel.legend.rightSide}">
+  <div class="graph-canvas-wrapper">
+
+    <!---->
+
+    <div grafana-graph="" class="histogram-chart" ng-dblclick="ctrl.zoomOut()" style="height: 310px;">
+    <canvas class="flot-base" width="1871" height="310" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 1871.62px; height: 310px;"></canvas><div class="flot-text flot-temp-elem" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 56px; text-align: center;">20:32</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 116px; text-align: center;">20:34</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 176px; text-align: center;">20:36</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 236px; text-align: center;">20:38</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 296px; text-align: center;">20:40</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 356px; text-align: center;">20:42</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 416px; text-align: center;">20:44</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 476px; text-align: center;">20:46</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 536px; text-align: center;">20:48</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 596px; text-align: center;">20:50</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 656px; text-align: center;">20:52</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 716px; text-align: center;">20:54</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 776px; text-align: center;">20:56</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 836px; text-align: center;">20:58</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 896px; text-align: center;">21:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 955px; text-align: center;">21:02</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1015px; text-align: center;">21:04</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1075px; text-align: center;">21:06</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1135px; text-align: center;">21:08</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1195px; text-align: center;">21:10</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1255px; text-align: center;">21:12</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1315px; text-align: center;">21:14</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1375px; text-align: center;">21:16</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1435px; text-align: center;">21:18</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1495px; text-align: center;">21:20</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1555px; text-align: center;">21:22</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1615px; text-align: center;">21:24</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1675px; text-align: center;">21:26</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1735px; text-align: center;">21:28</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 58px; top: 293px; left: 1795px; text-align: center;">21:30</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 280px; left: 20px; text-align: right;">0 Bps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 240px; left: 8px; text-align: right;">50 kBps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 200px; left: 1px; text-align: right;">100 kBps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 160px; left: 1px; text-align: right;">150 kBps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 120px; left: 1px; text-align: right;">200 kBps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 80px; left: 1px; text-align: right;">250 kBps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 40px; left: 1px; text-align: right;">300 kBps</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">350 kBps</div></div></div><canvas class="flot-overlay" width="1871" height="310" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 1871.62px; height: 310px;"></canvas></div>
+
+  </div>
+
+  <div class="graph-legend-wrapper" graph-legend=""><section class="graph-legend"><div class="graph-legend-series" data-series-index="0"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#7EB26D"></i></div><a class="graph-legend-alias pointer" title="berkeley-corporate-yard.xbos.io:9100">berkeley-corporate-yard.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="1"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#EAB839"></i></div><a class="graph-legend-alias pointer" title="csu-dominguez-hills.xbos.io:9100">csu-dominguez-hills.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="2"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#6ED0E0"></i></div><a class="graph-legend-alias pointer" title="hayward-station-1.xbos.io:9100">hayward-station-1.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="3"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#EF843C"></i></div><a class="graph-legend-alias pointer" title="hayward-station-8.xbos.io:9100">hayward-station-8.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="4"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#E24D42"></i></div><a class="graph-legend-alias pointer" title="jesse-turner-center.xbos.io:9100">jesse-turner-center.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="5"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#1F78C1"></i></div><a class="graph-legend-alias pointer" title="orinda-community-center.xbos.io:9100">orinda-community-center.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="6"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#BA43A9"></i></div><a class="graph-legend-alias pointer" title="rfs.xbos.io:9100">rfs.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="7"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#705DA0"></i></div><a class="graph-legend-alias pointer" title="sdh.xbos.io:9100">sdh.xbos.io:9100</a></div><div class="graph-legend-series" data-series-index="8"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#508642"></i></div><a class="graph-legend-alias pointer" title="south-berkeley-senior-center.xbos.io:9100">south-berkeley-senior-center.xbos.io:9100</a></div></section></div>
+  </div>
+
+<div class="clearfix"></div>
+</ng-transclude>
+    </div>
+    <panel-resizer><span class="resize-panel-handle icon-gf icon-gf-grabber"></span></panel-resizer>
+  </div>
+
+  <!----><div class="panel-full-edit" ng-if="ctrl.editMode">
+    <div class="tabbed-view tabbed-view--panel-edit">
+      <div class="tabbed-view-header">
+        <h2 class="tabbed-view-title">
+          Graph
+        </h2>
+
+        <ul class="gf-tabs">
+          <!----><li class="gf-tabs-item" ng-repeat="tab in ::ctrl.editorTabs">
+            <a class="gf-tabs-link" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.editorTabIndex === $index}">
+              General
+            </a>
+          </li><!----><li class="gf-tabs-item" ng-repeat="tab in ::ctrl.editorTabs">
+            <a class="gf-tabs-link active" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.editorTabIndex === $index}">
+              Metrics
+            </a>
+          </li><!----><li class="gf-tabs-item" ng-repeat="tab in ::ctrl.editorTabs">
+            <a class="gf-tabs-link" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.editorTabIndex === $index}">
+              Axes
+            </a>
+          </li><!----><li class="gf-tabs-item" ng-repeat="tab in ::ctrl.editorTabs">
+            <a class="gf-tabs-link" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.editorTabIndex === $index}">
+              Legend
+            </a>
+          </li><!----><li class="gf-tabs-item" ng-repeat="tab in ::ctrl.editorTabs">
+            <a class="gf-tabs-link" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.editorTabIndex === $index}">
+              Display
+            </a>
+          </li><!----><li class="gf-tabs-item" ng-repeat="tab in ::ctrl.editorTabs">
+            <a class="gf-tabs-link" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.editorTabIndex === $index}">
+              Alert
+            </a>
+          </li><!----><li class="gf-tabs-item" ng-repeat="tab in ::ctrl.editorTabs">
+            <a class="gf-tabs-link" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.editorTabIndex === $index}">
+              Time range
+            </a>
+          </li><!---->
+        </ul>
+
+        <button class="tabbed-view-close-btn" ng-click="ctrl.exitFullscreen();">
+          <i class="fa fa-remove"></i>
+        </button>
+      </div>
+
+      <div class="tabbed-view-body">
+        <!----><!----><!----><!----><div ng-repeat="tab in ctrl.editorTabs" ng-if="ctrl.editorTabIndex === $index">
+          <panel-editor-tab editor-tab="tab" ctrl="ctrl" index="$index"><panel-editor-tab-graph1><div class="gf-form-group">
+  <div class="gf-form-inline">
+    <div class="gf-form">
+			<label class="gf-form-label gf-query-ds-label">
+				<i class="icon-gf icon-gf-datasources"></i>
+			</label>
+      <label class="gf-form-label">Data Source</label>
+
+      <gf-form-dropdown model="ctrl.panelDsValue" css-class="gf-size-auto" lookup-text="true" get-options="ctrl.getOptions(true)" on-change="ctrl.datasourceChanged($option)">
+<input type="text" data-provide="typeahead" class="gf-form-input" spellcheck="false" style="width: 182.5px; display: none;"><ul class="typeahead dropdown-menu" style="top: 37px; left: 143.422px; display: none;"><li data-value="Prometheus" class="active"><a href="http://10.4.6.242:3333/#">Prometheus</a></li><li data-value="XBOS"><a href="http://10.4.6.242:3333/#">XBOS</a></li><li data-value="-- Mixed --"><a href="http://10.4.6.242:3333/#">-- Mixed --</a></li><li data-value="default"><a href="http://10.4.6.242:3333/#">default</a></li><li data-value="-- Grafana --"><a href="http://10.4.6.242:3333/#">-- Grafana --</a></li></ul>
+
+<a ng-class="ctrl.cssClasses" tabindex="1" ng-click="ctrl.open()" give-focus="ctrl.focus" ng-bind-html="ctrl.display" class="gf-form-input gf-form-input--dropdown gf-size-auto" style="">Prometheus</a>
+</gf-form-dropdown>
+		</div>
+
+		<div class="gf-form gf-form--grow">
+			<label class="gf-form-label gf-form-label--grow"></label>
+		</div>
+		<!---->
+		<!---->
+		<div class="gf-form">
+			<button class="gf-form-label" ng-click="ctrl.toggleQueryTroubleshooter()" bs-tooltip="&#39;Display query request &amp; response&#39;" data-original-title="" title="">
+				<i class="fa fa-fw fa-caret-right" ng-hide="ctrl.queryTroubleshooterOpen"></i><i class="fa fa-fw fa-caret-down ng-hide" ng-show="ctrl.queryTroubleshooterOpen"></i>Query Inspector
+			</button>
+		</div>
+	</div>
+
+	<div>
+		<!---->
+
+		<!---->
+
+		<query-troubleshooter panel-ctrl="ctrl.panelCtrl" is-open="ctrl.queryTroubleshooterOpen">
+<!---->
+</query-troubleshooter>
+	</div>
+</div>
+
+<!----><div class="query-editor-rows gf-form-group" ng-if="ctrl.datasourceInstance">
+	<!----><div ng-repeat="target in ctrl.panel.targets" ng-class="{&#39;gf-form-disabled&#39;: target.hide}">
+		<rebuild-on-change property="ctrl.panel.datasource || target.datasource" show-null="true"></rebuild-on-change>
+			<plugin-component type="query-ctrl"><query-ctrl-prometheus target="target" panel-ctrl="ctrl.panelCtrl" datasource="datasource"><query-editor-row query-ctrl="ctrl" can-collapse="true" has-text-edit-mode="false">
+<div class="gf-form-query">
+	<div class="gf-form gf-form-query-letter-cell">
+    <label class="gf-form-label">
+      <a class="pointer" tabindex="1" ng-click="ctrl.toggleCollapse()">
+        <span ng-class="{muted: !ctrl.canCollapse}" class="gf-form-query-letter-cell-carret">
+          <i class="fa fa-caret-down" ng-hide="ctrl.collapsed"></i>
+          <i class="fa fa-caret-right ng-hide" ng-show="ctrl.collapsed"></i>
+        </span>
+        <span class="gf-form-query-letter-cell-letter">A</span>
+        <em class="gf-form-query-letter-cell-ds ng-hide" ng-show="ctrl.target.datasource">()</em>
+      </a>
+		</label>
+  </div>
+
+	<!---->
+
+	<!----><div ng-transclude="" class="gf-form-query-content" ng-if="!ctrl.collapsed">
+	<div class="gf-form-inline">
+		<div class="gf-form gf-form--grow">
+			<code-editor content="ctrl.target.expr" datasource="ctrl.datasource" on-change="ctrl.refreshMetricData()" get-completer="ctrl.getCompleter()" data-mode="prometheus" code-editor-focus="ctrl.isLastQuery" class="ace_editor gf-code-dark ace_dark gf-code-editor ace_focus" style="height: 46px;"><div style="position: absolute;"></div><textarea class="ace_text-input gf-form-input" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="opacity: 0; height: 16px; width: 8.40156px; left: 698.928px; top: 15px;"></textarea><div class="ace_gutter" style="display: none;"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: 15px;"></div><div class="ace_gutter-active-line" style="top: 15px; height: 16px;"></div></div><div class="ace_scroller" style="left: 0px; right: 0px; bottom: 0px;"><div class="ace_content" style="margin-top: 15px; width: 1718px; height: 78px; margin-left: 0px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 682.125px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"><div class="ace_bracket ace_start ace_br15" style="height:16px;width:8.4015625px;top:0px;left:152.82656250000002px;"></div></div><div class="ace_layer ace_text-layer" style="padding: 0px 10px;"><div class="ace_line" style="height:16px"><span class="ace_keyword">sum</span> <span class="ace_keyword">by</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">instance</span><span class="ace_paren ace_rparen">)</span><span class="ace_paren ace_lparen">(</span><span class="ace_support ace_function">irate</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">node_network_transmit_bytes</span><span class="ace_paren ace_lparen">{</span><span class="ace_entity ace_name ace_tag">device</span><span class="ace_keyword ace_operator">=~</span><span class="ace_string ace_quoted">'enp2s0|tap0'</span><span class="ace_paren ace_rparen">}</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_language">5m</span><span class="ace_paren ace_rparen">])</span><span class="ace_keyword ace_operator">*</span><span class="ace_constant ace_numeric">8</span><span class="ace_paren ace_rparen">)</span></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer"><div class="ace_cursor" style="left: 698.928px; top: 0px; width: 8.40156px; height: 16px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 13px; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 13px; height: 46px;"></div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 13px; left: 0px; right: 0px;"><div class="ace_scrollbar-inner" style="height: 13px; width: 1718px;"></div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;"></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></code-editor>
+		</div>
+	</div>
+
+	<div class="gf-form-inline">
+		<div class="gf-form max-width-26">
+			<label class="gf-form-label width-8">Legend format</label>
+			<input type="text" class="gf-form-input ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="ctrl.target.legendFormat" spellcheck="false" placeholder="legend format" data-min-length="0" data-items="1000" ng-model-onblur="" ng-change="ctrl.refreshMetricData()">
+			
+		</div>
+
+		<div class="gf-form">
+			<label class="gf-form-label width-6">Min step</label>
+			<input type="text" class="gf-form-input width-8 ng-pristine ng-untouched ng-valid ng-empty" ng-model="ctrl.target.interval" data-placement="right" spellcheck="false" placeholder="15s" data-min-length="0" data-items="100" ng-model-onblur="" ng-change="ctrl.refreshMetricData()">
+			<info-popover mode="right-absolute" class="gf-form-help-icon gf-form-help-icon--right-absolute drop-help drop-hide-out-of-bounds drop-target"><i class="fa fa-info-circle"></i></info-popover>
+		</div>
+
+		<div class="gf-form">
+			<label class="gf-form-label">Resolution</label>
+			<div class="gf-form-select-wrapper max-width-15">
+				<select ng-model="ctrl.target.intervalFactor" class="gf-form-input ng-pristine ng-untouched ng-valid ng-not-empty" ng-options="r.factor as r.label for r in ctrl.resolutions" ng-change="ctrl.refreshMetricData()"><option label="1/1" value="number:1">1/1</option><option label="1/2" value="number:2" selected="selected">1/2</option><option label="1/3" value="number:3">1/3</option><option label="1/4" value="number:4">1/4</option><option label="1/5" value="number:5">1/5</option><option label="1/10" value="number:10">1/10</option></select>
+			</div>
+		</div>
+
+		<div class="gf-form">
+			<label class="gf-form-label width-6">Format as</label>
+			<div class="gf-form-select-wrapper width-8">
+				<select class="gf-form-input gf-size-auto ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="ctrl.target.format" ng-options="f.value as f.text for f in ctrl.formats" ng-change="ctrl.refresh()"><option label="Time series" value="string:time_series" selected="selected">Time series</option><option label="Table" value="string:table">Table</option></select>
+			</div>
+			<gf-form-switch class="gf-form" label="Instant" label-class="width-5" checked="ctrl.target.instant" on-change="ctrl.refresh()">
+<label for="check-238" class="gf-form-label width-5 pointer" ng-show="ctrl.label">
+  Instant
+  <!---->
+</label>
+<!----><div class="gf-form-switch " ng-if="ctrl.show">
+  <input id="check-238" type="checkbox" ng-model="ctrl.checked" ng-change="ctrl.internalOnChange()" class="ng-pristine ng-untouched ng-valid ng-empty">
+  <label for="check-238" data-on="Yes" data-off="No"></label>
+</div><!---->
+</gf-form-switch>
+			<label class="gf-form-label">
+				<a href="http://10.4.6.242:9090/graph?g0.expr=sum%20by%20(instance)(irate(node_network_transmit_bytes%7Bdevice%3D~%27enp2s0%7Ctap0%27%7D%5B5m%5D)*8)&amp;g0.range_input=3600s&amp;g0.end_input=2018-01-28%2005%3A31&amp;g0.step_input=undefined&amp;g0.stacked=0&amp;g0.tab=0" target="_blank" bs-tooltip="&#39;Link to Graph in Prometheus&#39;" data-original-title="" title="">
+					<i class="fa fa-share-square-o"></i>
+				</a>
+			</label>
+		</div>
+
+		<div class="gf-form gf-form--grow">
+			<div class="gf-form-label gf-form-label--grow"></div>
+		</div>
+	</div>
+
+
+</div><!---->
+
+	<div class="gf-form">
+		<label class="gf-form-label dropdown">
+			<a class="pointer dropdown-toggle" data-toggle="dropdown" tabindex="1">
+				<i class="fa fa-bars"></i>
+			</a>
+			<ul class="dropdown-menu pull-right" role="menu">
+				<!---->
+				<li role="menuitem">
+					<a tabindex="1" ng-click="ctrl.duplicateQuery()">Duplicate</a>
+				</li>
+				<li role="menuitem">
+					<a tabindex="1" ng-click="ctrl.moveQuery(-1)">Move up</a>
+				</li>
+				<li role="menuitem">
+					<a tabindex="1" ng-click="ctrl.moveQuery(1)">Move down</a>
+				</li>
+			</ul>
+		</label>
+    <label class="gf-form-label">
+			<a ng-click="ctrl.toggleHideQuery()" role="menuitem">
+				<i class="fa fa-eye"></i>
+			</a>
+		</label>
+		<label class="gf-form-label">
+			<a class="pointer" tabindex="1" ng-click="ctrl.removeQuery(ctrl.target)">
+				<i class="fa fa-trash"></i>
+			</a>
+		</label>
+	</div>
+</div>
+
+</query-editor-row>
+</query-ctrl-prometheus></plugin-component>
+		<!-- end rebuild on change -->
+	</div><!---->
+
+	<div class="gf-form-query">
+		<div class="gf-form gf-form-query-letter-cell">
+			<label class="gf-form-label">
+				<span class="gf-form-query-letter-cell-carret">
+					<i class="fa fa-caret-down"></i>
+				</span>
+				<span class="gf-form-query-letter-cell-letter">B</span>
+			</label>
+			<button class="btn btn-secondary gf-form-btn" ng-click="ctrl.addQuery()" ng-hide="ctrl.datasourceInstance.meta.mixed">
+				Add Query
+			</button>
+
+			<!---->
+		</div>
+	</div>
+</div><!---->
+</panel-editor-tab-graph1></panel-editor-tab>
+        </div><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+      </div>
+    </div>
+  </div><!---->
+</grafana-panel></panel-plugin-graph></plugin-component>
+  </div><!---->
+
+  <div panel-drop-zone="" class="panel panel-drop-zone" ui-on-drop="ctrl.onDrop($data)" data-drop="true" style="display: none;">
+    <div class="panel-margin">
+      <div class="panel-container">
+        <div class="panel-drop-zone-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div><!---->
+
+</dash-row><!----><dash-row class="dash-row" ng-repeat="row in dashboard.rows" row="row" dashboard="dashboard" style="display: none;"><!---->
+
+<!---->
+
+<!---->
+
+<!----><div class="panels-wrapper" ng-if="!ctrl.row.collapse" style="min-height: 250px;">
+  <div class="dash-row-menu-container ng-hide" data-click-hide="" ng-hide="ctrl.dashboard.meta.fullscreen">
+    <ul class="dash-row-menu" role="menu">
+      <li>
+        <a ng-click="ctrl.toggleCollapse()">
+          <i class="fa fa-minus"></i> Collapse
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuAddPanel()">
+          <i class="fa fa-plus"></i> Add Panel
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuRowOptions()">
+          <i class="fa fa-cog"></i> Row Options
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.moveRow(-1)">
+          <i class="fa fa-arrow-up"></i> Move Up
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.moveRow(1)">
+          <i class="fa fa-arrow-down"></i> Move Down
+        </a>
+      </li>
+      <li ng-show="ctrl.dashboard.meta.canEdit">
+        <a ng-click="ctrl.onMenuDeleteRow()">
+          <i class="fa fa-trash"></i> Remove
+        </a>
+      </li>
+    </ul>
+    <div class="dash-row-menu-grip">
+      <i class="fa fa-ellipsis-v"></i>
+    </div>
+  </div>
+
+  <!----><div ng-repeat="panel in ctrl.row.panels track by panel.id" class="panel" ui-draggable="!ctrl.dashboard.meta.fullscreen" drag="panel.id" ui-on-drop="ctrl.onDrop($data, panel)" drag-handle-class="drag-handle" panel-width="" style="width: 50%; display: none;">
+    <plugin-component type="panel" class="panel-margin"><panel-plugin-graph dashboard="ctrl.dashboard" panel="panel" row="ctrl.row"><grafana-panel ctrl="ctrl">
+  <div class="panel-container" style="min-height: 250px;">
+    <div class="panel-header">
+      <span class="panel-info-corner panel-info-corner--">
+        <i class="fa"></i>
+        <span class="panel-info-corner-inner"></span>
+      </span>
+
+      <span class="panel-loading ng-hide" ng-show="ctrl.loading">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+
+      <div class="panel-title-container drag-handle" panel-menu=""><span class="panel-title drag-handle pointer"><span class="icon-gf panel-alert-icon"></span><span class="panel-title-text drag-handle">Active Memory</span><span class="panel-time-info ng-hide" ng-show="ctrl.timeInfo"><i class="fa fa-clock-o"></i> </span></span></div>
+    </div>
+
+    <div class="panel-content">
+      <ng-transclude>
+<div class="graph-wrapper" ng-class="{&#39;graph-legend-rightside&#39;: ctrl.panel.legend.rightSide}">
+  <div class="graph-canvas-wrapper">
+
+    <!---->
+
+    <div grafana-graph="" class="histogram-chart" ng-dblclick="ctrl.zoomOut()" style="height: 192px;">
+    <canvas class="flot-base" width="915" height="192" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 192px;"></canvas><div class="flot-text flot-temp-elem" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 68px; text-align: center;">20:35</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 140px; text-align: center;">20:40</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 213px; text-align: center;">20:45</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 285px; text-align: center;">20:50</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 358px; text-align: center;">20:55</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 430px; text-align: center;">21:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 502px; text-align: center;">21:05</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 575px; text-align: center;">21:10</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 647px; text-align: center;">21:15</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 720px; text-align: center;">21:20</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 792px; text-align: center;">21:25</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 175px; left: 865px; text-align: center;">21:30</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 162px; left: 1px; text-align: right;">46 B</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 129px; left: 1px; text-align: right;">48 B</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 97px; left: 1px; text-align: right;">50 B</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 65px; left: 1px; text-align: right;">52 B</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 33px; left: 1px; text-align: right;">54 B</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">56 B</div></div></div><canvas class="flot-overlay" width="915" height="192" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 915.219px; height: 192px;"></canvas></div>
+
+  </div>
+
+  <div class="graph-legend-wrapper" graph-legend=""><section class="graph-legend"><div class="graph-legend-series" data-series-index="0"><div class="graph-legend-icon"><i class="fa fa-minus pointer" style="color:#7EB26D"></i></div><a class="graph-legend-alias pointer" title="A-series">A-series</a></div></section></div>
+  </div>
+
+<div class="clearfix"></div>
+</ng-transclude>
+    </div>
+    <panel-resizer><span class="resize-panel-handle icon-gf icon-gf-grabber"></span></panel-resizer>
+  </div>
+
+  <!---->
+</grafana-panel></panel-plugin-graph></plugin-component>
+  </div><!---->
+
+  <div panel-drop-zone="" class="panel panel-drop-zone" ui-on-drop="ctrl.onDrop($data)" data-drop="true" style="width: 50%; display: block;">
+    <div class="panel-margin">
+      <div class="panel-container" style="height: 250px;">
+        <div class="panel-drop-zone-text">Empty Space</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div><!---->
+
+</dash-row><!----><dash-row class="dash-row dash-row--collapse" ng-repeat="row in dashboard.rows" row="row" dashboard="dashboard" style="display: none;"><!----><div class="dash-row-header" ng-if="ctrl.row.showTitle || ctrl.row.collapse">
+	<a class="dash-row-header-title" ng-click="ctrl.toggleCollapse()">
+		<span class="dash-row-collapse-toggle pointer">
+			<i class="fa fa-chevron-down ng-hide" ng-show="!ctrl.row.collapse"></i>
+			<i class="fa fa-chevron-right" ng-show="ctrl.row.collapse"></i>
+		</span>
+		<span ng-class="ctrl.row.titleSize" class="h6">Dashboard Row</span>
+	</a>
+</div><!---->
+
+<!---->
+
+<!---->
+
+<!---->
+
+</dash-row><!----><dash-row class="dash-row dash-row--collapse" ng-repeat="row in dashboard.rows" row="row" dashboard="dashboard" style="display: none;"><!----><div class="dash-row-header" ng-if="ctrl.row.showTitle || ctrl.row.collapse">
+	<a class="dash-row-header-title" ng-click="ctrl.toggleCollapse()">
+		<span class="dash-row-collapse-toggle pointer">
+			<i class="fa fa-chevron-down ng-hide" ng-show="!ctrl.row.collapse"></i>
+			<i class="fa fa-chevron-right" ng-show="ctrl.row.collapse"></i>
+		</span>
+		<span ng-class="ctrl.row.titleSize" class="h6">Dashboard Row</span>
+	</a>
+</div><!---->
+
+<!---->
+
+<!---->
+
+<!---->
+
+</dash-row><!---->
+
+    <div ng-show="dashboard.meta.canEdit &amp;&amp; !dashboard.meta.fullscreen" class="add-row-panel-hint ng-hide">
+      <div class="span12" style="text-align:left">
+        <span style="margin-left:12px" ng-click="addRowDefault()" class="pointer btn btn-inverse btn-small">
+          <span><i class="fa fa-plus"></i> ADD ROW</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div><!---->
+</div>
+			<footer class="footer">
+				<div class="row text-center">
+					<ul>
+						<li>
+							<a href="http://docs.grafana.org/" target="_blank">
+								<i class="fa fa-file-code-o"></i>
+								Docs
+							</a>
+						</li>
+						<li>
+							<a href="https://grafana.com/services/support" target="_blank">
+								<i class="fa fa-support"></i>
+								Support Plans
+							</a>
+						</li>
+						<li>
+							<a href="https://community.grafana.com/" target="_blank">
+								<i class="fa fa-comments-o"></i>
+								Community
+							</a>
+						</li>
+						<li>
+							<a href="https://grafana.com/" target="_blank">Grafana</a>
+							<span>v4.6.3 (commit: 7a06a47)</span>
+						</li>
+						
+					</ul>
+				</div>
+			</footer>
+		</grafana-app>
+
+	<script>
+		window.grafanaBootData = {
+			user:{"isSignedIn":true,"id":1,"login":"xbos","email":"xbos@localhost","name":"xbos","lightTheme":false,"orgId":1,"orgName":"Main Org.","orgRole":"Admin","isGrafanaAdmin":true,"gravatarUrl":"/avatar/4e406a7575248677177668df2144a742","timezone":"browser","locale":"en-US","helpFlags1":0},
+			settings: {"alertingEnabled":true,"allowOrgCreate":true,"appSubUrl":"","authProxyEnabled":false,"buildInfo":{"buildstamp":1513240619,"commit":"7a06a47","env":"production","hasUpdate":false,"latestVersion":"4.6.2","version":"4.6.3"},"datasources":{"-- Grafana --":{"meta":{"type":"datasource","name":"-- Grafana --","id":"grafana","info":{"author":{"name":"","url":""},"description":"","links":null,"logos":{"small":"public/img/icn-datasource.svg","large":"public/img/icn-datasource.svg"},"screenshots":null,"version":"","updated":""},"dependencies":{"grafanaVersion":"*","plugins":[]},"includes":null,"module":"app/plugins/datasource/grafana/module","baseUrl":"public/app/plugins/datasource/grafana","annotations":true,"metrics":true,"alerting":false,"builtIn":true,"routes":null},"name":"-- Grafana --","type":"datasource"},"-- Mixed --":{"meta":{"type":"datasource","name":"-- Mixed --","id":"mixed","info":{"author":{"name":"","url":""},"description":"","links":null,"logos":{"small":"public/img/icn-datasource.svg","large":"public/img/icn-datasource.svg"},"screenshots":null,"version":"","updated":""},"dependencies":{"grafanaVersion":"*","plugins":[]},"includes":null,"module":"app/plugins/datasource/mixed/module","baseUrl":"public/app/plugins/datasource/mixed","annotations":false,"metrics":true,"alerting":false,"queryOptions":{"minInterval":true},"builtIn":true,"mixed":true,"routes":null},"name":"-- Mixed --","type":"datasource"},"Prometheus":{"directUrl":"http://10.4.6.242:9090","id":1,"jsonData":{},"meta":{"type":"datasource","name":"Prometheus","id":"prometheus","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/datasource/prometheus/img/prometheus_logo.svg","large":"public/app/plugins/datasource/prometheus/img/prometheus_logo.svg"},"screenshots":null,"version":"","updated":""},"dependencies":{"grafanaVersion":"*","plugins":[]},"includes":[{"name":"Prometheus Stats","path":"dashboards/prometheus_stats.json","type":"dashboard","component":"","role":"Viewer","addToNav":false,"defaultNav":false,"slug":""},{"name":"Grafana Stats","path":"dashboards/grafana_stats.json","type":"dashboard","component":"","role":"Viewer","addToNav":false,"defaultNav":false,"slug":""}],"module":"app/plugins/datasource/prometheus/module","baseUrl":"public/app/plugins/datasource/prometheus","annotations":true,"metrics":true,"alerting":true,"routes":null},"name":"Prometheus","type":"prometheus","url":"/api/datasources/proxy/1"},"XBOS":{"directUrl":"http://10.4.6.242:9090","id":2,"jsonData":{},"meta":{"type":"datasource","name":"Prometheus","id":"prometheus","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/datasource/prometheus/img/prometheus_logo.svg","large":"public/app/plugins/datasource/prometheus/img/prometheus_logo.svg"},"screenshots":null,"version":"","updated":""},"dependencies":{"grafanaVersion":"*","plugins":[]},"includes":[{"name":"Prometheus Stats","path":"dashboards/prometheus_stats.json","type":"dashboard","component":"","role":"Viewer","addToNav":false,"defaultNav":false,"slug":""},{"name":"Grafana Stats","path":"dashboards/grafana_stats.json","type":"dashboard","component":"","role":"Viewer","addToNav":false,"defaultNav":false,"slug":""}],"module":"app/plugins/datasource/prometheus/module","baseUrl":"public/app/plugins/datasource/prometheus","annotations":true,"metrics":true,"alerting":true,"routes":null},"name":"XBOS","type":"prometheus","url":"http://10.4.6.242:9090"}},"defaultDatasource":"-- Grafana --","disableLoginForm":false,"disableSignoutMenu":false,"externalUserMngInfo":"","externalUserMngLinkName":"","externalUserMngLinkUrl":"","googleAnalyticsId":"","ldapEnabled":false,"panels":{"alertlist":{"baseUrl":"public/app/plugins/panel/alertlist","hideFromList":false,"id":"alertlist","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/alertlist/img/icn-singlestat-panel.svg","large":"public/app/plugins/panel/alertlist/img/icn-singlestat-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/alertlist/module","name":"Alert List","sort":6},"dashlist":{"baseUrl":"public/app/plugins/panel/dashlist","hideFromList":false,"id":"dashlist","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/dashlist/img/icn-dashlist-panel.svg","large":"public/app/plugins/panel/dashlist/img/icn-dashlist-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/dashlist/module","name":"Dashboard list","sort":7},"gettingstarted":{"baseUrl":"public/app/plugins/panel/gettingstarted","hideFromList":true,"id":"gettingstarted","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/gettingstarted/img/icn-dashlist-panel.svg","large":"public/app/plugins/panel/gettingstarted/img/icn-dashlist-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/gettingstarted/module","name":"Getting Started","sort":100},"graph":{"baseUrl":"public/app/plugins/panel/graph","hideFromList":false,"id":"graph","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/graph/img/icn-graph-panel.svg","large":"public/app/plugins/panel/graph/img/icn-graph-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/graph/module","name":"Graph","sort":1},"heatmap":{"baseUrl":"public/app/plugins/panel/heatmap","hideFromList":false,"id":"heatmap","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/heatmap/img/icn-heatmap-panel.svg","large":"public/app/plugins/panel/heatmap/img/icn-heatmap-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/heatmap/module","name":"Heatmap","sort":5},"pluginlist":{"baseUrl":"public/app/plugins/panel/pluginlist","hideFromList":false,"id":"pluginlist","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/pluginlist/img/icn-dashlist-panel.svg","large":"public/app/plugins/panel/pluginlist/img/icn-dashlist-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/pluginlist/module","name":"Plugin list","sort":100},"singlestat":{"baseUrl":"public/app/plugins/panel/singlestat","hideFromList":false,"id":"singlestat","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/singlestat/img/icn-singlestat-panel.svg","large":"public/app/plugins/panel/singlestat/img/icn-singlestat-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/singlestat/module","name":"Singlestat","sort":2},"table":{"baseUrl":"public/app/plugins/panel/table","hideFromList":false,"id":"table","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/table/img/icn-table-panel.svg","large":"public/app/plugins/panel/table/img/icn-table-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/table/module","name":"Table","sort":3},"text":{"baseUrl":"public/app/plugins/panel/text","hideFromList":false,"id":"text","info":{"author":{"name":"Grafana Project","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/text/img/icn-text-panel.svg","large":"public/app/plugins/panel/text/img/icn-text-panel.svg"},"screenshots":null,"version":"","updated":""},"module":"app/plugins/panel/text/module","name":"Text","sort":4}}},
+			mainNavLinks: [{"text":"Dashboards","icon":"icon-gf icon-gf-dashboard","url":"/","children":[{"text":"Home","url":"/"},{"text":"Playlists","url":"/playlists"},{"text":"Snapshots","url":"/dashboard/snapshots"},{"divider":true},{"text":"New","icon":"fa fa-plus","url":"/dashboard/new"},{"text":"Import","icon":"fa fa-download","url":"/dashboard/new/?editview=import"}]},{"text":"Alerting","icon":"icon-gf icon-gf-alert","url":"/alerting/list","children":[{"text":"Alert List","url":"/alerting/list"},{"text":"Notification channels","url":"/alerting/notifications"}]},{"text":"Data Sources","icon":"icon-gf icon-gf-datasources","url":"/datasources"},{"text":"Plugins","icon":"icon-gf icon-gf-apps","url":"/plugins"},{"text":"Admin","icon":"fa fa-fw fa-cogs","url":"/admin","children":[{"text":"Global Users","url":"/admin/users"},{"text":"Global Orgs","url":"/admin/orgs"},{"text":"Server Settings","url":"/admin/settings"},{"text":"Server Stats","url":"/admin/stats"}]}]
+		};
+	</script>
+
+	
+
+	<script type="text/javascript" src="./Grafana - XBOS Dash_files/manifest.979c370f20ff0db1a23c.js"></script><script type="text/javascript" src="./Grafana - XBOS Dash_files/vendor.2305a8e1d478628b1297.js"></script><script type="text/javascript" src="./Grafana - XBOS Dash_files/app.5331f559bd9a1bed9a93.js"></script>
+
+</body></html>

@@ -20,7 +20,7 @@
 All code can be found at https://github.com/gtfierro/brick_database_eval. Just run the Jupyter notebook and make sure Docker is installed.
 Databases evaluated here:
  Jena/Fuseki alegrograph rdf3x rdflib hoddb  Notes:
- Jena/Fuseki only completed in a reasonable time on the first, trivial, query RDF3X is consistently the fastest, but has the following issues:  cannot use underscores in node/edge names cannot use * or + operators on predicates cannot use UNION does not support loading multiple graphs   Query 1 1234 SELECT ?</description>
+ Jena/Fuseki only completed in a reasonable time on the first, trivial, query RDF3X is consistently the fastest, but has the following issues:  cannot use underscores in node/edge names cannot use * or + operators on predicates cannot use UNION does not support loading multiple graphs   Query 1 1 2 3 4SELECT ?</description>
     </item>
     
   </channel>

@@ -7,7 +7,7 @@
 	<meta name="description" content="A metadata schema for buildings">
 	<meta name="generator" content="Hugo 0.24.1" />
 	
-	<title> HodDB</title>
+	<title>HodDB &mdash; HodDB</title>
 	
 	<link rel="stylesheet" href="https://hoddb.org/css/alabaster.css" type="text/css" />
 	<link rel="stylesheet" href="https://hoddb.org/css/highlight.css" type="text/css" />
@@ -25,9 +25,9 @@
 				<div class="bodywrapper">
 					<div class="body" role="main">
 						
+	<h1>HodDB</h1>
 	
-		<h1>HodDB</h1>
-		
+	
 
 <h2 id="a-database-for-brick">A Database for Brick</h2>
 
@@ -50,24 +50,25 @@ It stores models of buildings and serves queries on those models.</p>
 <h3 id="quickstart">Quickstart</h3>
 
 <p>From Docker:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span></code></pre></td>
-<td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install docker.io <span style="color:#008000"># install docker if necessary
-</span><span style="color:#008000"></span>$ curl -L https://github.com/gtfierro/hod/releases/download/v0.6.0/quickstart.tar.gz | tar xzv
-$ docker run -d --name hoddb -v $PWD/quickstart:/etc/hod -p 47808:47808 gtfierro/hod:0.6.1</code></pre></td></tr></table>
-</div>
-</div>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3</pre></div></td><td class="code"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ sudo apt install docker.io <span style="color: #008000"># install docker if necessary</span>
+$ curl -L https://github.com/gtfierro/hod/releases/download/v0.6.0/quickstart.tar.gz | tar xzv
+$ docker run -d --name hoddb -v $PWD/quickstart:/etc/hod -p 47808:47808 gtfierro/hod:0.6.1
+</pre></div>
+</td></tr></table>
 <p>Then navigate to <a href="http://localhost:47808/query">http://localhost:47808/query</a></p>
 
 <p>From source:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">8</span></code></pre></td>
-<td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000"># requires go &gt;= 1.10 installed
-</span><span style="color:#008000"></span>$ sudo apt install libraptor2-dev graphviz
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008000"># requires go &gt;= 1.10 installed</span>
+$ sudo apt install libraptor2-dev graphviz
 $ go get github.com/gtfierro/hod
 $ cd $GOPATH/src/github.com/gtfierro/hod
 $ make install
@@ -80,7 +81,6 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 
 <p><del>available at <a href="https://query.hoddb.org/">https://query.hoddb.org/</a></del> currently unavailable</p>
 
-	
 
 
 						
@@ -147,7 +147,12 @@ NOTICE server.go:84 Dec 28 21:37:56  ▶ Starting HTTP Server on  0.0.0.0:47808
 </ul>
 
 
-		
+		<h3>Related Topics</h3>
+<ul>
+  <li><a href="https://hoddb.org/">Documentation overview</a><ul>
+  
+  
+</ul>
 
 	</div>
 </div>

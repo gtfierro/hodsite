@@ -26,7 +26,7 @@ From Docker:
 ```bash
 $ sudo apt install docker.io # install docker if necessary
 $ curl -L https://github.com/gtfierro/hod/releases/download/v0.6.0/quickstart.tar.gz | tar xzv
-$ docker run -d --name hoddb -v $PWD/quickstart:/etc/hod -p 47808:47808 gtfierro/hoddb
+$ docker run -d --name hoddb -v $PWD/quickstart:/etc/hod -p 47808:47808 gtfierro/hod:0.6.1
 ```
 
 Then navigate to [http://localhost:47808/query](http://localhost:47808/query)

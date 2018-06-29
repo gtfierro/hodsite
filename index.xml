@@ -18,7 +18,7 @@
       <guid>https://hoddb.org/installation/</guid>
       <description>Docker Binary Source  
 Docker If you have Docker installed, then HodDB can be started by pulling the gtfierro/hod:latest Docker image and then starting it with the appropriate parameters. HodDB requires a directory containing a configuration file and the Brick models. When we start the Docker container, we need to mount this directory (referred to as configdir below):
-1 2 3$ docker pull gtfierro/hod:latest # you can change &amp;#39;configdir&amp;#39; to whatever absolute path $ docker run -d --name hod -v `pwd`/configdir:/etc/hod -p 47808:47808 gtfierro/hod:latest   You should place the following inside the directory that gets mounted to /etc/hod</description>
+12 $ curl -L https://github.com/gtfierro/hod/releases/download/v0.6.0/quickstart.tar.gz | tar xzv $ docker run -d --name hoddb -v $PWD/quickstart:/etc/hod -p 47808:47808 gtfierro/hod:0.</description>
     </item>
     
     <item>
@@ -93,8 +93,13 @@ Databases evaluated here:
       <guid>https://hoddb.org/</guid>
       <description>A Database for Brick HodDB is a specialized RDF database and SPARQL query processor for Brick. It stores models of buildings and serves queries on those models.
 HodDB has the following features:
+<<<<<<< HEAD
  sub-100ms SPARQL queries on Brick graphs/models web interface for interacting with Brick models BOSSWAVE integration integration with external services:  uses Literals to store timeseries UUIDs or application URIs   Quickstart From Docker:
 1 2 3$ sudo apt install docker.</description>
+=======
+ sub-100ms SPARQL queries on Brick graphsmodels web interface for interacting with Brick models BOSSWAVE integration integration with external services:  uses Literals to store timeseries UUIDs or application URIs   Quickstart From Docker:
+123 $ sudo apt install docker.</description>
+>>>>>>> 514444e8ef1c426b5483c7405872226371a0d8f6
     </item>
     
   </channel>

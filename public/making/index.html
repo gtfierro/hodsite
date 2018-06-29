@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 	<meta name="description" content="A metadata schema for buildings">
-	<meta name="generator" content="Hugo 0.31.1" />
+	<meta name="generator" content="Hugo 0.24.1" />
 	
 	<title>Making a Brick Model &mdash; HodDB</title>
 	
@@ -51,13 +51,9 @@ The best way to view the file is either using the <a href="http://protege.stanfo
 <h4 id="rdf-triples">RDF Triples</h4>
 
 <p>To use these names to describe a building, we construct tuples consisting following the form of:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
-<td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">subject predicate object</code></pre></td></tr></table>
-</div>
-</div>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1</pre></div></td><td class="code"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>subject predicate object
+</pre></div>
+</td></tr></table>
 <p>where <code>subject</code> and <code>object</code> are both <strong>tagsets</strong> and <code>predicate</code> is a <strong>relationship</strong>. This is known as an <strong>RDF triple</strong>, which we will abbreviate to &ldquo;triple&rdquo;.</p>
 
 <p>Each triple represents 2 nodes (the subject and object) connected with a directed edge (the predicate):</p>
@@ -71,13 +67,9 @@ The Brick class namespace is <code>http://brickschema.org/ttl/Brick.ttl#</code>,
 The concatenation of a subject/predicate/object and its namespace forms a <strong>URI</strong>.
 For example, the <code>VAV</code> Brick class has the URI <code>http://brickschema.org/ttl/Brick.ttl#VAV</code>.
 Using <strong>prefix declarations</strong>, we can define a shortcut for the long namespaces; in Turtle files (described below), a prefix declaration takes the form of</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">1</span></code></pre></td>
-<td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@prefix bf:  &lt;http://buildsys.org/ontologies/BrickFrame#&gt; .</code></pre></td></tr></table>
-</div>
-</div>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1</pre></div></td><td class="code"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>@prefix bf:  &lt;http://buildsys.org/ontologies/BrickFrame#&gt; .
+</pre></div>
+</td></tr></table>
 <p>This defines the prefix <code>bf</code> to be used instead of the full namespace. We can now write the URI  <code>http://brickschema.org/ttl/BrickFrame.ttl#feeds</code> as <code>bf:feeds</code>. These tend to be consistent so as not to cause confusion. Here&rsquo;s the set of abbreviations used in and by Brick:</p>
 
 <table>
@@ -179,15 +171,11 @@ mybuilding:vav_1         bf:feeds        mybuilding:hvaczone_1
 <p>Note that we are using a <em>distinct</em> prefix to &ldquo;store&rdquo; the names of the entities that are actually in our building.</p>
 
 <p>Triples are usually stored in a self-contained file in the <strong>Turtle format</strong>, which usually has the filename suffix <code>.ttl</code>. Here&rsquo;s the Turtle file for the example building:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ttl" data-lang="ttl"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">22</span></code></pre></td>
-<td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ttl" data-lang="ttl">@prefix brick: &lt;http://brickschema.org/ttl/Brick#&gt; .
-@prefix bf: &lt;http://brickschema.org/ttl/BrickFrame#&gt; .
-@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
-@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-@prefix mybuilding: &lt;http://mysite.com/buildings/mybuilding#&gt; .
+@prefix brick: <http://brickschema.org/ttl/Brick#> .
+@prefix bf: <http://brickschema.org/ttl/BrickFrame#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mybuilding: <http://mysite.com/buildings/mybuilding#> .
 
 mybuilding:ahu_1 a brick:AHU ;
     bf:feeds mybuilding:vav_1 .
@@ -204,9 +192,8 @@ mybuilding:floor_1 a brick:Floor .
 mybuilding:hvaczone_1 a brick:HVAC_Zone .
 
 mybuilding:vav_1 a brick:VAV ;
-    bf:feeds mybuilding:hvaczone_1 .</code></pre></td></tr></table>
-</div>
-</div>
+    bf:feeds mybuilding:hvaczone_1 .
+
 <p><a name="usingrdflib"></a></p>
 
 <h4 id="creating-the-example-building">Creating the Example Building</h4>
@@ -214,31 +201,64 @@ mybuilding:vav_1 a brick:VAV ;
 <p>&ldquo;Creating&rdquo; the Brick model for a building consists of making the <strong>Turtle</strong> containing the triples that describe the building. While possible to create by hand, for larger buildings it makes more sense to automate this process.</p>
 
 <p>We use Python&rsquo;s <code>rdflib</code> to create this file.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">22</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">23</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">24</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">25</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">26</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">27</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">28</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">29</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">30</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">31</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">32</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">33</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">34</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">35</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">36</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">37</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">38</span></code></pre></td>
-<td style=";vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00f">from</span> rdflib <span style="color:#00f">import</span> Graph, Namespace, URIRef, Literal
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000ff">from</span> rdflib <span style="color: #0000ff">import</span> Graph, Namespace, URIRef, Literal
 
-<span style="color:#008000"># define the namespaces. Now we can refer to entities </span>
-<span style="color:#008000"># in the namespacing using these handles.</span>
-<span style="color:#008000"># For example, the VAV class in the Brick namespace </span>
-<span style="color:#008000"># could be referenced as BRICK.VAV or BRICK[&#34;VAV&#34;]</span>
-BRICK = Namespace(<span style="color:#a31515"></span><span style="color:#a31515">&#34;http://brickschema.org/ttl/Brick#&#34;</span>)
-BF = Namespace(<span style="color:#a31515"></span><span style="color:#a31515">&#34;http://brickschema.org/ttl/BrickFrame#&#34;</span>)
-RDF = Namespace(<span style="color:#a31515"></span><span style="color:#a31515">&#34;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#34;</span>)
-RDFS = Namespace(<span style="color:#a31515"></span><span style="color:#a31515">&#34;http://www.w3.org/2000/01/rdf-schema#&#34;</span>)
-MYBUILDING = Namespace(<span style="color:#a31515"></span><span style="color:#a31515">&#34;http://mysite.com/buildings/mybuilding#&#34;</span>)
+<span style="color: #008000"># define the namespaces. Now we can refer to entities </span>
+<span style="color: #008000"># in the namespacing using these handles.</span>
+<span style="color: #008000"># For example, the VAV class in the Brick namespace </span>
+<span style="color: #008000"># could be referenced as BRICK.VAV or BRICK[&quot;VAV&quot;]</span>
+BRICK = Namespace(<span style="color: #a31515">&quot;http://brickschema.org/ttl/Brick#&quot;</span>)
+BF = Namespace(<span style="color: #a31515">&quot;http://brickschema.org/ttl/BrickFrame#&quot;</span>)
+RDF = Namespace(<span style="color: #a31515">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>)
+RDFS = Namespace(<span style="color: #a31515">&quot;http://www.w3.org/2000/01/rdf-schema#&quot;</span>)
+MYBUILDING = Namespace(<span style="color: #a31515">&quot;http://mysite.com/buildings/mybuilding#&quot;</span>)
 
-<span style="color:#008000"># create the graph and bind the namespace prefixes to it</span>
+<span style="color: #008000"># create the graph and bind the namespace prefixes to it</span>
 g = rdflib.Graph()
-g.bind(<span style="color:#a31515"></span><span style="color:#a31515">&#39;rdf&#39;</span>, RDF)
-g.bind(<span style="color:#a31515"></span><span style="color:#a31515">&#39;rdfs&#39;</span>, RDFS)
-g.bind(<span style="color:#a31515"></span><span style="color:#a31515">&#39;brick&#39;</span>, BRICK)
-g.bind(<span style="color:#a31515"></span><span style="color:#a31515">&#39;bf&#39;</span>, BF)
-g.bind(<span style="color:#a31515"></span><span style="color:#a31515">&#39;mybuilding&#39;</span>, MYBUILDING)
+g.bind(<span style="color: #a31515">&#39;rdf&#39;</span>, RDF)
+g.bind(<span style="color: #a31515">&#39;rdfs&#39;</span>, RDFS)
+g.bind(<span style="color: #a31515">&#39;brick&#39;</span>, BRICK)
+g.bind(<span style="color: #a31515">&#39;bf&#39;</span>, BF)
+g.bind(<span style="color: #a31515">&#39;mybuilding&#39;</span>, MYBUILDING)
 
-<span style="color:#008000"># add() inserts another triple into the graph as (subject, predicate, object)</span>
+<span style="color: #008000"># add() inserts another triple into the graph as (subject, predicate, object)</span>
 g.add((MYBUILDING.floor_1, RDF.type, BRICK.Floor))
 g.add((MYBUILDING.room_1, RDF.type, BRICK.Room))
 g.add((MYBUILDING.vav_1, RDF.type, BRICK.VAV))
@@ -247,17 +267,17 @@ g.add((MYBUILDING.ahu_1, RDF.type, BRICK.AHU))
 g.add((MYBUILDING.ztemp_1, RDF.type, BRICK.Zone_Temperature_Sensor))
 
 
-<span style="color:#008000"># add the relationships constituting the other edges in the graph</span>
+<span style="color: #008000"># add the relationships constituting the other edges in the graph</span>
 g.add((EX.ztemp_1, BF.isPointOf, EX.vav_1))
 g.add((EX.ahu_1, BF.feeds, EX.vav_1))
 g.add((EX.vav_1, BF.feeds, EX.hvaczone_1))
 g.add((EX.room_1, BF.isPartOf, EX.hvaczone_1))
 g.add((EX.room_1, BF.isPartOf, EX.floor_1))
 
-<span style="color:#008000"># save the output to &#34;mybuilding.ttl&#34;</span>
-g.serialize(destination=<span style="color:#a31515"></span><span style="color:#a31515">&#39;mybuilding.ttl&#39;</span>,format=<span style="color:#a31515"></span><span style="color:#a31515">&#39;turtle&#39;</span>)</code></pre></td></tr></table>
-</div>
-</div>
+<span style="color: #008000"># save the output to &quot;mybuilding.ttl&quot;</span>
+g.serialize(destination=<span style="color: #a31515">&#39;mybuilding.ttl&#39;</span>,format=<span style="color: #a31515">&#39;turtle&#39;</span>)
+</pre></div>
+</td></tr></table>
 <p>Real-world examples of this kind of code for some real buildings can be found <a href="https://github.com/BuildSysUniformMetadata/GroundTruth/tree/master/etc/instance_generators">here</a></p>
 
 
@@ -338,9 +358,9 @@ g.serialize(destination=<span style="color:#a31515"></span><span style="color:#a
 <div class="clearer"></div>
 </div>
 			<div class="footer">
-	&copy; 2017 
+	&copy; 2018 
 	|
-	Powered by <a href="http://gohugo.io/">Hugo 0.31.1</a>
+	Powered by <a href="http://gohugo.io/">Hugo 0.24.1</a>
 	&amp; <a href="https://github.com/digitalcraftsman/hugo-alabaster-theme">Alabaster</a>
 	
 </div>

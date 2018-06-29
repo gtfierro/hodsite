@@ -12,7 +12,7 @@ It stores models of buildings and serves queries on those models.
 
 HodDB has the following features:
 
-* sub-100ms SPARQL queries on Brick graphsmodels
+* sub-100ms SPARQL queries on Brick graphs/models
 * web interface for interacting with Brick models
 * [BOSSWAVE](https://github.com/immesys/bw2) integration
 * integration with external services:
@@ -20,8 +20,6 @@ HodDB has the following features:
 
 
 ### Quickstart
-
-**These will be updated soon!**
 
 From Docker:
 
